@@ -1,0 +1,1 @@
+export type IAppSection = "work" | "about" | "contact";
