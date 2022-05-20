@@ -47,10 +47,10 @@ export function Hero({appSection, setAppSection}: HeroProps) {
                 <HeroTitle>My Portfolio</HeroTitle>
                 <NavigationLinks>
                     <NavigationLink 
-                        selected={appSection === "work"}
-                        onClick={() => setAppSection("work")}
+                        selected={appSection === "portfolio"}
+                        onClick={() => setAppSection("portfolio")}
                     >
-                        My Work
+                        Portfolio
                     </NavigationLink>
                     <NavigationLink 
                         selected={appSection === "about"}

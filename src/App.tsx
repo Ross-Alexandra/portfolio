@@ -1,16 +1,16 @@
 import { useState } from "react";
 
 import { Hero } from "./pages/hero";
-import { MyWork } from "./pages/my-work";
+import { Portfolio } from "./pages/portfolio";
 import { IAppSection } from "./global-interfaces";
 
 export function App() {
-  const [appSection, setAppSection] = useState<IAppSection>("work");
+  const [appSection, setAppSection] = useState<IAppSection>("portfolio");
 
   return (
     <>
       <Hero appSection={appSection} setAppSection={setAppSection}/>
-      <MyWork />
+      <Portfolio />
     </>
   );
 }

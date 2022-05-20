@@ -1,1 +1,1 @@
-export type IAppSection = "work" | "about" | "contact";
+export type IAppSection = "portfolio" | "about" | "contact";
