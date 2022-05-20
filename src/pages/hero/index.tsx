@@ -10,10 +10,15 @@ import {
     IntroTitle,
     RollingTitles,
     RollingTitle,
-    IntroDescription,
+    QuoteSlideIn,
+    QuoteBox,
     ScrollHint,
     QuoteSignContainer,
-    QuoteAuthor
+    QuoteAuthor,
+    ScrollBox,
+    ScrollText,
+    IntroSlideIn,
+    RollingSlideIn
 } from "./elements";
 
 export interface HeroProps extends React.HTMLProps<HTMLDivElement> {
@@ -62,20 +67,29 @@ export function Hero({appSection, setAppSection}: HeroProps) {
                 </NavigationLinks>
             </HeroNav>
             <IntroContainer>
-                <IntroTitle>Hi, I'm</IntroTitle>
-                <RollingTitles textDuration={2000}>
-                    <RollingTitle>Ross Alexandra</RollingTitle>
-                    <RollingTitle>This is a one</RollingTitle>
-                    <RollingTitle>This is a two</RollingTitle>
-                    <RollingTitle>This is a three</RollingTitle>
-                </RollingTitles>
-                <IntroDescription>
-                    <QuoteSignContainer>“</QuoteSignContainer>
-                    Pushing the limit of what you think is possible is the best way to make the impossible possible.<br/>
-                    <QuoteAuthor>~ Someone, Probably</QuoteAuthor>
-                </IntroDescription>
+                <IntroSlideIn direction="bottom">
+                    <IntroTitle>Hi, I'm</IntroTitle>
+                </IntroSlideIn>
+                <RollingSlideIn direction="top" delay={750}>
+                    <RollingTitles textDuration={2000} initialDelay={250}>
+                        <RollingTitle>A Maker</RollingTitle>
+                        <RollingTitle>An Engineer</RollingTitle>
+                        <RollingTitle>A Developer</RollingTitle>
+                        <RollingTitle>Ross Alexandra</RollingTitle>
+                    </RollingTitles>
+                </RollingSlideIn>
+                <QuoteSlideIn direction="bottom" delay={1500}>
+                    <QuoteBox>
+                        <QuoteSignContainer>“</QuoteSignContainer>
+                        Pushing the limit of what you think is possible is the best way to make the impossible possible.<br/>
+                        <QuoteAuthor>~ Someone, Probably</QuoteAuthor>
+                    </QuoteBox>
+                </QuoteSlideIn>
             </IntroContainer>
-            <ScrollHint />
+            <ScrollBox onClick={() => window.scrollTo({top: window.innerHeight, behavior: 'smooth'})}>
+                <ScrollText>Scroll</ScrollText>
+                <ScrollHint width="9px" height="40px"/>
+            </ScrollBox>
         </HeroContainer>
     );
 }

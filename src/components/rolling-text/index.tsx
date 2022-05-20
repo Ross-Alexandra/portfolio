@@ -3,9 +3,10 @@ import { RollingTextContainer, NextText, DisplayedText } from "./elements";
 
 export interface RollingTextProps extends React.HTMLProps<HTMLDivElement> {
     textDuration: number;
+    initialDelay: number;
 };
 
-export function RollingText({textDuration, children, className}: RollingTextProps) {
+export function RollingText({textDuration, initialDelay, children, className}: RollingTextProps) {
     const [textIndex, setTextIndex] = useState(0);
     const [nextIndex, setNextIndex] = useState(1);
     const [showingNext, setShowingNext] = useState(false);
@@ -21,8 +22,8 @@ export function RollingText({textDuration, children, className}: RollingTextProp
     }, [totalChildren, nextIndex, setTextIndex, setNextIndex]);
 
     useEffect(() => {
-        setTimeout(() => setShowingNext(true), textDuration);
-    }, [textDuration]);
+        setTimeout(() => setShowingNext(true), textDuration + initialDelay);
+    }, [textDuration, initialDelay]);
 
     useLayoutEffect(() => {
         if (resettingTransition) {

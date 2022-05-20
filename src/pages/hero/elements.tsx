@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { RollingText } from "../../components/rolling-text";
+import { SlideIn } from "../../components/slide-in";
 import { defaultFont, fancyFont, blackText, headerHeight, systemFont } from "../../theme";
 
 export interface SelectedAwareProps extends React.HTMLProps<HTMLElement> {
@@ -67,7 +68,6 @@ export const NavigationLinks = styled.div`
 `;
 
 export const NavigationLink = styled.h2<SelectedAwareProps>`
-    margin: unset;
     position: relative;
 
     font-family: ${systemFont};
@@ -118,9 +118,12 @@ export const IntroContainer = styled.div`
     padding-left: 30px;
 `;
 
-export const IntroTitle = styled.h2`
+export const IntroSlideIn = styled(SlideIn)`
     margin: 12.5% 0px 0px 0px;
+    height: 140px;
+`;
 
+export const IntroTitle = styled.h2`
     font-family: ${fancyFont};
     font-size: 140px;
     line-height: 120px;
@@ -129,8 +132,12 @@ export const IntroTitle = styled.h2`
     cursor: default;
 `;
 
+export const RollingSlideIn = styled(SlideIn)`
+    height: 160px;
+`;
+
 export const RollingTitles = styled(RollingText)`
-    height: 120px;
+    height: 160px;
 `;
 
 export const RollingTitle = styled.h2`
@@ -145,10 +152,14 @@ export const RollingTitle = styled.h2`
     cursor: default;
 `;
 
-export const IntroDescription = styled.p`
-    padding-left: 15px;
-    margin: unset;
+export const QuoteSlideIn = styled(SlideIn)`
+    height: 80px;
+`;
 
+export const QuoteBox = styled.p`
+    padding-left: 15px;
+
+    height: 80px;
     width: 50%;
 
     font-family: ${defaultFont};
@@ -175,8 +186,36 @@ export const QuoteAuthor = styled.span`
     text-align: end;
 `;
 
-export function ScrollHint() {
-    return <svg>
+export const ScrollBox = styled.div`
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
 
-    </svg>
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    cursor: pointer;
+
+    transform: translate(-50%, 0);
+`;
+
+export const ScrollText = styled.p`
+    color: #949494;
+    font-size: 15px;
+`;
+
+const StyledSvg = styled.svg``;
+
+export function ScrollHint({...props}: React.SVGProps<SVGSVGElement>) {
+    return (
+        <StyledSvg viewBox="0 0 9 40" {...props}>
+            <g xmlns="http://www.w3.org/2000/svg" id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                    <g id="arrow" fill="#949494" fillRule="nonzero">
+                        <polygon id="Combined-Shape" points="5 35 9 35 4.5 40 0 35 4 35 4 0 5 0"/>
+                    </g>
+                </g>
+        </StyledSvg>
+    );
 }
