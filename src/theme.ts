@@ -10,3 +10,5 @@ export const defaultFont = ' Arial, Helvetica, sans-serif';
 
 // Colors
 export const blackText = '#333';
+export const portfolioActive = '#00d6b4';
+export const portfolioInactive = '#999';

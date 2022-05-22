@@ -1,5 +1,6 @@
-import { Dispatch, SetStateAction, useCallback, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { IAppSection } from "../../global-interfaces";
+import { useScreenSize, useScrollHeight } from "../../hooks";
 import { 
     HeroContainer,
     HeroNav,
@@ -28,18 +29,13 @@ export interface HeroProps extends React.HTMLProps<HTMLDivElement> {
 
 export function Hero({appSection, setAppSection}: HeroProps) {
     const [heroIntersection, setHeroIntersection] = useState<number>(1);
+    const scrollHeight = useScrollHeight();
+    const [, viewportHeight] = useScreenSize();
 
-    const scrollCallback = useCallback(() => {
-        const scrollPercent: number = (window.scrollY / window.innerHeight);
-        setHeroIntersection(1 - parseFloat(scrollPercent.toFixed(2)));
-    }, [setHeroIntersection]);
     useEffect(() => {
-        window.addEventListener('scroll', scrollCallback);
-
-        return () => {
-            window.removeEventListener('scroll', scrollCallback);
-        }
-    }, [scrollCallback]);
+        const scrollPercent: number = (scrollHeight / viewportHeight);
+        setHeroIntersection(1 - parseFloat(scrollPercent.toFixed(2)));
+    }, [scrollHeight, viewportHeight, setHeroIntersection]);
 
     return (
         <HeroContainer intersection={heroIntersection}>
@@ -56,7 +52,7 @@ export function Hero({appSection, setAppSection}: HeroProps) {
                         selected={appSection === "about"}
                         onClick={() => setAppSection("about")}
                     >
-                        About
+                        About Me
                     </NavigationLink>
                     <NavigationLink
                         selected={appSection === "contact"}

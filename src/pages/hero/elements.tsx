@@ -17,9 +17,9 @@ export const HeroContainer = styled.div<IntersectionAwareProps>`
 
     ${({intersection}: IntersectionAwareProps) => `
     background-color: rgb(
-        calc(255 * ${intersection}),
-        calc(255 * ${intersection}),
-        calc(255 * ${intersection})
+        calc(51 + (204 * (${intersection}))),
+        calc(51 + (204 * (${intersection}))),
+        calc(51 + (204 * (${intersection})))
     );
 
     color: rgb(
