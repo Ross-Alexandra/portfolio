@@ -8,7 +8,6 @@ import { useScreenSize, useScrollHeight } from "./hooks";
 import {
   ContentContainer,
   ParalaxDiv,
-  PageContent
 } from './elements';
 
 export function App() {
@@ -21,9 +20,7 @@ export function App() {
       <Hero appSection={appSection} setAppSection={setAppSection}/>
       <ContentContainer>
         <ParalaxDiv viewportHeight={viewportHeight} scrollHeight={scrollHeight}>
-          <PageContent>
-            <Portfolio />
-          </PageContent>
+          <Portfolio />
         </ParalaxDiv>
       </ContentContainer>
     </>

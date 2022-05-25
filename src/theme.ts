@@ -12,3 +12,7 @@ export const defaultFont = ' Arial, Helvetica, sans-serif';
 export const blackText = '#333';
 export const portfolioActive = '#00d6b4';
 export const portfolioInactive = '#999';
+
+export const portfolioBackground100 = '#333333';
+export const portfolioBackground200 = '#414141';
+export const portfolioBackground300 = '#525252';

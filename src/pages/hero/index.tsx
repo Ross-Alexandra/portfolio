@@ -68,10 +68,10 @@ export function Hero({appSection, setAppSection}: HeroProps) {
                 </IntroSlideIn>
                 <RollingSlideIn direction="top" delay={750}>
                     <RollingTitles textDuration={2000} initialDelay={250}>
-                        <RollingTitle>A Maker</RollingTitle>
-                        <RollingTitle>An Engineer</RollingTitle>
-                        <RollingTitle>A Developer</RollingTitle>
                         <RollingTitle>Ross Alexandra</RollingTitle>
+                        <RollingTitle>A Maker</RollingTitle>
+                        <RollingTitle>A Developer</RollingTitle>
+                        <RollingTitle>A Nerd</RollingTitle>
                     </RollingTitles>
                 </RollingSlideIn>
                 <QuoteSlideIn direction="bottom" delay={1500}>

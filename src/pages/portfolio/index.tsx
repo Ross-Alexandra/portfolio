@@ -5,6 +5,7 @@ import {
     NavItem,
     PortfolioBody
 } from './elements';
+import { WebProjects } from './web-projects';
 
 export type PortfolioPage = "web" | "desktop" | "other" | "lab";
 export interface PortfolioProps extends React.HTMLProps<HTMLDivElement> {}
@@ -22,7 +23,7 @@ export function Portfolio({...props}: PortfolioProps) {
                 <NavItem onClick={() => setCurrentPage("lab")}  active={currentPage === "lab"}>The Lab</NavItem>
             </PortfolioNav>
             <PortfolioBody>
-
+                <WebProjects />
             </PortfolioBody>
         </PortfolioContainer>
     );
