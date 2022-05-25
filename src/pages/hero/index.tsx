@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { IAppSection } from "../../global-interfaces";
-import { useScreenSize, useScrollHeight } from "../../hooks";
+import { useScreenSize } from "../../hooks";
 import { 
     HeroContainer,
     HeroNav,
@@ -25,17 +25,18 @@ import {
 export interface HeroProps extends React.HTMLProps<HTMLDivElement> {
     appSection: IAppSection;
     setAppSection: Dispatch<SetStateAction<IAppSection>>;
+    paralaxHeight: number;
+    scrollToBottom: () => void;
 }
 
-export function Hero({appSection, setAppSection}: HeroProps) {
+export function Hero({appSection, setAppSection, paralaxHeight, scrollToBottom}: HeroProps) {
     const [heroIntersection, setHeroIntersection] = useState<number>(1);
-    const scrollHeight = useScrollHeight();
     const [, viewportHeight] = useScreenSize();
 
     useEffect(() => {
-        const scrollPercent: number = (scrollHeight / viewportHeight);
+        const scrollPercent: number = (paralaxHeight / viewportHeight);
         setHeroIntersection(1 - parseFloat(scrollPercent.toFixed(2)));
-    }, [scrollHeight, viewportHeight, setHeroIntersection]);
+    }, [paralaxHeight, viewportHeight, setHeroIntersection]);
 
     return (
         <HeroContainer intersection={heroIntersection}>
@@ -69,8 +70,8 @@ export function Hero({appSection, setAppSection}: HeroProps) {
                 <RollingSlideIn direction="top" delay={750}>
                     <RollingTitles textDuration={2000} initialDelay={250}>
                         <RollingTitle>Ross Alexandra</RollingTitle>
-                        <RollingTitle>A Maker</RollingTitle>
                         <RollingTitle>A Developer</RollingTitle>
+                        <RollingTitle>A Maker</RollingTitle>
                         <RollingTitle>A Nerd</RollingTitle>
                     </RollingTitles>
                 </RollingSlideIn>
@@ -82,7 +83,7 @@ export function Hero({appSection, setAppSection}: HeroProps) {
                     </QuoteBox>
                 </QuoteSlideIn>
             </IntroContainer>
-            <ScrollBox onClick={() => window.scrollTo({top: window.innerHeight, behavior: 'smooth'})}>
+            <ScrollBox onClick={scrollToBottom}>
                 <ScrollText>Scroll</ScrollText>
                 <ScrollHint width="9px" height="40px"/>
             </ScrollBox>

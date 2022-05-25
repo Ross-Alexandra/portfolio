@@ -111,7 +111,7 @@ export const ProjectTechnologies = styled.div`
 `;
 
 export const Technology = styled.h4`
-    color: white;
+    color: ${portfolioActive};
 `;
 
 export const ExternalLinks = styled.div`
