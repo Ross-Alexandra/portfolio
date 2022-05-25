@@ -40,7 +40,7 @@ export function Hero({appSection, setAppSection, paralaxHeight, scrollToBottom}:
 
     return (
         <HeroContainer intersection={heroIntersection}>
-            <HeroNav>
+            <HeroNav intersection={heroIntersection}>
                 <HeroTitle>My Portfolio</HeroTitle>
                 <NavigationLinks>
                     <NavigationLink 
@@ -63,7 +63,7 @@ export function Hero({appSection, setAppSection, paralaxHeight, scrollToBottom}:
                     </NavigationLink>
                 </NavigationLinks>
             </HeroNav>
-            <IntroContainer>
+            <IntroContainer intersection={heroIntersection}>
                 <IntroSlideIn direction="bottom">
                     <IntroTitle>Hi, I'm</IntroTitle>
                 </IntroSlideIn>

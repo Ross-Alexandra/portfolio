@@ -1,3 +1,4 @@
+import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import { RollingText } from "../../components/rolling-text";
 import { SlideIn } from "../../components/slide-in";
@@ -36,7 +37,11 @@ export const HeroContainer = styled.div<IntersectionAwareProps>`
 `}
 `;
 
-export const HeroNav = styled.div`
+export const HeroNav = styled.div<IntersectionAwareProps>`
+    position: absolute;
+    top: ${({intersection}: IntersectionAwareProps) => `calc(-90px * 2 * (1 - ${intersection}))`};
+    transition: top 50ms;
+
     height: ${headerHeight}px;
     width: 100%;
 
@@ -105,7 +110,7 @@ export const NavigationLink = styled.h2<SelectedAwareProps>`
     `}
 `;
 
-export const IntroContainer = styled.div`
+export const IntroContainer = styled.div<IntersectionAwareProps>`
     position: fixed;
     top: ${headerHeight}px;
     bottom: 0px;
@@ -116,6 +121,10 @@ export const IntroContainer = styled.div`
     flex-direction: column;
 
     padding-left: 30px;
+
+    ${({intersection}: IntersectionAwareProps) => `
+        transform: scale(calc(1 - (0.1 * (1 - ${intersection}))));
+    `}
 `;
 
 export const IntroSlideIn = styled(SlideIn)`
@@ -206,7 +215,18 @@ export const ScrollText = styled.p`
     font-size: 15px;
 `;
 
-const StyledSvg = styled.svg``;
+const floatAnimation = keyframes`
+    from {margin-top: 0px;}
+    to {margin-top: 10px;}
+`;
+
+const StyledSvg = styled.svg`
+    animation-name: ${floatAnimation};
+    animation-duration: 2s;
+    animation-delay: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+`;
 
 export function ScrollHint({...props}: React.SVGProps<SVGSVGElement>) {
     return (
