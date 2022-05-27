@@ -19,7 +19,7 @@ export function WebProjects({active}: WebProjectProps) {
     return (
         <WebProjectsContainer id="web-projects" active={active}>
             <QuoteContainer>
-                <Quote>Lorem Ipsum Set Delorum El Torani Something or other</Quote>
+                <Quote>The comfort zone for a full-stack developer</Quote>
             </QuoteContainer>
             <ProjectsList>
                 {projects.filter(({type}) => type === "web").map((project, index) => 

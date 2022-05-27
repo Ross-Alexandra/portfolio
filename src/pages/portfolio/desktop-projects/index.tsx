@@ -19,7 +19,7 @@ export function DesktopProjects({active}: DesktopProjectsProps) {
     return (
         <DesktopProjectsContainer id="desktop-projects" active={active}>
             <QuoteContainer>
-                <Quote>Lorem Ipsum Set Delorum El Torani Something or other</Quote>
+                <Quote>Sometimes you need control that a web app just doesn&apos;t give you</Quote>
             </QuoteContainer>
             <ProjectsList>
                 {projects.filter(({type}) => type === "desktop").map((project, index) => 

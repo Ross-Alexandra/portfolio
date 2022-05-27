@@ -19,7 +19,7 @@ export function OtherProjects({active}: OtherProjectsProps) {
     return (
         <OtherProjectsContainer id="other-projects" active={active}>
             <QuoteContainer>
-                <Quote>Coming Soon</Quote>
+                <Quote>Projects don&apos;t always need a UI, do they?</Quote>
             </QuoteContainer>
             <ProjectsList>
                 {projects.filter(({type}) => type === "other").map((project, index) => 
