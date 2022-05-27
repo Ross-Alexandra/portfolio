@@ -6,7 +6,7 @@ interface ActiveAwareDiv extends React.HTMLProps<HTMLDivElement> {
     active: boolean;
 }
 
-export const WebProjectsContainer = styled.div<ActiveAwareDiv>`
+export const OtherProjectsContainer = styled.div<ActiveAwareDiv>`
     position: absolute;
     top: 0px;
     left: 0px;
@@ -18,6 +18,7 @@ export const WebProjectsContainer = styled.div<ActiveAwareDiv>`
     background-color: ${portfolioBackground100};
 
     transform-style: preserve-3d;
+    transform: translateZ(-1px) rotateY(180deg);
 
     backface-visibility: hidden;
     overflow: hidden;

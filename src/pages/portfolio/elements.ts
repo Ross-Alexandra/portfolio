@@ -8,6 +8,11 @@ interface ActiveAwareProps extends React.HTMLProps<HTMLHeadingElement> {
     active: boolean;
 }
 
+interface PageIndexAwareProps extends React.HTMLProps<HTMLDivElement> {
+    pageIndex: number;
+    bodyHeight: number | undefined;
+}
+
 export const PortfolioContainer = styled.div`
     display: flex;
     width: 100%;
@@ -43,8 +48,15 @@ export const NavItem = styled.h2<ActiveAwareProps>`
 
 `;
 
-export const PortfolioBody = styled.div`
+export const PortfolioBody = styled.div<PageIndexAwareProps>`
+    position: relative;
     width: 100%;
+
+    height: ${({bodyHeight}: PageIndexAwareProps) => bodyHeight ?? 0}px;
+
+    transition: transform 400ms;
+    transform: rotateY(${({pageIndex}: PageIndexAwareProps) => (pageIndex * -90) + .001}deg);
+    transform-style: preserve-3d;
 `;
 
 /***** project.tsx Stying *****/
@@ -132,4 +144,27 @@ export const ExternalLink = styled.a`
     height: 40px;
 
     background-image: url('https://via.placeholder.com/40x40');
+`;
+
+export const QuoteContainer = styled.div`
+    display: grid;
+    place-items: center;
+
+    height: 225px;
+`;
+
+export const Quote = styled.h2`
+    margin: unset;
+    text-align: center;
+
+    width: 75%;
+
+    color: ${portfolioActive};
+    font-size: 32px;
+`;
+
+export const ProjectsList = styled.div`
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
 `;

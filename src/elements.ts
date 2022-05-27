@@ -13,8 +13,6 @@ export const ParalaxDiv = styled.div<ParalaxProps>`
     right: 0px;
     background-color: ${portfolioBackground100};
 
-    overflow: scroll;
-
     ${({paralaxHeight, viewportHeight}: ParalaxProps) => `
         top: ${viewportHeight - paralaxHeight}px;
         bottom: 0px;

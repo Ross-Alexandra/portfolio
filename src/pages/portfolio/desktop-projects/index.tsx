@@ -1,8 +1,8 @@
-import { projects } from "../../../projects";
-import { Project } from "../project";
+import { projects } from '../../../projects';
+import { Project } from '../project';
 
 import {
-    WebProjectsContainer,
+    DesktopProjectsContainer
 } from './elements';
 
 import {
@@ -11,21 +11,21 @@ import {
     ProjectsList,
 } from '../elements';
 
-export interface WebProjectProps extends React.HTMLProps<HTMLDivElement> {
+export interface DesktopProjectsProps extends React.HTMLProps<HTMLDivElement> {
     active: boolean;
 }
 
-export function WebProjects({active}: WebProjectProps) {
+export function DesktopProjects({active}: DesktopProjectsProps) {
     return (
-        <WebProjectsContainer id="web-projects" active={active}>
+        <DesktopProjectsContainer id="desktop-projects" active={active}>
             <QuoteContainer>
                 <Quote>Lorem Ipsum Set Delorum El Torani Something or other</Quote>
             </QuoteContainer>
             <ProjectsList>
-                {projects.filter(({type}) => type === "web").map((project, index) => 
+                {projects.filter(({type}) => type === "desktop").map((project, index) => 
                     <Project project={project} index={index} key={project.title} />    
                 )}
             </ProjectsList>
-        </WebProjectsContainer>
+        </DesktopProjectsContainer>
     );
 }

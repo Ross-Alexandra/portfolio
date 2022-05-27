@@ -16,3 +16,7 @@ export const portfolioInactive = '#999';
 export const portfolioBackground100 = '#333333';
 export const portfolioBackground200 = '#414141';
 export const portfolioBackground300 = '#525252';
+
+/***** Animation Styling *****/
+// Timings
+export const rotationTime = "400ms";
