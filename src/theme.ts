@@ -13,9 +13,9 @@ export const blackText = '#333';
 export const portfolioActive = '#00d6b4';
 export const portfolioInactive = '#999';
 
-export const portfolioBackground100 = '#333333';
-export const portfolioBackground200 = '#414141';
-export const portfolioBackground300 = '#525252';
+export const portfolioBackground100 = '#333633';
+export const portfolioBackground200 = '#414441';
+export const portfolioBackground300 = '#525a52';
 
 /***** Animation Styling *****/
 // Timings
