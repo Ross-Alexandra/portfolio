@@ -72,6 +72,7 @@ export function Hero({appSection, setAppSection, paralaxHeight, scrollToBottom}:
                         <RollingTitle>Ross Alexandra</RollingTitle>
                         <RollingTitle>A Developer</RollingTitle>
                         <RollingTitle>A Maker</RollingTitle>
+                        <RollingTitle>A Coach</RollingTitle>
                         <RollingTitle>A Nerd</RollingTitle>
                     </RollingTitles>
                 </RollingSlideIn>

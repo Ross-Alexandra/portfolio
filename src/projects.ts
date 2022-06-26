@@ -5,6 +5,7 @@ import StratmapperImage from './assets/stratbook.png';
 import PortfolioImage from './assets/portfolio.png';
 import SiegeGGScraperImage from './assets/siegegg-scraper.png';
 import CommsImage from './assets/comms.png';
+import ScrimSearch from './assets/scrim-search.png';
 
 export const projects: IProject[] = [
     {
@@ -12,14 +13,14 @@ export const projects: IProject[] = [
         title: 'Stratbook',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
         previewImageUrl: StratmapperImage,
-        technologies: ["React", "JavScript"],
+        technologies: ["React", "JavaScript"],
         externalLink: "http://stratbook.gg"
     },
     {
         type: "web",
         title: 'ScrimSearch',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
-        previewImageUrl: 'https://via.placeholder.com/500x300',
+        previewImageUrl: ScrimSearch,
         technologies: ["React", "JavaScript", "Python","Discord Bot", "PostgreSQL"],
         externalLink: "http://scrimsearch.theserverproject.com"
     },
@@ -54,5 +55,13 @@ export const projects: IProject[] = [
         previewImageUrl: 'https://via.placeholder.com/500x300',
         technologies: ["Python", "Discord Bot", "PostgreSQL"],
         githubLink: "https://github.com/Ross-Alexandra/siegeAnalyzer"
+    }, {
+        type: "other",
+        title: "Fullstack Spritesheets",
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
+        previewImageUrl: 'https://via.placeholder.com/500x300',
+        technologies: ["Typescript", 'npm', 'npx'],
+        githubLink: "https://github.com/Ross-Alexandra/fullstack-spritesheets",
+        externalLink: 'https://www.npmjs.com/package/fullstack-spritesheets'
     }
 ]

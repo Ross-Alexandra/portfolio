@@ -16,8 +16,10 @@ export const ParalaxDiv = styled.div<ParalaxProps>`
     ${({paralaxHeight, viewportHeight}: ParalaxProps) => `
         top: ${viewportHeight - paralaxHeight}px;
         bottom: 0px;
-        overflow: ${viewportHeight === paralaxHeight ? 'scroll' : 'hidden'}
+        overflow: ${viewportHeight === paralaxHeight ? 'scroll' : 'hidden'};
     `}
+
+    transition: top 200ms;
 `;
 
 export const PageContent = styled.div`

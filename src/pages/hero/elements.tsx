@@ -34,12 +34,14 @@ export const HeroContainer = styled.div<IntersectionAwareProps>`
         calc(51 + (153 * (1 - ${intersection}))),
         calc(51 + (153 * (1 - ${intersection})))
     );
+
+    transition: background-color 200ms, color: 200ms, border-color 200ms;
 `}
 `;
 
 export const HeroNav = styled.div<IntersectionAwareProps>`
     position: absolute;
-    top: ${({intersection}: IntersectionAwareProps) => `calc(-90px * 2 * (1 - ${intersection}))`};
+    top: ${({intersection}: IntersectionAwareProps) => `calc(-90px * 2.5 * (1 - ${intersection}))`};
     transition: top 50ms;
 
     height: ${headerHeight}px;
@@ -49,6 +51,8 @@ export const HeroNav = styled.div<IntersectionAwareProps>`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+
+    transition: top 200ms;
 `;
 
 export const HeroTitle = styled.h2`
@@ -125,6 +129,8 @@ export const IntroContainer = styled.div<IntersectionAwareProps>`
     ${({intersection}: IntersectionAwareProps) => `
         transform: scale(calc(1 - (0.1 * (1 - ${intersection}))));
     `}
+
+    transition: transform 200ms;
 `;
 
 export const IntroSlideIn = styled(SlideIn)`
