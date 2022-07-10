@@ -5,7 +5,11 @@ import {
 import {
     QuoteContainer,
     Quote,
+    QuoteCTAsContainer,
+    QuoteCTA,
+    QuoteAlternateCTA,
     ProjectsList,
+    ProjectsTitle
 } from '../elements';
 
 export interface TheLabProps extends React.HTMLProps<HTMLDivElement> {
@@ -16,9 +20,15 @@ export function TheLab({active}: TheLabProps) {
     return (
         <LabContainer id="lab-projects" active={active}>
             <QuoteContainer>
-                <Quote>What&apos;s a mad scientist without a lab?<br/><br/>Coming Soon</Quote>
+                <Quote>Interested in someone who&lsquo;s always learning?</Quote>
+                <QuoteCTAsContainer>
+                    <QuoteCTA>Connect with me</QuoteCTA>
+                    <QuoteAlternateCTA>Read about me</QuoteAlternateCTA>
+                </QuoteCTAsContainer>
             </QuoteContainer>
+            <ProjectsTitle>See my experiments</ProjectsTitle>
             <ProjectsList>
+                Coming Soon TM
             </ProjectsList>
         </LabContainer>
     );

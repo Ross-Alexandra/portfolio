@@ -1,6 +1,7 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import React from "react";
-import { systemFont, portfolioActive, portfolioInactive, portfolioBackground200 } from "../../theme";
+import { systemFont, portfolioActive, portfolioActiveSecondary, portfolioInactive, portfolioBackground200 } from "../../theme";
 
 /***** index.tsx Stying *****/
 
@@ -161,24 +162,83 @@ export const ExternalLink = styled.a`
 
 export const QuoteContainer = styled.div`
     display: grid;
-    place-items: center;
+    grid-gap: 25px;
+    justify-items: center;
 
     height: 225px;
+    background-color: rgba(255, 255, 255, 0.25);
 `;
 
 export const Quote = styled.h2`
     margin: unset;
     text-align: center;
-    text-transform: capitalize;
+    //text-transform: capitalize;
+    align-self: end;
 
     width: 75%;
 
-    color: ${portfolioActive};
+    color: white;
     font-size: 32px;
+`;
+
+export const QuoteCTAsContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-evenly;
+
+    width: 50%;
+`;
+
+const buttonCSS = css`
+    text-align: center;
+    text-transform: capitalize;
+    font-family: ${systemFont};
+    font-size: 17px;
+    font-weight: 700;
+
+    border-radius: 7px;
+    padding: 10px 20px;
+
+    filter: brightness(1);
+    transition: filter 250ms;
+    cursor: pointer;
+
+    :hover {
+        filter: brightness(1.2);
+    };
+
+    :active {
+        filter: brightness(0.8);
+    }
+`;
+
+export const QuoteCTA = styled.div`
+    ${buttonCSS}
+    color: black;
+    background-color: ${portfolioActive};
+`;
+
+export const QuoteAlternateCTA = styled.div`
+    ${buttonCSS}
+    color: black;
+    background-color: ${portfolioActiveSecondary};
 `;
 
 export const ProjectsList = styled.div`
     display: flex;
     flex-grow: 1;
     flex-direction: column;
+`;
+
+export const ProjectsTitle = styled.h2`
+margin: 20px;
+text-align: center;
+text-transform: capitalize;
+text-decoration: underline;
+
+width: auto;
+
+color: white;
+font-size: 32px;
 `;
