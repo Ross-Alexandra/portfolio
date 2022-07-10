@@ -1,7 +1,6 @@
-import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import React from "react";
-import { systemFont, portfolioActive, portfolioActiveSecondary, portfolioInactive, portfolioBackground200 } from "../../theme";
+import { systemFont, portfolioActive, portfolioInactive, portfolioBackground200 } from "../../theme";
 
 /***** index.tsx Stying *****/
 
@@ -30,6 +29,10 @@ export const PortfolioNav = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+
+    position: sticky;
+    top: 0;
+    z-index: 1;
 `;
 
 export const NavItem = styled.h2<ActiveAwareProps>`
@@ -190,41 +193,6 @@ export const QuoteCTAsContainer = styled.div`
     width: 50%;
 `;
 
-const buttonCSS = css`
-    text-align: center;
-    text-transform: capitalize;
-    font-family: ${systemFont};
-    font-size: 17px;
-    font-weight: 700;
-
-    border-radius: 7px;
-    padding: 10px 20px;
-
-    filter: brightness(1);
-    transition: filter 250ms;
-    cursor: pointer;
-
-    :hover {
-        filter: brightness(1.2);
-    };
-
-    :active {
-        filter: brightness(0.8);
-    }
-`;
-
-export const QuoteCTA = styled.div`
-    ${buttonCSS}
-    color: black;
-    background-color: ${portfolioActive};
-`;
-
-export const QuoteAlternateCTA = styled.div`
-    ${buttonCSS}
-    color: black;
-    background-color: ${portfolioActiveSecondary};
-`;
-
 export const ProjectsList = styled.div`
     display: flex;
     flex-grow: 1;
@@ -232,13 +200,13 @@ export const ProjectsList = styled.div`
 `;
 
 export const ProjectsTitle = styled.h2`
-margin: 20px;
-text-align: center;
-text-transform: capitalize;
-text-decoration: underline;
+    margin: 20px;
+    text-align: center;
+    text-transform: capitalize;
 
-width: auto;
+    width: auto;
 
-color: white;
-font-size: 32px;
+    color: white;
+    font-size: 34px;
+    font-weight: 700;
 `;

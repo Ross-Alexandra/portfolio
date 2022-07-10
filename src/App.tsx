@@ -34,6 +34,15 @@ export function App() {
     slowChangeValue(setParalaxHeight, 40, viewportHeight);
   }, [setParalaxHeight, viewportHeight]);
 
+  const scrollToTop = useCallback(() => {
+    slowChangeValue(setParalaxHeight, 40, 0);
+  }, [setParalaxHeight]);
+
+  const setTopLevelPage = useCallback((newSection: IAppSection) => {
+    setAppSection(newSection);
+    scrollToTop();
+  }, [scrollToTop, setAppSection]);
+
   useEffect(() => {
       window.addEventListener('wheel', onScrollCallback);
 
@@ -54,7 +63,7 @@ export function App() {
         paralaxHeight={paralaxHeight}
       >
         <PageContent>
-          <Portfolio />
+          <Portfolio setTopLevelPage={setTopLevelPage}/>
         </PageContent>
       </ParalaxDiv>
     </>

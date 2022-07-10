@@ -15,8 +15,8 @@ export function slowChangeValue(reactSetter: React.Dispatch<React.SetStateAction
                 return update;
             });
     
-            if (!isValue) callback();
-        }, 0);
+            if (!isValue) requestAnimationFrame(callback);
+        }, 1);
     }
 
     callback();

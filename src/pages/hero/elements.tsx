@@ -4,6 +4,8 @@ import { RollingText } from "../../components/rolling-text";
 import { SlideIn } from "../../components/slide-in";
 import { defaultFont, fancyFont, blackText, headerHeight, systemFont } from "../../theme";
 
+import HeroBGImage from '../../assets/hero-bg-image.png';
+
 export interface SelectedAwareProps extends React.HTMLProps<HTMLElement> {
     selected: boolean;
 }
@@ -15,28 +17,15 @@ export interface IntersectionAwareProps extends React.HTMLProps<HTMLElement> {
 export const HeroContainer = styled.div<IntersectionAwareProps>`
     width: 100%;
     height: 100vh;
+    background-color: white;
+    color: #333333;
+    border-color: #333333;
 
     ${({intersection}: IntersectionAwareProps) => `
-    background-color: rgb(
-        calc(51 + (204 * (${intersection}))),
-        calc(51 + (204 * (${intersection}))),
-        calc(51 + (204 * (${intersection})))
-    );
+        filter: brightness(${(intersection / 2) + .5}) invert(${1 - ((intersection / 2) + .5)});
+    `}
+    transition: filter 200ms;
 
-    color: rgb(
-        calc(51 + (153 * (1 - ${intersection}))),
-        calc(51 + (153 * (1 - ${intersection}))),
-        calc(51 + (153 * (1 - ${intersection})))
-    );
-
-    border-color: rgb(
-        calc(51 + (153 * (1 - ${intersection}))),
-        calc(51 + (153 * (1 - ${intersection}))),
-        calc(51 + (153 * (1 - ${intersection})))
-    );
-
-    transition: background-color 200ms, color: 200ms, border-color 200ms;
-`}
 `;
 
 export const HeroNav = styled.div<IntersectionAwareProps>`
@@ -46,6 +35,8 @@ export const HeroNav = styled.div<IntersectionAwareProps>`
 
     height: ${headerHeight}px;
     width: 100%;
+    z-index: 1;
+    background-color: white;
 
     display: flex;
     flex-direction: row;
@@ -123,6 +114,7 @@ export const IntroContainer = styled.div<IntersectionAwareProps>`
 
     display: flex;
     flex-direction: column;
+    justify-content: center;
 
     padding-left: 30px;
 
@@ -134,7 +126,6 @@ export const IntroContainer = styled.div<IntersectionAwareProps>`
 `;
 
 export const IntroSlideIn = styled(SlideIn)`
-    margin: 12.5% 0px 0px 0px;
     height: 140px;
 `;
 
@@ -214,6 +205,10 @@ export const ScrollBox = styled.div`
     cursor: pointer;
 
     transform: translate(-50%, 0);
+
+    @media (max-height: 800px) {
+        left: 60%;
+    }
 `;
 
 export const ScrollText = styled.p`
@@ -232,6 +227,78 @@ const StyledSvg = styled.svg`
     animation-delay: 5s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+`;
+
+export const AboutContainer = styled.div<IntersectionAwareProps>`
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 35%;
+    height: 100%;
+
+    display: grid;
+    place-items: center;
+
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+
+    ${({intersection}: IntersectionAwareProps) => `
+        transform: scale(calc(1 - (0.1 * (1 - ${intersection}))));
+    `}
+    transition: transform 200ms;
+
+    background-image: url(${HeroBGImage});
+`;
+
+export const AboutContent = styled.div`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 60%;
+    height 100%;
+    padding: 30px 50px;
+
+    line-height: 1.5;
+    font-size: 17px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: white;
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+
+    @media (max-height: 800px) {
+        display: none;
+    }
+`;
+
+export const AboutPicture = styled.img`
+    margin: 0px auto 30px auto;
+
+    width: 175px;
+    height: 175px;
+    border-radius: 50%
+`;
+
+export const AboutParagraph = styled.p``;
+
+export const AboutCTAs = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+    width: 100%;
+    margin-top: auto
+`;
+
+export const AboutParagraphList = styled.ul`
+    padding-left: 20px;
+
+    align-self: start;
 `;
 
 export function ScrollHint({...props}: React.SVGProps<SVGSVGElement>) {

@@ -9,24 +9,29 @@ import {
     QuoteContainer,
     Quote,
     QuoteCTAsContainer,
-    QuoteCTA,
-    QuoteAlternateCTA,
     ProjectsList,
     ProjectsTitle
 } from '../elements';
 
+import {
+    PrimaryCTA,
+    SecondaryCTA
+} from '../../../elements';
+import { IAppSection } from '../../../global-interfaces';
+
 export interface DesktopProjectsProps extends React.HTMLProps<HTMLDivElement> {
     active: boolean;
+    setTopLevelPage: (newSection: IAppSection) => void;
 }
 
-export function DesktopProjects({active}: DesktopProjectsProps) {
+export function DesktopProjects({active, setTopLevelPage}: DesktopProjectsProps) {
     return (
         <DesktopProjectsContainer id="desktop-projects" active={active}>
             <QuoteContainer>
                 <Quote>Need someone to help build powerful &#38; dynamic desktop apps?</Quote>
                 <QuoteCTAsContainer>
-                    <QuoteCTA>Contact me</QuoteCTA>
-                    <QuoteAlternateCTA>Get to know me</QuoteAlternateCTA>
+                    <PrimaryCTA onClick={() => setTopLevelPage('contact')}>Contact me</PrimaryCTA>
+                    <SecondaryCTA onClick={() => setTopLevelPage('about')}>Get to know me</SecondaryCTA>
                 </QuoteCTAsContainer>
             </QuoteContainer>
             <ProjectsTitle>My Desktop Apps</ProjectsTitle>

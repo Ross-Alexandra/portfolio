@@ -9,18 +9,22 @@ import {
     QuoteContainer,
     Quote,
     QuoteCTAsContainer,
-    QuoteCTA,
-    QuoteAlternateCTA,
     ProjectsList,
     ProjectsTitle
 } from '../elements';
 
+import {
+    PrimaryCTA,
+    SecondaryCTA
+} from '../../../elements';
+import { IAppSection } from '../../../global-interfaces';
 
 export interface OtherProjectsProps extends React.HTMLProps<HTMLDivElement> {
     active: boolean;
+    setTopLevelPage: (newSection: IAppSection) => void;
 }
 
-export function OtherProjects({active}: OtherProjectsProps) {
+export function OtherProjects({active, setTopLevelPage}: OtherProjectsProps) {
     return (
         <OtherProjectsContainer id="other-projects" active={active}>
             <QuoteContainer>
@@ -30,8 +34,8 @@ export function OtherProjects({active}: OtherProjectsProps) {
                     How about data analysis tool? Internal Library?
                 </Quote>
                 <QuoteCTAsContainer>
-                    <QuoteCTA>Email me!</QuoteCTA>
-                    <QuoteAlternateCTA>See my history</QuoteAlternateCTA>
+                    <PrimaryCTA onClick={() => setTopLevelPage('contact')}>Email me!</PrimaryCTA>
+                    <SecondaryCTA onClick={() => setTopLevelPage('about')}>See my history</SecondaryCTA>
                 </QuoteCTAsContainer>
             </QuoteContainer>
             <ProjectsTitle>My Other Projects</ProjectsTitle>

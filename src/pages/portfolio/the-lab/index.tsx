@@ -6,24 +6,29 @@ import {
     QuoteContainer,
     Quote,
     QuoteCTAsContainer,
-    QuoteCTA,
-    QuoteAlternateCTA,
     ProjectsList,
     ProjectsTitle
 } from '../elements';
 
+import {
+    PrimaryCTA,
+    SecondaryCTA
+} from '../../../elements';
+import { IAppSection } from '../../../global-interfaces';
+
 export interface TheLabProps extends React.HTMLProps<HTMLDivElement> {
     active: boolean;
+    setTopLevelPage: (newSection: IAppSection) => void;
 }
 
-export function TheLab({active}: TheLabProps) {
+export function TheLab({active, setTopLevelPage}: TheLabProps) {
     return (
         <LabContainer id="lab-projects" active={active}>
             <QuoteContainer>
                 <Quote>Interested in someone who&lsquo;s always learning?</Quote>
                 <QuoteCTAsContainer>
-                    <QuoteCTA>Connect with me</QuoteCTA>
-                    <QuoteAlternateCTA>Read about me</QuoteAlternateCTA>
+                    <PrimaryCTA onClick={() => setTopLevelPage('contact')}>Connect with me</PrimaryCTA>
+                    <SecondaryCTA onClick={() => setTopLevelPage('about')}>Read about me</SecondaryCTA>
                 </QuoteCTAsContainer>
             </QuoteContainer>
             <ProjectsTitle>See my experiments</ProjectsTitle>

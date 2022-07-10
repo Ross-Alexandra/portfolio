@@ -1,6 +1,7 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import React from "react";
-import { portfolioBackground100 } from "./theme";
+import { portfolioBackground100, portfolioActive, portfolioActiveSecondary, systemFont } from "./theme";
 
 interface ParalaxProps extends React.HTMLProps<HTMLDivElement> {
     paralaxHeight: number;
@@ -27,4 +28,39 @@ export const PageContent = styled.div`
     width: 100%;
     height: 100vh;
     bottom: 0px;
+`;
+
+const buttonCSS = css`
+    text-align: center;
+    text-transform: capitalize;
+    font-family: ${systemFont};
+    font-size: 17px;
+    font-weight: 700;
+
+    border-radius: 7px;
+    padding: 10px 20px;
+
+    filter: brightness(1);
+    transition: filter 250ms;
+    cursor: pointer;
+
+    :hover {
+        filter: brightness(1.2);
+    };
+
+    :active {
+        filter: brightness(0.8);
+    }
+`;
+
+export const PrimaryCTA = styled.div`
+    ${buttonCSS}
+    color: black;
+    background-color: ${portfolioActive};
+`;
+
+export const SecondaryCTA = styled.div`
+    ${buttonCSS}
+    color: black;
+    background-color: ${portfolioActiveSecondary};
 `;
