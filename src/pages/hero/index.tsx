@@ -4,7 +4,7 @@ import { useScreenSize } from "../../hooks";
 import { 
     HeroContainer,
     HeroNav,
-    HeroTitle,
+    HeroLogo,
     NavigationLinks,
     NavigationLink,
     IntroContainer,
@@ -49,7 +49,7 @@ export function Hero({appSection, setAppSection, paralaxHeight, scrollToBottom}:
     return (
         <HeroContainer intersection={heroIntersection}>
             <HeroNav intersection={heroIntersection}>
-                <HeroTitle>My Portfolio</HeroTitle>
+                <HeroLogo primaryColor={'#ffffff'} width={50} height={75}/>
                 <NavigationLinks>
                     <NavigationLink 
                         selected={appSection === "portfolio"}
