@@ -1,5 +1,6 @@
 import { projects } from "../../../projects";
 import { Project } from "../project";
+import ProjectsBanner from '../../../assets/projects-banner.png';
 
 import {
     WebProjectsContainer,
@@ -27,7 +28,7 @@ export interface WebProjectProps extends React.HTMLProps<HTMLDivElement> {
 export function WebProjects({active, setTopLevelPage}: WebProjectProps) {
     return (
         <WebProjectsContainer id="web-projects" active={active}>
-            <QuoteContainer>
+            <QuoteContainer backgroundImage={ProjectsBanner} backgroundPositionY={'45%'}>
                 <Quote>Want someone to help create beautiful &#38; accessible web apps?</Quote>
                 <QuoteCTAsContainer>
                     <PrimaryCTA onClick={() => setTopLevelPage('contact')}>Get in touch</PrimaryCTA>

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import React from "react";
+import React, { HTMLProps } from "react";
 import { systemFont, portfolioActive, portfolioInactive, portfolioBackground200 } from "../../theme";
 
 /***** index.tsx Stying *****/
@@ -163,13 +163,24 @@ export const ExternalLink = styled.a`
     }
 `;
 
-export const QuoteContainer = styled.div`
+export interface IQuoteContainer extends HTMLProps<HTMLDivElement> {
+    backgroundImage: string;
+    backgroundPositionY: string;
+    overlayOpacityHex?: string;
+}
+export const QuoteContainer = styled.div<IQuoteContainer>`
     display: grid;
     grid-gap: 25px;
     justify-items: center;
 
-    height: 225px;
-    background-color: rgba(255, 255, 255, 0.25);
+    height: 350px;
+
+    background: 
+        ${({overlayOpacityHex='c0'}) => `linear-gradient(0, #000000${overlayOpacityHex}, #000000${overlayOpacityHex})`},
+        url(${({backgroundImage}) => backgroundImage});
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position-y: ${({backgroundPositionY}) => backgroundPositionY};
 `;
 
 export const Quote = styled.h2`

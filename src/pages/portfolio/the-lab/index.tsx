@@ -1,6 +1,7 @@
 import {
     LabContainer
 } from './elements';
+import LabBanner from '../../../assets/lab-banner.png';
 
 import {
     QuoteContainer,
@@ -24,7 +25,7 @@ export interface TheLabProps extends React.HTMLProps<HTMLDivElement> {
 export function TheLab({active, setTopLevelPage}: TheLabProps) {
     return (
         <LabContainer id="lab-projects" active={active}>
-            <QuoteContainer>
+            <QuoteContainer backgroundImage={LabBanner} backgroundPositionY={'100%'} overlayOpacityHex={'80'}>
                 <Quote>Interested in someone who&lsquo;s always learning?</Quote>
                 <QuoteCTAsContainer>
                     <PrimaryCTA onClick={() => setTopLevelPage('contact')}>Connect with me</PrimaryCTA>

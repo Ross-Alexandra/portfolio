@@ -1,5 +1,6 @@
 import { projects } from '../../../projects';
 import { Project } from '../project';
+import ProjectsBanner from '../../../assets/projects-banner.png';
 
 import {
     DesktopProjectsContainer
@@ -27,7 +28,7 @@ export interface DesktopProjectsProps extends React.HTMLProps<HTMLDivElement> {
 export function DesktopProjects({active, setTopLevelPage}: DesktopProjectsProps) {
     return (
         <DesktopProjectsContainer id="desktop-projects" active={active}>
-            <QuoteContainer>
+            <QuoteContainer backgroundImage={ProjectsBanner} backgroundPositionY={'69%'}>
                 <Quote>Need someone to help build powerful &#38; dynamic desktop apps?</Quote>
                 <QuoteCTAsContainer>
                     <PrimaryCTA onClick={() => setTopLevelPage('contact')}>Contact me</PrimaryCTA>

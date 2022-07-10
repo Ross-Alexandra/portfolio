@@ -1,5 +1,6 @@
 import { projects } from '../../../projects';
 import { Project } from '../project';
+import ProjectsBanner from '../../../assets/projects-banner.png';
 
 import {
     OtherProjectsContainer
@@ -27,7 +28,7 @@ export interface OtherProjectsProps extends React.HTMLProps<HTMLDivElement> {
 export function OtherProjects({active, setTopLevelPage}: OtherProjectsProps) {
     return (
         <OtherProjectsContainer id="other-projects" active={active}>
-            <QuoteContainer>
+            <QuoteContainer backgroundImage={ProjectsBanner} backgroundPositionY={'88%'}>
                 <Quote>
                     Require someone to help produce a scalable &#38; robust backend service?
                     <br/>
