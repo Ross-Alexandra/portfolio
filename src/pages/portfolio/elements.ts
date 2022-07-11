@@ -88,7 +88,7 @@ export const PreviewImageLink = styled.a<IndexAwareImg>`
 
     transition: transform 250ms;
     :hover {
-        transform: scale(1.2);
+        transform: scale(1.1);
         z-index: 1;
     }
 `;
@@ -133,6 +133,8 @@ export const ProjectDescription = styled.p`
     padding: 10px;
     border-radius: 10px;
     margin-top: 10px;
+
+    white-space: pre-line;
 `;
 
 export const ProjectTechnologies = styled.div`
