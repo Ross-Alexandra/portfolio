@@ -2,7 +2,6 @@ import { Dispatch, SetStateAction } from "react";
 import { IAppSection } from "../../global-interfaces";
 
 import { 
-    IntroContainer,
     IntroTitle,
     RollingTitles,
     RollingTitle,
@@ -17,19 +16,19 @@ import {
     AboutPicture,
     AboutParagraph,
     AboutParagraphList,
-    AboutCTAs
+    AboutCTAs,
+    SlideInContainer
 } from "./elements";
 import HeadshotImage from '../../assets/headshot.png';
 import { PrimaryCTA, SecondaryCTA } from "../../elements";
 
 export interface IHeroContent {
-    heroIntersection: number;
     setAppSection: Dispatch<SetStateAction<IAppSection>>;
 }
-export function HeroContent({heroIntersection, setAppSection}: IHeroContent) {
+export function HeroContent({setAppSection}: IHeroContent) {
     return (
         <>
-            <IntroContainer intersection={heroIntersection}>
+            <SlideInContainer>
                 <IntroSlideIn direction="bottom">
                     <IntroTitle>Hi, I'm</IntroTitle>
                 </IntroSlideIn>
@@ -49,8 +48,8 @@ export function HeroContent({heroIntersection, setAppSection}: IHeroContent) {
                         <QuoteAuthor>~ Someone, Probably</QuoteAuthor>
                     </QuoteBox>
                 </QuoteSlideIn>
-            </IntroContainer>
-            <AboutContainer intersection={heroIntersection}>
+            </SlideInContainer>
+            <AboutContainer>
                 <AboutContent>
                     <AboutPicture src={HeadshotImage} />
                     <AboutParagraph>

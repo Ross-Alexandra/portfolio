@@ -22,11 +22,21 @@ export const HeroContainer = styled.div<IntersectionAwareProps>`
     color: #333333;
     border-color: #333333;
 
+    transition: filter 200ms;
+
     ${({intersection}: IntersectionAwareProps) => `
         filter: brightness(${(intersection / 2) + .5}) invert(${1 - ((intersection / 2) + .5)});
     `}
-    transition: filter 200ms;
+`;
 
+export const HeroScalingDiv = styled.div<IntersectionAwareProps>`
+    width: 100%;
+    height: 100%;
+
+    transition: transform 200ms;
+    ${({intersection}: IntersectionAwareProps) => `
+        transform: scale(calc(1 - (0.1 * (1 - ${intersection}))));
+    `}
 `;
 
 export const HeroNav = styled.div<IntersectionAwareProps>`
@@ -100,24 +110,22 @@ export const NavigationLink = styled.h2<SelectedAwareProps>`
     `}
 `;
 
-export const IntroContainer = styled.div<IntersectionAwareProps>`
+export const ContentContainer = styled.div`
     position: fixed;
     top: ${headerHeight}px;
     bottom: 0px;
     left: 0px;
     right: 0px;
+`;
+
+export const SlideInContainer = styled.div`
+    height: 100%;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
 
     padding-left: 30px;
-
-    ${({intersection}: IntersectionAwareProps) => `
-        transform: scale(calc(1 - (0.1 * (1 - ${intersection}))));
-    `}
-
-    transition: transform 200ms;
 `;
 
 export const IntroSlideIn = styled(SlideIn)`
@@ -224,7 +232,7 @@ const StyledSvg = styled.svg`
     animation-direction: alternate;
 `;
 
-export const AboutContainer = styled.div<IntersectionAwareProps>`
+export const AboutContainer = styled.div`
     position: absolute;
     top: 0px;
     right: 0px;
@@ -236,11 +244,6 @@ export const AboutContainer = styled.div<IntersectionAwareProps>`
 
     background-repeat: no-repeat;
     background-size: 100% auto;
-
-    ${({intersection}: IntersectionAwareProps) => `
-        transform: scale(calc(1 - (0.1 * (1 - ${intersection}))));
-    `}
-    transition: transform 200ms;
 
     background-image: url(${HeroBGImage});
 `;
@@ -275,7 +278,8 @@ export const AboutPicture = styled.img`
 
     width: 175px;
     height: 175px;
-    border-radius: 50%
+    border-radius: 50%;
+    transform: rotateY(180deg);
 `;
 
 export const AboutParagraph = styled.p``;

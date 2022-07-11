@@ -1,6 +1,8 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { IAppSection } from "../../global-interfaces";
 import { useScreenSize } from "../../hooks";
+import { AboutContent } from "../about";
+import { ContactContent } from "../contact";
 import { 
     HeroContainer,
     HeroNav,
@@ -10,6 +12,8 @@ import {
     ScrollHint,
     ScrollBox,
     ScrollText,
+    HeroScalingDiv,
+    ContentContainer,
 } from "./elements";
 import { HeroContent } from "./hero-content";
 
@@ -54,9 +58,13 @@ export function Hero({appSection, setAppSection, paralaxHeight, scrollToBottom}:
                     </NavigationLink>
                 </NavigationLinks>
             </HeroNav>
-            {appSection === 'portfolio' && <HeroContent heroIntersection={heroIntersection} setAppSection={setAppSection} /> }
-            {appSection === 'about' && <div></div>}
-            {appSection === 'contact' && <div></div>}
+            <HeroScalingDiv intersection={heroIntersection}>
+                <ContentContainer>
+                    {appSection === 'portfolio' && <HeroContent setAppSection={setAppSection} /> }
+                    {appSection === 'about' && <AboutContent setAppSection={setAppSection} />}
+                    {appSection === 'contact' && <ContactContent setAppSection={setAppSection} />}
+                </ContentContainer>
+            </HeroScalingDiv>
             <ScrollBox onClick={scrollToBottom}>
                 <ScrollText>Scroll</ScrollText>
                 <ScrollHint width="9px" height="40px"/>
