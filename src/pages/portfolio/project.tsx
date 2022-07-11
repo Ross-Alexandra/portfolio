@@ -9,7 +9,8 @@ import {
     Technology,
     ExternalLinks,
     GithubLink,
-    ExternalLink
+    ExternalLink,
+    PreviewImageLink
 } from './elements';
 
 export interface ProjectProps extends React.HTMLProps<HTMLDivElement> {
@@ -29,7 +30,9 @@ export function Project({project, index}: ProjectProps) {
 
     return (
         <ProjectContainer>
-            <PreviewImage index={index} src={previewImageUrl} />
+            <PreviewImageLink index={index} href={externalLink ?? githubLink ?? ''}>
+                <PreviewImage src={previewImageUrl} />
+            </PreviewImageLink>
             <ProjectInfoContainer index={index}>
                 <ProjectTitle>{title}</ProjectTitle>
                 <ProjectDescription>{description}</ProjectDescription>

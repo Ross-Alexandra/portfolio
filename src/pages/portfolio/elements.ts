@@ -79,14 +79,28 @@ export const ProjectContainer = styled.div`
     height: 425px;
 `;
 
-export const PreviewImage = styled.img<IndexAwareImg>`
+export const PreviewImageLink = styled.a<IndexAwareImg>`
     position: absolute;
     top: 25px;
     height: 375px;
     width: auto;
     left: ${({index}: IndexAwareImg) => index % 2 ? '10%' : '45%'};
-    
-    //aspect-ratio: 4 / 3;
+
+    transition: transform 250ms;
+    :hover {
+        transform: scale(1.2);
+        z-index: 1;
+    }
+`;
+
+export const PreviewImage = styled.img`
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    height: 100%;
 `;
 
 export const ProjectInfoContainer = styled.div<IndexAwareDiv>`
