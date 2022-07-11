@@ -30,7 +30,7 @@ export function Project({project, index}: ProjectProps) {
 
     return (
         <ProjectContainer>
-            <PreviewImageLink index={index} href={externalLink ?? githubLink ?? ''}>
+            <PreviewImageLink index={index} href={externalLink ?? githubLink ?? ''}  target="_blank" rel="noopener noreferrer">
                 <PreviewImage src={previewImageUrl} />
             </PreviewImageLink>
             <ProjectInfoContainer index={index}>
