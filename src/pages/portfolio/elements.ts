@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import React, { HTMLProps } from "react";
-import { systemFont, portfolioActive, portfolioInactive, portfolioBackground200 } from "../../theme";
+import { systemFont, portfolioActive, portfolioBackground200 } from "../../theme";
 
 /***** index.tsx Stying *****/
 
@@ -42,15 +42,33 @@ export const NavItem = styled.h2<ActiveAwareProps>`
     line-height: 36px;
     text-transform: capitalize;
 
+    color: ${portfolioActive};
+    transition: filter 250ms;
+    :hover {
+        filter: grayscale(0);
+    }
+
     ${({active}: ActiveAwareProps) => active ? `
-        color: ${portfolioActive};
         cursor: default;
+        filter: grayscale(0);
     ` : `
-        color: ${portfolioInactive};
         cursor: pointer;
+        filter: grayscale(1);
     `}
 
+    :after {
+        content: '';
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        width: 100%;
+        height: 3px;
 
+        background-color: ${portfolioActive};
+
+        transition: transform 250ms;
+        transform: ${({active}: ActiveAwareProps) => active ? 'scaleX(1)' : 'scaleX(0)'};
+    }
 `;
 
 export const PortfolioBody = styled.div<PageIndexAwareProps>`
