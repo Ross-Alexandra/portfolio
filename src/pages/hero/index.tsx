@@ -42,7 +42,7 @@ export function Hero({appSection, setAppSection, paralaxHeight, scrollToBottom}:
                         selected={appSection === "portfolio"}
                         onClick={() => setAppSection("portfolio")}
                     >
-                        Portfolio
+                        Home
                     </NavigationLink>
                     <NavigationLink 
                         selected={appSection === "about"}
