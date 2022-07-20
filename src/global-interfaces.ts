@@ -10,3 +10,9 @@ export interface IProject {
     githubLink?: string;
     externalLink?: string;
 };
+
+export interface ISkill {
+    iconUrls: string[];
+    title: string;
+    description: string;
+};

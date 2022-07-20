@@ -5,7 +5,7 @@ import { SlideIn } from "../../components/slide-in";
 import { defaultFont, fancyFont, blackText, headerHeight, systemFont } from "../../theme";
 
 import HeroBGImage from '../../assets/hero-bg-image.png';
-import { Logo } from "../../elements";
+import { PortfolioLogo } from "../../icons";
 
 export interface SelectedAwareProps extends React.HTMLProps<HTMLElement> {
     selected: boolean;
@@ -57,7 +57,7 @@ export const HeroNav = styled.div<IntersectionAwareProps>`
     transition: top 200ms;
 `;
 
-export const HeroLogo = styled(Logo)`
+export const HeroLogo = styled(PortfolioLogo)`
     margin: 0px 0px 0px 30px;
 `;
 
