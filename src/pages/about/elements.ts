@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { PrimaryCTA, SecondaryCTA } from "../../elements";
 import { fancyFont, portfolioActive } from "../../theme";
 import BinaryBackground from '../../assets/binary-background.png';
+import { GithubLogo } from "../../icons";
 
 export const AboutMeContainer = styled.div`
     display: flex;
@@ -102,7 +103,19 @@ export const SocialIcon = styled.a`
     margin-top: 10px;
     border-radius: 50%;
 
-    background-color: ${portfolioActive};
+    background-color: black;
+    
+    :hover {
+        background-color: ${portfolioActive};
+    }
+`;
+
+export const StyledGithubLogo = styled(GithubLogo)`
+    fill: black;
+
+    :hover {
+        fill: ${portfolioActive};
+    }
 `;
 
 export const MySkills = styled.div`
@@ -113,7 +126,6 @@ export const MySkills = styled.div`
     column-gap: 15px;
     flex-grow: 1;
 `;
-
 
 // SKillBox elements.
 export const SkillBoxWrapper = styled.div`

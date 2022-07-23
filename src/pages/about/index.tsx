@@ -5,7 +5,7 @@ import { skills } from "../../skills";
 import { SkillBox } from "./skill-box";
 
 import HeadshotAlternate from '../../assets/headshot-alternate.png';
-import { LinkedInLogo, GithubLogo } from "../../icons";
+import { LinkedInLogo } from "../../icons";
 
 import {
     AboutMeContainer,
@@ -21,7 +21,8 @@ import {
     IntroPicture,
     SocialsLinks,
     SocialIcon,
-    MySkills
+    MySkills,
+    StyledGithubLogo
 } from './elements';
 
 export interface IAboutContent {
@@ -63,7 +64,7 @@ export function AboutContent({setAppSection, scrollToBottom}: IAboutContent) {
                     <IntroPicture src={HeadshotAlternate} />
                     <SocialsLinks>
                         <SocialIcon title='GitHub' href={'https://github.com/Ross-Alexandra'} style={{backgroundColor: 'white'}}>
-                            <GithubLogo width='35' height='35' />
+                            <StyledGithubLogo width='35' height='35' />
                         </SocialIcon>
                         <SocialIcon title='Linkedin' href={'https://www.linkedin.com/in/ross-alexandra-5201ab149/'}>
                             <LinkedInLogo fill='white' width='20' height='20' />

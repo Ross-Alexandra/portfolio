@@ -57,10 +57,18 @@ export const PrimaryCTA = styled.div`
     ${buttonCSS}
     color: black;
     background-color: ${portfolioActive};
+
+    :hover {
+        color: white;
+    }
 `;
 
 export const SecondaryCTA = styled.div`
     ${buttonCSS}
     color: black;
     background-color: ${portfolioActiveSecondary};
+
+    :hover {
+        color: white;
+    }
 `;
