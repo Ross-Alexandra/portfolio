@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { PrimaryCTA, SecondaryCTA } from "../../elements";
 import { fancyFont, portfolioActive } from "../../theme";
+import BinaryBackground from '../../assets/binary-background.png';
 
 export const AboutMeContainer = styled.div`
     display: flex;
@@ -62,6 +63,11 @@ export const IntroPictureBox = styled.div`
     justify-content: end;
     
     width: 45%;
+    
+    background-image: url('${BinaryBackground}');
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
 `;
 
 export const IntroPicture = styled.img`
