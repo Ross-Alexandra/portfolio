@@ -70,11 +70,17 @@ export const IntroPictureBox = styled.div`
     background-position: 50% 50%;
 `;
 
-export const IntroPicture = styled.img`
+export const IntroPicture = styled.div<{src: string}>`
     position: relative;
 
     height: 350px;
-    width: auto;
+    aspect-ratio: 3/4;
+
+    background-image: url('${({src}) => src}');
+    background-size: 100%;
+
+    box-shadow: 0px 0px 3px 3px #ffffff inset;
+    border-radius: 10px;
 `;
 
 export const SocialsLinks = styled.div`
