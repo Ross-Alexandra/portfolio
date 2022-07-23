@@ -13,6 +13,7 @@ export interface IProject {
 
 export interface ISkill {
     iconUrls: string[];
+    iconTitles: string[];
     title: string;
     description: string;
 };

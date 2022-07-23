@@ -42,7 +42,7 @@ export function Project({project, index}: ProjectProps) {
                     )}
                 </ProjectTechnologies>
                 <ExternalLinks>
-                    {githubLink && <GithubLink href={githubLink} target="_blank" rel="noopener noreferrer" />}
+                    {githubLink && <GithubLink title='GitHub' href={githubLink} target="_blank" rel="noopener noreferrer" />}
                     {externalLink && <ExternalLink href={externalLink} target="_blank" rel="noopener noreferrer" />}
                 </ExternalLinks>
             </ProjectInfoContainer>

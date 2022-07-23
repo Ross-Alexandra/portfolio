@@ -32,7 +32,7 @@ export function TheLab({active, setTopLevelPage}: TheLabProps) {
                     <SecondaryCTA onClick={() => setTopLevelPage('about')}>Read about me</SecondaryCTA>
                 </QuoteCTAsContainer>
             </QuoteContainer>
-            <ProjectsTitle>See my experiments</ProjectsTitle>
+            <ProjectsTitle>my experiments</ProjectsTitle>
             <ProjectsList>
                 Coming Soon TM
             </ProjectsList>

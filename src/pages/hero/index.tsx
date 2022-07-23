@@ -61,7 +61,7 @@ export function Hero({appSection, setAppSection, paralaxHeight, scrollToBottom}:
             <HeroScalingDiv intersection={heroIntersection}>
                 <ContentContainer>
                     {appSection === 'portfolio' && <HeroContent setAppSection={setAppSection} /> }
-                    {appSection === 'about' && <AboutContent setAppSection={setAppSection} />}
+                    {appSection === 'about' && <AboutContent setAppSection={setAppSection} scrollToBottom={scrollToBottom}/>}
                     {appSection === 'contact' && <ContactContent setAppSection={setAppSection} />}
                 </ContentContainer>
             </HeroScalingDiv>

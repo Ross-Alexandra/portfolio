@@ -41,6 +41,12 @@ export function App() {
   const setTopLevelPage = useCallback((newSection: IAppSection) => {
     setAppSection(newSection);
     scrollToTop();
+
+    // Scroll animation takes 250ms. Wait for 300, then scroll the
+    // portfolio page back to top, as if it is not at the top then
+    // scrolling back down the portfolio requires clicking
+    // the scroll button.
+    setTimeout(() => document.getElementById('portfolio-paralax')?.scrollTo(0, 0), 300);
   }, [scrollToTop, setAppSection]);
 
   useEffect(() => {

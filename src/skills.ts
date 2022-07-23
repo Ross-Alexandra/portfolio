@@ -13,19 +13,18 @@ import {
 export const skills: ISkill[] = [
     {
         iconUrls: [reactLogoUrl, nodeJSULogoUrl, mongoLogoUrl],
+        iconTitles: ['React', 'NodeJS', 'MongoDB'],
         title: 'Web Apps',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        description: 'I have built over a dozen single-page and multi-page apps across my time as a developer, both professionally and casually. In that time I’ve learned that it isn’t about what your app can do, it’s about how well the user can do it with your app'
     }, {
         iconUrls: [electonLogoUrl, typescriptLogoUrl, pythonMulticolorLogoUrl],
+        iconTitles: ['Electron', 'TypeScript', 'Python'],
         title: 'Desktop Apps',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-    }, {
-        iconUrls: [pythonMulticolorLogoUrl, reactLogoUrl, postgresLogoUrl],
-        title: 'Data Analysis and Visualization',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        description: 'When special requirements render web apps infeasible, I often turn to desktop apps. Rather than creating over-engineered & multi-layered tools, I leverage the ability of desktop apps to serve as both UI and API to create much simpler tools.'
     }, {
         iconUrls: [discordLogoUrl, pythonMulticolorLogoUrl, postgresLogoUrl],
-        title: 'Automation with Bots',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-    },
+        iconTitles: ['Discord Bot', 'Python', 'PostgreSQL'],
+        title: 'Bots as Apps',
+        description: 'When user interfaces get in the way of simple tools, I build Discord/Slack bots. I find that a well made command-interface can be much easier to learn and build, leading to more productive and happier users.'
+    }
 ];

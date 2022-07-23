@@ -53,12 +53,11 @@ export function HeroContent({setAppSection}: IHeroContent) {
                 <AboutContent>
                     <AboutPicture src={HeadshotImage} />
                     <AboutParagraph>
-                        Hi! My name is Ross Alexandra, I&apos;m a software engineer with a passion for building anything and everything.
-                        <br/>
-                        <br/>
-                        Throughout high school, university, and beyond I&apos;ve built projects in tons of disciplines, both professionally
-                        and in my spare time, including:
-                        <br/>
+                    Hi! My name is Ross Alexandra. I am a software engineer with a passion for building anything and everything.
+                    <br/>
+                    <br/>
+                    Over the past decade I have had many opportunities to develop a variety of projects, both professionally and
+                    casually, to meet the needs of an array of disciplines. Some examples are as follows:  
                     </AboutParagraph>
                     <AboutParagraphList>
                             • web and desktop apps,<br/>

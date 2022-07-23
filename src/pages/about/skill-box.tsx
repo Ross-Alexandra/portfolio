@@ -9,16 +9,17 @@ import {
 
 export interface SkillBoxProps {
     skillIconUrls: string[];
+    skillIconTitles: string[];
     skillTitle: string;
     skillDescription: string;
 };
 
-export function SkillBox({skillIconUrls, skillTitle, skillDescription}: SkillBoxProps) {
+export function SkillBox({skillIconUrls, skillIconTitles, skillTitle, skillDescription}: SkillBoxProps) {
     return (
         <SkillBoxWrapper>
             <SkillIcons>
                 {map(skillIconUrls, (url, index) => 
-                    <SkillIcon key={`${url}-${index}`} src={url} />
+                    <SkillIcon title={_.get(skillIconTitles, index, 'Unknown Icon')} key={`${url}-${index}`} src={url} />
                 )}
             </SkillIcons>
             <SkillTitle>{skillTitle}</SkillTitle>

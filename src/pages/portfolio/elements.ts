@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import React, { HTMLProps } from "react";
+import { externalLinkUrl } from "../../icons";
 import { systemFont, portfolioActive, portfolioBackground200 } from "../../theme";
 
 /***** index.tsx Stying *****/
@@ -148,11 +149,12 @@ export const ProjectDescription = styled.p`
     background-color: ${portfolioBackground200};
 
     width: 85%;
-    padding: 10px;
+    padding: 15px;
     border-radius: 10px;
     margin-top: 10px;
 
     white-space: pre-line;
+    line-height: 1.5;
 `;
 
 export const ProjectTechnologies = styled.div`
@@ -190,10 +192,10 @@ export const ExternalLink = styled.a`
     height: 21px;
 
     background-size: contain;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140.429' height='140.429' viewBox='0 0 37.155 37.155'%3E%3Cg stroke='%23fff'%3E%3Cpath d='M13.21 4.101H3.95v29.104h29.104v-9.26M29.085 8.07L14.533 22.622z' fill='none' stroke-width='6'/%3E%3Cpath d='M19.825.132L37.023 17.33V.132z' fill='%23fff' stroke-width='.265'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: url(${externalLinkUrl()});
     
     :hover {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140.429' height='140.429' viewBox='0 0 37.155 37.155'%3E%3Cg stroke='${portfolioActive.replace('#', '%23')}'%3E%3Cpath d='M13.21 4.101H3.95v29.104h29.104v-9.26M29.085 8.07L14.533 22.622z' fill='none' stroke-width='6'/%3E%3Cpath d='M19.825.132L37.023 17.33V.132z' fill='${portfolioActive.replace('#', '%23')}' stroke-width='.265'/%3E%3C/g%3E%3C/svg%3E");
+        background-image: url(${externalLinkUrl(portfolioActive)});
     }
 `;
 

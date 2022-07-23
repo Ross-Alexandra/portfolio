@@ -32,7 +32,7 @@ export function OtherProjects({active, setTopLevelPage}: OtherProjectsProps) {
                 <Quote>
                     Require someone to help produce a scalable &#38; robust backend service?
                     <br/>
-                    How about data analysis tool? Internal Library?
+                    How about a data analysis tool? An internal library?
                 </Quote>
                 <QuoteCTAsContainer>
                     <PrimaryCTA onClick={() => setTopLevelPage('contact')}>Email me!</PrimaryCTA>

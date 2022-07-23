@@ -6,14 +6,19 @@ export const AboutMeContainer = styled.div`
     display: flex;
     flex-direction: column;
 
-    padding: 30px 30px 30px 100px;
+    padding: 0px 30px 0px 100px;
+    height: 100%;
 `;
 
 export const IntroBox = styled.div`
     display: flex;
     flex-direction: row;
     
-    row-gap: 20px; 
+    row-gap: 20px;
+
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, .25);
 `;
 
 export const IntroTextBox = styled.div`
@@ -35,7 +40,8 @@ export const Title = styled.h3`
 `;
 
 export const IntroParagraph = styled.p`
-    margin-bottom: 35px;
+    margin-bottom: 10px;
+    line-height: 1.5;
 `;
 
 export const IntroCTAs = styled.div`
@@ -45,15 +51,15 @@ export const IntroCTAs = styled.div`
     justify-content: space-evenly;
 `;
 
-export const PortfolioButton = styled(SecondaryCTA)``;
+export const PortfolioButton = SecondaryCTA;
 
-export const ResumeButton = styled(PrimaryCTA)``;
-
-export const ContactButton = styled(SecondaryCTA)``;
+export const ContactButton = PrimaryCTA;
 
 export const IntroPictureBox = styled.div`
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
     
     width: 45%;
 `;
@@ -63,8 +69,6 @@ export const IntroPicture = styled.img`
 
     height: 350px;
     width: auto;
-
-    transform: rotateY(180deg);
 `;
 
 export const SocialsLinks = styled.div`
@@ -73,7 +77,7 @@ export const SocialsLinks = styled.div`
     align-items: center;
     justify-content: space-evenly;
 
-    height: 60px;
+    height: 45px;
     width: 400px;
 `;
 
@@ -81,36 +85,21 @@ export const SocialIcon = styled.a`
     display: grid;
     place-items: center;
 
-    height: 50px;
-    width: 50px;
+    height: 35px;
+    width: 35px;
     margin-top: 10px;
     border-radius: 50%;
 
     background-color: ${portfolioActive};
 `;
 
-export const ElevatorPitch = styled.div`
-    display: flex;
-    flex-direction: column;
-
-    padding-inline: 25%;
-    margin-bottom: 40px;
-`;
-
-export const ElevatorTitle = styled.h2`
-    padding-left: 15px;
-
-    border-left: 5px solid ${portfolioActive};
-`;
-
-export const ElevatorParagraph = styled.p``;
-
 export const MySkills = styled.div`
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: start;
     justify-content: space-evenly;
     column-gap: 15px;
+    flex-grow: 1;
 `;
 
 
