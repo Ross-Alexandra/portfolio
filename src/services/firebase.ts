@@ -3,9 +3,7 @@ import { getAnalytics } from "firebase/analytics";
 import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 import { getFunctions, connectFunctionsEmulator  } from 'firebase/functions';
 
-// TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-
 const firebaseConfig = {
   apiKey: "AIzaSyCfdHd3_5mFlBwUMIkToGpdiO0LCtnXAok",
   authDomain: "portfolio-f6e44.firebaseapp.com",
@@ -17,15 +15,20 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+
 const functions = getFunctions(app);
+if (process.env.NODE_ENV === 'development') {
+      console.log('connecting to function emulator');
+      connectFunctionsEmulator(functions, "localhost", 5001);
+}
+
 getAnalytics(app);
 
-if (process.env.NODE_ENV !== 'development') {
-    initializeAppCheck(app, {
-        provider: new ReCaptchaV3Provider('6LcMhRkhAAAAAP3ZwJ-jzYiCs1-7bvVgAeXKfwFn'),
-        isTokenAutoRefreshEnabled: true
-      });
-} else {
-    console.log('connecting to function emulator');
-    connectFunctionsEmulator(functions, "localhost", 5001);
+if (process.env.NODE_ENV === 'development') {
+    console.log('Setting app check to run in debug mode.');
+    window.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
 }
+initializeAppCheck(app, {
+    provider: new ReCaptchaV3Provider('6LcMhRkhAAAAAP3ZwJ-jzYiCs1-7bvVgAeXKfwFn'),
+    isTokenAutoRefreshEnabled: true
+});
