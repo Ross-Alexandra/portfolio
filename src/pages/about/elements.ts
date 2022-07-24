@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import { PrimaryCTA, SecondaryCTA } from "../../elements";
 import { fancyFont, portfolioActive } from "../../theme";
-import BinaryBackground from '../../assets/binary-background.png';
-import { GithubLogo } from "../../icons";
+import {BinaryBackground} from '../../assets';
+import { GithubLogo } from "../../assets/icons";
 
 export const AboutMeContainer = styled.div`
     display: flex;

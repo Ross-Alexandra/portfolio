@@ -1,4 +1,4 @@
-import { IProject } from "../../global-interfaces";
+import { IProject } from "../../dec";
 import {
     ProjectContainer,
     PreviewImage,

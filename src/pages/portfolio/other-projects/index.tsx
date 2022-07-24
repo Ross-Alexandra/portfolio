@@ -1,6 +1,6 @@
-import { projects } from '../../../projects';
+import { projects } from '../../../app-data/projects';
 import { Project } from '../project';
-import ProjectsBanner from '../../../assets/projects-banner.png';
+import {ProjectsBanner} from '../../../assets';
 
 import {
     OtherProjectsContainer
@@ -18,7 +18,7 @@ import {
     PrimaryCTA,
     SecondaryCTA
 } from '../../../elements';
-import { IAppSection } from '../../../global-interfaces';
+import { IAppSection } from '../../../dec';
 
 export interface OtherProjectsProps extends React.HTMLProps<HTMLDivElement> {
     active: boolean;

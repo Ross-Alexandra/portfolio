@@ -1,15 +1,18 @@
+// Initialize firebase stuff.
+import'./services/firebase';
+
 import { useCallback, useEffect, useState } from "react";
 
 import { Hero } from "./pages/hero";
 import { Portfolio } from "./pages/portfolio";
-import { IAppSection } from "./global-interfaces";
+import { IAppSection } from "./dec";
 import { useScreenSize } from "./hooks";
 
 import {
   ParalaxDiv,
   PageContent
 } from './elements';
-import { slowChangeValue } from "./helpers";
+import { slowChangeValue } from "./utils";
 
 export function App() {
   const [appSection, setAppSection] = useState<IAppSection>("portfolio");

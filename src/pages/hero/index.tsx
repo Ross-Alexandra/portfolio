@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { IAppSection } from "../../global-interfaces";
+import { IAppSection } from "../../dec";
 import { useScreenSize } from "../../hooks";
 import { AboutContent } from "../about";
 import { ContactContent } from "../contact";

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import React, { HTMLProps } from "react";
-import { externalLinkUrl } from "../../icons";
+import { externalLinkUrl } from "../../assets/icons";
 import { systemFont, portfolioActive, portfolioBackground200 } from "../../theme";
 
 /***** index.tsx Stying *****/

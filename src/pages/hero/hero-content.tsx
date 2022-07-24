@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import { IAppSection } from "../../global-interfaces";
+import { IAppSection } from "../../dec";
 
 import { 
     IntroTitle,
@@ -19,7 +19,7 @@ import {
     AboutCTAs,
     SlideInContainer
 } from "./elements";
-import HeadshotImage from '../../assets/headshot.png';
+import {HeadshotImage} from '../../assets';
 import { PrimaryCTA, SecondaryCTA } from "../../elements";
 
 export interface IHeroContent {

@@ -1,4 +1,4 @@
-import { ISkill } from "./global-interfaces";
+import { ISkill } from "../dec";
 import { 
     nodeJSULogoUrl,
     pythonMulticolorLogoUrl,
@@ -8,7 +8,7 @@ import {
     postgresLogoUrl,
     mongoLogoUrl,
     typescriptLogoUrl
-} from "./icons";
+} from "../assets";
 
 export const skills: ISkill[] = [
     {

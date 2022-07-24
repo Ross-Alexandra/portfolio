@@ -1,11 +1,11 @@
 import { map } from "lodash";
 import { Dispatch, SetStateAction } from "react";
-import { IAppSection } from "../../global-interfaces";
-import { skills } from "../../skills";
+import { IAppSection } from "../../dec";
+import { skills } from "../../app-data/skills";
 import { SkillBox } from "./skill-box";
 
-import HeadshotAlternate from '../../assets/headshot-alternate.png';
-import { LinkedInLogo } from "../../icons";
+import {HeadshotAlternate} from '../../assets';
+import { LinkedInLogo } from "../../assets/icons";
 
 import {
     AboutMeContainer,

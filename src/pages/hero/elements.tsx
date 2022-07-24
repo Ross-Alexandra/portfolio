@@ -4,8 +4,8 @@ import { RollingText } from "../../components/rolling-text";
 import { SlideIn } from "../../components/slide-in";
 import { defaultFont, fancyFont, blackText, headerHeight, systemFont } from "../../theme";
 
-import HeroBGImage from '../../assets/hero-bg-image.png';
-import { PortfolioLogo } from "../../icons";
+import {HeroBGImage} from '../../assets';
+import { PortfolioLogo } from "../../assets/icons";
 
 export interface SelectedAwareProps extends React.HTMLProps<HTMLElement> {
     selected: boolean;

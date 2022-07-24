@@ -1,5 +1,5 @@
 import React from "react";
-import { portfolioActive } from "./theme";
+import { portfolioActive } from "../theme";
 
 export interface ILogo extends React.SVGProps<SVGSVGElement> {
     primaryColor?: string;

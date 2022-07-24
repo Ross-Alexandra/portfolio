@@ -1,13 +1,13 @@
-import { IProject } from "./global-interfaces";
+import { IProject } from "../dec";
 
 // Import Porfolio images
-import StratmapperImage from './assets/stratbook.png';
-import PortfolioImage from './assets/portfolio.png';
-import SiegeGGScraperImage from './assets/siegegg-scraper.png';
-import CommsImage from './assets/comms.png';
-import ScrimSearch from './assets/scrim-search.png';
-import StatTracker from './assets/stat-tracker.png';
-import FullstackSpritesheets from './assets/fullstack-spritesheets.png';
+import {StratmapperImage} from '../assets';
+import {PortfolioImage} from '../assets';
+import {SiegeGGScraperImage} from '../assets';
+import {CommsImage} from '../assets';
+import {ScrimSearch} from '../assets';
+import {StatTracker} from '../assets';
+import {FullstackSpritesheets} from '../assets';
 
 export const projects: IProject[] = [
     {

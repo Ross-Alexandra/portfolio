@@ -1,7 +1,7 @@
 import {
     LabContainer
 } from './elements';
-import LabBanner from '../../../assets/lab-banner.png';
+import {LabBanner} from '../../../assets';
 
 import {
     QuoteContainer,
@@ -15,7 +15,7 @@ import {
     PrimaryCTA,
     SecondaryCTA
 } from '../../../elements';
-import { IAppSection } from '../../../global-interfaces';
+import { IAppSection } from '../../../dec';
 
 export interface TheLabProps extends React.HTMLProps<HTMLDivElement> {
     active: boolean;
