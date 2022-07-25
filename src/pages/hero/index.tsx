@@ -20,11 +20,12 @@ import { HeroContent } from "./hero-content";
 export interface HeroProps extends React.HTMLProps<HTMLDivElement> {
     appSection: IAppSection;
     setAppSection: Dispatch<SetStateAction<IAppSection>>;
+    setScrollingDisabled: Dispatch<SetStateAction<boolean>>;
     paralaxHeight: number;
     scrollToBottom: () => void;
 }
 
-export function Hero({appSection, setAppSection, paralaxHeight, scrollToBottom}: HeroProps) {
+export function Hero({appSection, setAppSection, paralaxHeight, scrollToBottom, setScrollingDisabled}: HeroProps) {
     const [heroIntersection, setHeroIntersection] = useState<number>(1);
     const [, viewportHeight] = useScreenSize();
 
@@ -62,7 +63,7 @@ export function Hero({appSection, setAppSection, paralaxHeight, scrollToBottom}:
                 <ContentContainer>
                     {appSection === 'portfolio' && <HeroContent setAppSection={setAppSection} /> }
                     {appSection === 'about' && <AboutContent setAppSection={setAppSection} scrollToBottom={scrollToBottom}/>}
-                    {appSection === 'contact' && <ContactContent setAppSection={setAppSection} />}
+                    {appSection === 'contact' && <ContactContent setAppSection={setAppSection} setScrollingDisabled={setScrollingDisabled} />}
                 </ContentContainer>
             </HeroScalingDiv>
             <ScrollBox onClick={scrollToBottom}>

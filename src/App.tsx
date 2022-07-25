@@ -16,6 +16,7 @@ import { slowChangeValue } from "./utils";
 
 export function App() {
   const [appSection, setAppSection] = useState<IAppSection>("portfolio");
+  const [scrollingDisabled, setScrollingDisabled] = useState<boolean>(false);
   const [, viewportHeight] = useScreenSize();
 
   const [paralaxHeight, setParalaxHeight] = useState(window.scrollY);
@@ -25,13 +26,19 @@ export function App() {
     const scrollTop = paralaxDiv?.scrollTop
 
     if (scrollTop === 0) setParalaxHeight((scrollHeight: number) => {
-          const update = scrollHeight + event.deltaY;
+        // If we're on the contact page, allow users to scroll up but not down
+        // if they're already scrolled all the way (so they can scroll on the
+        // text box).
+        if (scrollingDisabled) {
+            return scrollHeight;
+        }
 
-          if (update < 0) return 0;
-          else if (update > viewportHeight) return viewportHeight;
-          else return update;
-      });
-  }, [setParalaxHeight, viewportHeight]);
+        const update = scrollHeight + event.deltaY;
+        if (update < 0) return 0;
+        else if (update > viewportHeight) return viewportHeight;
+        else return update;
+    });
+  }, [setParalaxHeight, viewportHeight, scrollingDisabled]);
 
   const scrollToBottom = useCallback(() => {
     slowChangeValue(setParalaxHeight, 40, viewportHeight);
@@ -53,9 +60,7 @@ export function App() {
   }, [scrollToTop, setAppSection]);
 
   useEffect(() => {
-    if (appSection !== 'contact') {
-        window.addEventListener('wheel', onScrollCallback);
-    }
+    window.addEventListener('wheel', onScrollCallback);
 
     return () => window.removeEventListener('wheel', onScrollCallback);
   }, [onScrollCallback, appSection]);
@@ -67,6 +72,7 @@ export function App() {
         setAppSection={setAppSection}
         paralaxHeight={paralaxHeight}
         scrollToBottom={scrollToBottom}
+        setScrollingDisabled={setScrollingDisabled}
       />
       <ParalaxDiv 
         id="portfolio-paralax"

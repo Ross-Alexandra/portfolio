@@ -34,9 +34,10 @@ async function sendEmail(email: string, subject: string, message: string) {
 
 export interface IContactContent {
     setAppSection: Dispatch<SetStateAction<IAppSection>>;
+    setScrollingDisabled: Dispatch<SetStateAction<boolean>>;
 }
 
-export function ContactContent({setAppSection}: IContactContent) {
+export function ContactContent({setScrollingDisabled}: IContactContent) {
     const [emailError, setEmailError] = useState("");
     const [subjectError, setSubjectError] = useState("");
     const [messageError, setMessageError] = useState("");
@@ -97,6 +98,8 @@ export function ContactContent({setAppSection}: IContactContent) {
                         form='email-form'
                         placeholder="Your Message"
                         error={messageError}
+                        onFocus={() => setScrollingDisabled(true)}
+                        onBlur={() => setScrollingDisabled(false)}
                      />
                     {messageError && <ErrorText>{messageError}</ErrorText>}
                     <SubmitButton type='submit' value='Submit!' />
