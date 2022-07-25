@@ -53,10 +53,12 @@ export function App() {
   }, [scrollToTop, setAppSection]);
 
   useEffect(() => {
-      window.addEventListener('wheel', onScrollCallback);
+    if (appSection !== 'contact') {
+        window.addEventListener('wheel', onScrollCallback);
+    }
 
-      return () => window.removeEventListener('wheel', onScrollCallback);
-  }, [onScrollCallback]);
+    return () => window.removeEventListener('wheel', onScrollCallback);
+  }, [onScrollCallback, appSection]);
 
   return (
     <>

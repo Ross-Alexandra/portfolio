@@ -30,7 +30,7 @@ export const PageContent = styled.div`
     bottom: 0px;
 `;
 
-const buttonCSS = css`
+export const buttonCSS = css`
     text-align: center;
     text-transform: capitalize;
     font-family: ${systemFont};
@@ -53,7 +53,7 @@ const buttonCSS = css`
     }
 `;
 
-export const PrimaryCTA = styled.div`
+export const primaryButtonCSS = css`
     ${buttonCSS}
     color: black;
     background-color: ${portfolioActive};
@@ -63,7 +63,7 @@ export const PrimaryCTA = styled.div`
     }
 `;
 
-export const SecondaryCTA = styled.div`
+export const secondaryButtonCSS = css`
     ${buttonCSS}
     color: black;
     background-color: ${portfolioActiveSecondary};
@@ -71,4 +71,12 @@ export const SecondaryCTA = styled.div`
     :hover {
         color: white;
     }
+`;
+
+export const PrimaryCTA = styled.div`
+    ${primaryButtonCSS}
+`;
+
+export const SecondaryCTA = styled.div`
+    ${secondaryButtonCSS}
 `;

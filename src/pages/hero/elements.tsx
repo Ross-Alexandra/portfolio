@@ -2,7 +2,7 @@ import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import { RollingText } from "../../components/rolling-text";
 import { SlideIn } from "../../components/slide-in";
-import { defaultFont, fancyFont, blackText, headerHeight, systemFont } from "../../theme";
+import { defaultFont, fancyFont, blackText, headerHeight, systemFont, portfolioActive } from "../../theme";
 
 import {HeroBGImage} from '../../assets';
 import { PortfolioLogo } from "../../assets/icons";
@@ -214,8 +214,8 @@ export const ScrollBox = styled.div`
     }
 `;
 
-export const ScrollText = styled.p`
-    color: #949494;
+export const ScrollText = styled.p<{color: string | undefined}>`
+    color: ${({color='#949494'}) => color};
     font-size: 15px;
 `;
 
@@ -300,11 +300,11 @@ export const AboutParagraphList = styled.ul`
     align-self: start;
 `;
 
-export function ScrollHint({...props}: React.SVGProps<SVGSVGElement>) {
+export function ScrollHint({fill='#949494', ...props}: React.SVGProps<SVGSVGElement>) {
     return (
         <StyledSvg viewBox="0 0 9 40" {...props}>
             <g xmlns="http://www.w3.org/2000/svg" id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-                    <g id="arrow" fill="#949494" fillRule="nonzero">
+                    <g id="arrow" fill={fill} fillRule="nonzero">
                         <polygon id="Combined-Shape" points="5 35 9 35 4.5 40 0 35 4 35 4 0 5 0"/>
                     </g>
                 </g>

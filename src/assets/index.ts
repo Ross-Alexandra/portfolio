@@ -11,5 +11,6 @@ export {default as CommsImage} from './images/comms.png';
 export {default as ScrimSearch} from './images/scrim-search.png';
 export {default as StatTracker} from './images/stat-tracker.png';
 export {default as FullstackSpritesheets} from './images/fullstack-spritesheets.png';
+export {default as ContactBackdrop} from './images/contact-backdrop.png';
 
 export * from './icons';

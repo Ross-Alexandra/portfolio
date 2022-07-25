@@ -66,8 +66,8 @@ export function Hero({appSection, setAppSection, paralaxHeight, scrollToBottom}:
                 </ContentContainer>
             </HeroScalingDiv>
             <ScrollBox onClick={scrollToBottom}>
-                <ScrollText>Scroll</ScrollText>
-                <ScrollHint width="9px" height="40px"/>
+                <ScrollText color={appSection === 'contact' ? 'white' : undefined}>Scroll</ScrollText>
+                <ScrollHint width="9px" height="40px" fill={appSection === 'contact' ? 'white' : undefined}/>
             </ScrollBox>
         </HeroContainer>
     );
