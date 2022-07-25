@@ -29,6 +29,6 @@ if (process.env.NODE_ENV === 'development') {
     window.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
 }
 initializeAppCheck(app, {
-    provider: new ReCaptchaV3Provider('6LcMhRkhAAAAAP3ZwJ-jzYiCs1-7bvVgAeXKfwFn'),
+    provider: new ReCaptchaV3Provider('6LfsDhohAAAAAEOWs3uhRtkf_CuRd0LW3vXNCg4c'),
     isTokenAutoRefreshEnabled: true
 });

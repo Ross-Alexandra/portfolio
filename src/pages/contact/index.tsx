@@ -11,21 +11,24 @@ export function ContactContent({setAppSection}: IContactContent) {
     const onContactSend = useCallback(() => {
         async function fireRequest() {
             const functions = getFunctions();
-            const request = httpsCallable(functions, 'helloWorld');
+            const request = httpsCallable(functions, 'sendEmail');
             
             try {
-                const {data} = await request();
+                const {data} = await request({
+                    email: 'rossandus@hotmail.com',
+                    subject: 'Test Email',
+                    message: '<h1>From my test contact form</h1>'
+                });
                 console.log('Retrieved data =>', data);
             } catch (err) {
                 console.log('caught error =>', err);
             }
-
         }
 
         fireRequest();
     }, []);
 
     return (
-        <button onClick={onContactSend}>Coming Soon!</button>
+        <p>Coming Soon</p>
     )
 }
