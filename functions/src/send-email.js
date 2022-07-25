@@ -32,7 +32,7 @@ exports.sendEmail = functions
         const mail = {
             from: 'Ross-Alexandra@outlook.com',
             to: 'Ross-Alexandra@outlook.com',
-            subject: subject,
+            subject: `PORTFOLIO EMAIL: ${subject}`,
             text
         }; 
         try {

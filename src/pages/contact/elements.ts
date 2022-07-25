@@ -58,7 +58,7 @@ export const EmailForm = styled.form`
 
 export const textInputCSS = (error: string) => css`
     background-color: rgba(0, 0, 0, .05);
-    border: 1px solid ${error ? 'red' : portfolioActiveSecondary};
+    border: 1px solid ${error ? 'red' : portfolioActive};
     margin-bottom: ${error ? '0px' : '15px'};
 
     appearance: none;
@@ -76,6 +76,10 @@ export const textInputCSS = (error: string) => css`
         color: black;
         opacity: 0.5;
         font-family: ${systemFont};
+    }
+
+    :focus {
+        border-color: #5AFFFF;
     }
 `;
 
@@ -106,6 +110,9 @@ export const SubmitButton = styled.input`
     ${primaryButtonCSS}
 
     width: 150px;
-    height: 25px;
+    height: 30px;
     padding: unset;
+
+    outline: unset;
+    border: none;
 `;
