@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { primaryButtonCSS } from "../../elements";
-import { defaultFont, portfolioActive, portfolioActiveSecondary, systemFont } from "../../theme";
+import { defaultFont, portfolioActive, systemFont } from "../../theme";
 import { ContactBackdrop as ContactBackdropImage} from "../../assets";
 import { css } from "@emotion/react";
 
@@ -27,7 +27,8 @@ export const ContactBackdrop = styled.div`
 `;
 
 export const ContactMeContent = styled.div`
-    width: 750px;
+    width: 95vw;
+    max-width: 750px;
     height: 500px;
 
     display: flex;

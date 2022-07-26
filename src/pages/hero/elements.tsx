@@ -2,10 +2,11 @@ import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import { RollingText } from "../../components/rolling-text";
 import { SlideIn } from "../../components/slide-in";
-import { defaultFont, fancyFont, blackText, headerHeight, systemFont, portfolioActive } from "../../theme";
+import { defaultFont, fancyFont, blackText, headerHeight, systemFont } from "../../theme";
 
-import {HeroBGImage} from '../../assets';
+import {HeadshotImage, HeroBGImage} from '../../assets';
 import { PortfolioLogo } from "../../assets/icons";
+import { PrimaryCTA, SecondaryCTA } from "../../elements";
 
 export interface SelectedAwareProps extends React.HTMLProps<HTMLElement> {
     selected: boolean;
@@ -70,6 +71,14 @@ export const NavigationLinks = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+
+    @media (max-width: 780px) {
+        width: 50%;
+    }
+
+    @media (max-width: 545px) {
+        width: 75%;
+    }
 `;
 
 export const NavigationLink = styled.h2<SelectedAwareProps>`
@@ -108,6 +117,10 @@ export const NavigationLink = styled.h2<SelectedAwareProps>`
             opacity: 1;
         }
     `}
+
+    @media (max-width: 385px) {
+        font-size: 16px;
+    }
 `;
 
 export const ContentContainer = styled.div`
@@ -118,6 +131,25 @@ export const ContentContainer = styled.div`
     right: 0px;
 `;
 
+export const MobileImageBox = styled.div`
+    display: none;
+    position: absolute;
+    inset: 0px 50%;
+    transform: translate(-50%, 0);
+    
+    width: 150px;
+    height: 150px;
+
+    background-image: url('${HeadshotImage}');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+
+    @media (max-width: 550px) {
+        display: inherit;
+    }
+`;
+
 export const SlideInContainer = styled.div`
     height: 100%;
 
@@ -126,10 +158,27 @@ export const SlideInContainer = styled.div`
     justify-content: center;
 
     padding-left: 30px;
+
+    @media (max-width: 900px) {
+        padding-left: 10px;
+        row-gap: 20px;
+    }
 `;
 
 export const IntroSlideIn = styled(SlideIn)`
     height: 140px;
+
+    @media (max-width: 1050px) {
+        height: 100px;
+    }
+
+    @media (max-width: 780px) {
+        height: 85px;
+    }
+
+    @media (max-width: 385px) {
+        height: 40px;
+    }
 `;
 
 export const IntroTitle = styled.h2`
@@ -139,14 +188,62 @@ export const IntroTitle = styled.h2`
 
     user-select: none;
     cursor: default;
+
+    @media (max-width: 1050px) {
+        font-size: 100px;
+        line-height: 80px;
+    }
+
+    @media (max-width: 780px) {
+        font-size: 75px;
+        line-height: 60px;
+    }
+
+    @media (max-width: 550px) {
+        font-size: 60px;
+        line-height: 50px;
+    }
+
+    @media (max-width: 385px) {
+        font-size: 36px;
+        line-height: 30px;
+    }
 `;
 
 export const RollingSlideIn = styled(SlideIn)`
     height: 160px;
+
+    @media (max-width: 1050px) {
+        height: 100px;
+    }
+
+    @media (max-width: 780px) {
+        height: 80px;
+    }
+
+    @media (max-width: 385px) {
+        height: 35px;
+    }
 `;
 
 export const RollingTitles = styled(RollingText)`
     height: 160px;
+
+    @media (max-width: 1050px) {
+        height: 100px;
+    }
+
+    @media (max-width: 780px) {
+        height: 75px;
+    }
+
+    @media (max-width: 550px) {
+        height: 60px;
+    }
+
+    @media (max-width: 385px) {
+        height: 35px;
+    }
 `;
 
 export const RollingTitle = styled.h2`
@@ -159,10 +256,39 @@ export const RollingTitle = styled.h2`
 
     user-select: none;
     cursor: default;
+
+    @media (max-width: 1050px) {
+        font-size: 100px;
+        line-height: 80px;
+        margin-bottom: 0px;
+    }
+
+    @media (max-width: 780px) {
+        font-size: 75px;
+        line-height: 60px;
+    }
+
+    @media (max-width: 550px) {
+        font-size: 50px;
+        line-height: 50px;
+    }
+
+    @media (max-width: 385px) {
+        font-size: 36px;
+        line-height: 30px;
+    }
 `;
 
 export const QuoteSlideIn = styled(SlideIn)`
     height: 80px;
+
+    @media (max-width: 850px) {
+        height: 100px;
+    }
+
+    @media (max-width: 385px) {
+        height: 120px;
+    }
 `;
 
 export const QuoteBox = styled.p`
@@ -177,6 +303,15 @@ export const QuoteBox = styled.p`
     
     opacity: 0.75;
     border-left: 5px solid;
+
+    @media (max-width: 850px) {
+        width: 75%;
+        font-size: 14px;
+    }
+
+    @media (max-width: 385px) {
+        width: 90%;
+    }
 `;
 
 export const QuoteSignContainer = styled.span`
@@ -208,10 +343,6 @@ export const ScrollBox = styled.div`
     cursor: pointer;
 
     transform: translate(-50%, 0);
-
-    @media (max-height: 800px) {
-        left: 60%;
-    }
 `;
 
 export const ScrollText = styled.p<{color: string | undefined}>`
@@ -246,6 +377,14 @@ export const AboutContainer = styled.div`
     background-size: 100% auto;
 
     background-image: url(${HeroBGImage});
+
+    @media (max-height: 800px) {
+        display: none;
+    }
+
+    @media (max-width: 1500px) {
+        display: none;
+    }
 `;
 
 export const AboutContent = styled.div`
@@ -267,10 +406,6 @@ export const AboutContent = styled.div`
 
     background-color: white;
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
-
-    @media (max-height: 800px) {
-        display: none;
-    }
 `;
 
 export const AboutPicture = styled.img`
@@ -293,6 +428,10 @@ export const AboutCTAs = styled.div`
     width: 100%;
     margin-top: auto
 `;
+
+export const PrimaryAboutCTA = styled(PrimaryCTA)``;
+
+export const SecondaryAboutCTA = styled(SecondaryCTA)``;
 
 export const AboutParagraphList = styled.ul`
     padding-left: 20px;

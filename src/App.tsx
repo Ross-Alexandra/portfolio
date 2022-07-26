@@ -65,6 +65,12 @@ export function App() {
     return () => window.removeEventListener('wheel', onScrollCallback);
   }, [onScrollCallback, appSection]);
 
+  // Lock screen to portrait mode to avoid
+  // annoying styling stuff.
+  useEffect(() => {
+    window.screen.orientation.lock('portrait-primary');
+  }, []);
+
   return (
     <>
       <Hero 

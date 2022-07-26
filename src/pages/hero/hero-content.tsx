@@ -17,10 +17,12 @@ import {
     AboutParagraph,
     AboutParagraphList,
     AboutCTAs,
-    SlideInContainer
+    SlideInContainer,
+    PrimaryAboutCTA,
+    SecondaryAboutCTA,
+    MobileImageBox
 } from "./elements";
 import {HeadshotImage} from '../../assets';
-import { PrimaryCTA, SecondaryCTA } from "../../elements";
 
 export interface IHeroContent {
     setAppSection: Dispatch<SetStateAction<IAppSection>>;
@@ -28,6 +30,7 @@ export interface IHeroContent {
 export function HeroContent({setAppSection}: IHeroContent) {
     return (
         <>
+            <MobileImageBox />
             <SlideInContainer>
                 <IntroSlideIn direction="bottom">
                     <IntroTitle>Hi, I'm</IntroTitle>
@@ -67,8 +70,8 @@ export function HeroContent({setAppSection}: IHeroContent) {
                             • and even a 2D game
                         </AboutParagraphList>
                     <AboutCTAs>
-                        <PrimaryCTA onClick={() => setAppSection("about")}>Learn More</PrimaryCTA>
-                        <SecondaryCTA onClick={() => setAppSection("contact")}>Contact Me</SecondaryCTA>
+                        <PrimaryAboutCTA onClick={() => setAppSection("about")}>Learn More</PrimaryAboutCTA>
+                        <SecondaryAboutCTA onClick={() => setAppSection("contact")}>Contact Me</SecondaryAboutCTA>
                     </AboutCTAs>
                 </AboutContent>
             </AboutContainer>
