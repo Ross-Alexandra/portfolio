@@ -13,9 +13,9 @@ export const projects: IProject[] = [
     {
         type: "web",
         title: 'Stratbook',
-        description: `Stratbook is a strategy planning tool used by competitive teams in "Tom Clancy's Rainbow Six: Siege". It is used by dozens of players as a simpler solution to creating, saving, and sharing strategies.
+        description: `Stratbook is a strategy planning tool used by competitive teams in <i>Tom Clancy's Rainbow Six: Siege</i>. It is used by dozens of players as a simpler solution to creating, saving, and sharing strategies.
 
-        The original goal of this Strabook was to create a spiritual successor to a now defunct tool called Battleplanner. Once the original core was complete, I rebuilt it with more modern web-practices to learn better design and simultaneously learn the SVG spec better.
+        The original goal of this Stratbook was to create a spiritual successor to a now defunct tool called Battleplanner. Once the original core was complete, I rebuilt it with more modern web-practices to learn better design and simultaneously learn the SVG spec better.
         `,
         previewImageUrl: StratmapperImage,
         technologies: ["React", "JavaScript"],
@@ -32,7 +32,7 @@ export const projects: IProject[] = [
     {
         type: "web",
         title: 'ScrimSearch',
-        description: `ScrimSearch was used by competitive teams in "Tom Clancy's Rainbow Six: Siege" as a tool to help match them with other teams looking to scrim (practice). The tool will automatically match teams with similar times & map requests, and then send confirmation DMs to them on Discord which allows teams to plan weeks in advance for their scrims.`,
+        description: `ScrimSearch was used by competitive teams in <i>Tom Clancy's Rainbow Six: Siege</i> as a tool to help match them with other teams looking to scrim (practice). The tool will automatically match teams with similar times & map requests, and then send confirmation DMs to them on Discord, which allows teams to plan weeks in advance for their scrims.`,
         previewImageUrl: ScrimSearch,
         technologies: ["React", "JavaScript", "Python","Discord Bot", "PostgreSQL"],
         externalLink: "http://scrimsearch.theserverproject.com"
@@ -40,7 +40,7 @@ export const projects: IProject[] = [
     {
         type: "desktop",
         title: 'SiegeGG Scraper',
-        description: `As developers often know, data is king. This tool is a simple user interface on top of a web scraper to automatically grab and visualize data from professional "Tom Clancy's Rainbow Six: Siege" matches to allow for easier preparation.`,
+        description: `As developers often know, data is king. This tool is a simple user interface on top of a web scraper to automatically grab and visualize data from professional <i>Tom Clancy's Rainbow Six: Siege</i> matches to allow for easier preparation.`,
         previewImageUrl: SiegeGGScraperImage,
         technologies: ["Electron", "TypeScript", "Cheerio"],
         githubLink: "https://github.com/Ross-Alexandra/siegegg-scraper"
@@ -48,7 +48,7 @@ export const projects: IProject[] = [
     {
         type: "desktop",
         title: 'Comms',
-        description: `This was my first foray into desktop apps. I created this tool out of necessity while coaching a professional "Tom Clancy's Rainbow Six: Siege" team. When playing competitive FPS games, a common phrase is 'comms'. This in effect is telling other teammates to be quiet momentarily as they need to hear in-game audio. However, this is problematic as the communication from those teammates is often vital to winning a round. To fix this potential dilemma I created this 'half-deafen' tool. It allows a user to set a hotkey which will lower (but not necessarily mute) the volume of a specific app (Discord for our purposes). This allowed players to hear the game when needed, but still have access to the team's comms.`,
+        description: `This was my first foray into desktop apps. I created this tool out of necessity while coaching a professional <i>Tom Clancy's Rainbow Six: Siege</i> team. When playing competitive FPS games, a common phrase is 'comms'. This in effect is telling other teammates to be quiet momentarily as they need to hear in-game audio. However, this is problematic, as the communication from teammates is often vital to winning a round. To fix this potential dilemma, I created this 'half-deafen' tool. It allows a user to set a hotkey which will lower (but not necessarily mute) the volume of a specific app (Discord for our purposes). This allowed players to hear the game when needed, but still have access to the team's comms.`,
         previewImageUrl: CommsImage,
         technologies: ["Electron", "JavaScript", "Python", "WinAPI"],
         githubLink: "https://github.com/Ross-Alexandra/comms"
@@ -65,7 +65,7 @@ export const projects: IProject[] = [
     {
         type: "other",
         title: 'Stat Tracker',
-        description: `Stat Tracker is a discord bot I built to allow competitive “Tom Clancy's Rainbow Six: Siege” teams to track and aggregate their stats for games they've played. I created this tool to better understand the trends I was seeing as their coach. This tool allows users to upload a file generated by a third-party tool using a Discord bot. After processing, teams can then send another command to check the data (grouped by various user-defined tags) at any time.`,
+        description: `Stat Tracker is a discord bot I built to allow competitive <i>Tom Clancy's Rainbow Six: Siege</i> teams to track and aggregate their stats for games they've played. I created this tool to better understand the trends I was seeing as their coach. This tool allows users to upload a file generated by a third-party tool using a Discord bot. After processing, teams can then send another command to check the data (grouped by various user-defined tags) at any time.`,
         previewImageUrl: StatTracker,
         technologies: ["Python", "Discord Bot", "PostgreSQL"],
         githubLink: "https://github.com/Ross-Alexandra/siegeAnalyzer"

@@ -35,7 +35,7 @@ export function Project({project, index}: ProjectProps) {
             </PreviewImageLink>
             <ProjectInfoContainer index={index}>
                 <ProjectTitle>{title}</ProjectTitle>
-                <ProjectDescription>{description}</ProjectDescription>
+                <ProjectDescription dangerouslySetInnerHTML={{__html: description}} />
                 <ProjectTechnologies>
                     {technologies.map((technology, index) => 
                         <Technology key={`${index}-${technology}`}>{technology}</Technology>
