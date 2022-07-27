@@ -8,13 +8,11 @@ import {
     Quote,
     QuoteCTAsContainer,
     ProjectsList,
-    ProjectsTitle
+    ProjectsTitle,
+    ProjectPrimaryCTA,
+    ProjectSecondaryCTA
 } from '../elements';
 
-import {
-    PrimaryCTA,
-    SecondaryCTA
-} from '../../../elements';
 import { IAppSection } from '../../../dec';
 
 export interface TheLabProps extends React.HTMLProps<HTMLDivElement> {
@@ -28,8 +26,8 @@ export function TheLab({active, setTopLevelPage}: TheLabProps) {
             <QuoteContainer backgroundImage={LabBanner} backgroundPositionY={'100%'} overlayOpacityHex={'80'}>
                 <Quote>Interested in someone who&lsquo;s always learning?</Quote>
                 <QuoteCTAsContainer>
-                    <PrimaryCTA onClick={() => setTopLevelPage('contact')}>Connect with me</PrimaryCTA>
-                    <SecondaryCTA onClick={() => setTopLevelPage('about')}>Read about me</SecondaryCTA>
+                    <ProjectPrimaryCTA onClick={() => setTopLevelPage('contact')}>Connect with me</ProjectPrimaryCTA>
+                    <ProjectSecondaryCTA onClick={() => setTopLevelPage('about')}>Read about me</ProjectSecondaryCTA>
                 </QuoteCTAsContainer>
             </QuoteContainer>
             <ProjectsTitle>my experiments</ProjectsTitle>

@@ -11,13 +11,11 @@ import {
     Quote,
     QuoteCTAsContainer,
     ProjectsList,
-    ProjectsTitle
+    ProjectsTitle,
+    ProjectPrimaryCTA,
+    ProjectSecondaryCTA
 } from '../elements';
 
-import {
-    PrimaryCTA,
-    SecondaryCTA
-} from '../../../elements';
 import { IAppSection } from "../../../dec";
 
 export interface WebProjectProps extends React.HTMLProps<HTMLDivElement> {
@@ -31,8 +29,8 @@ export function WebProjects({active, setTopLevelPage}: WebProjectProps) {
             <QuoteContainer backgroundImage={ProjectsBanner} backgroundPositionY={'45%'}>
                 <Quote>Want someone to help create beautiful &#38; accessible web apps?</Quote>
                 <QuoteCTAsContainer>
-                    <PrimaryCTA onClick={() => setTopLevelPage('contact')}>Get in touch</PrimaryCTA>
-                    <SecondaryCTA onClick={() => setTopLevelPage('about')}>Learn about me</SecondaryCTA>
+                    <ProjectPrimaryCTA onClick={() => setTopLevelPage('contact')}>Get in touch</ProjectPrimaryCTA>
+                    <ProjectSecondaryCTA onClick={() => setTopLevelPage('about')}>Learn about me</ProjectSecondaryCTA>
                 </QuoteCTAsContainer>
             </QuoteContainer>
             <ProjectsTitle>My Web Apps</ProjectsTitle>

@@ -66,9 +66,12 @@ export function App() {
   }, [onScrollCallback, appSection]);
 
   // Lock screen to portrait mode to avoid
-  // annoying styling stuff.
+  // annoying styling stuff. Reset scroll
+  // to 0 to prevent issues with
+  // scrolling after refresh.
   useEffect(() => {
     window.screen.orientation.lock('portrait-primary');
+    document.getElementById('portfolio-paralax')?.scrollTo(0, 0);
   }, []);
 
   return (

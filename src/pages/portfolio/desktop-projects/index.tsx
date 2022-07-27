@@ -11,13 +11,11 @@ import {
     Quote,
     QuoteCTAsContainer,
     ProjectsList,
-    ProjectsTitle
+    ProjectsTitle,
+    ProjectPrimaryCTA,
+    ProjectSecondaryCTA
 } from '../elements';
 
-import {
-    PrimaryCTA,
-    SecondaryCTA
-} from '../../../elements';
 import { IAppSection } from '../../../dec';
 
 export interface DesktopProjectsProps extends React.HTMLProps<HTMLDivElement> {
@@ -31,8 +29,8 @@ export function DesktopProjects({active, setTopLevelPage}: DesktopProjectsProps)
             <QuoteContainer backgroundImage={ProjectsBanner} backgroundPositionY={'69%'}>
                 <Quote>Need someone to help build powerful &#38; dynamic desktop apps?</Quote>
                 <QuoteCTAsContainer>
-                    <PrimaryCTA onClick={() => setTopLevelPage('contact')}>Contact me</PrimaryCTA>
-                    <SecondaryCTA onClick={() => setTopLevelPage('about')}>Get to know me</SecondaryCTA>
+                    <ProjectPrimaryCTA onClick={() => setTopLevelPage('contact')}>Contact me</ProjectPrimaryCTA>
+                    <ProjectSecondaryCTA onClick={() => setTopLevelPage('about')}>Get to know me</ProjectSecondaryCTA>
                 </QuoteCTAsContainer>
             </QuoteContainer>
             <ProjectsTitle>My Desktop Apps</ProjectsTitle>

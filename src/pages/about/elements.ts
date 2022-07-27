@@ -8,12 +8,10 @@ export const AboutMeContainer = styled.div`
     display: flex;
     flex-direction: column;
 
-    padding: 0px 30px 0px 100px;
+    padding: 0px 30px 0px 30px;
     height: 100%;
 
-    @media (max-width: 1025px) {
-        padding-left: 30px;
-    }
+    overflow: hidden;
 `;
 
 export const IntroBox = styled.div`
@@ -34,10 +32,6 @@ export const IntroBox = styled.div`
     @media (max-height: 830px) {
         border-bottom: unset;
     }
-
-    @media (max-width: 725px) {
-        height: 80%;
-    }
 `;
 
 export const IntroTextBox = styled.div`
@@ -49,17 +43,16 @@ export const IntroTextBox = styled.div`
         width: 70%;
     }
 
-    @media (max-width: 1300px) {
+    @media (max-width: 1450px) {
         width: 80%;
     }
 
-    @media (max-width: 1025px) {
+    @media (max-width: 1100px) {
         width: 100%;
     }
 
     @media (max-width: 725px) {
         height: calc(100% - 100px);
-        padding-top: 100px;
     }
 `;
 
@@ -68,7 +61,7 @@ export const Name = styled.h1`
     font-size: 76px;
     font-wieght: 700;
 
-    @media (max-width: 1300px) {
+    @media (max-width: 1450px) {
         font-size: 50px;
     }
 
@@ -149,7 +142,7 @@ export const IntroPictureBox = styled.div`
         background-position: 50% 75%;
     }
 
-    @media (max-width: 1025px) {
+    @media (max-width: 1100px) {
         display: none;
     }
 `;
@@ -166,7 +159,7 @@ export const IntroPicture = styled.div<{src: string}>`
     box-shadow: 0px 0px 3px 3px #ffffff inset;
     border-radius: 10px;
 
-    @media (max-width: 1300px) {
+    @media (max-width: 1450px) {
         height: 250px;
     }
 `;
@@ -211,10 +204,20 @@ export const MySkills = styled.div`
     align-items: start;
     justify-content: space-evenly;
     column-gap: 15px;
-    flex-grow: 1;
 
-    @media (max-height: 830px) {
+    @media (max-height: 830px) and (min-width: 500px) {
         display: none;
+    }
+
+    @media (max-height: 785px) and (max-width: 500px) {
+        display: none;
+    }
+
+    @media (max-width: 1000px) {
+        width: 100%;
+        overflow: scroll;
+
+        justify-content: start;
     }
 `;
 
@@ -227,6 +230,11 @@ export const SkillBoxWrapper = styled.div`
 
     @media (max-height: 950px) {
         width: 30%;
+    }
+
+    @media (max-width: 1000px) {
+        width: 90%;
+        flex-shrink: 0;
     }
 `;
 

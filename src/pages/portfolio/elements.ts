@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import React, { HTMLProps } from "react";
 import { externalLinkUrl } from "../../assets/icons";
+import { PrimaryCTA, SecondaryCTA } from "../../elements";
 import { systemFont, portfolioActive, portfolioBackground200 } from "../../theme";
 
 /***** index.tsx Stying *****/
@@ -47,6 +48,10 @@ export const NavItem = styled.h2<ActiveAwareProps>`
     transition: filter 250ms;
     :hover {
         filter: grayscale(0);
+    }
+
+    @media (max-width: 550px) {
+        font-size: 14px;
     }
 
     ${({active}: ActiveAwareProps) => active ? `
@@ -96,6 +101,16 @@ interface IndexAwareDiv extends React.HTMLProps<HTMLDivElement> {
 export const ProjectContainer = styled.div`
     position: relative;
     height: 425px;
+
+    @media (max-width: 1250px) {
+        height: unset;
+        margin-bottom: 50px;
+    }
+
+    @media (max-width: 675px) {
+        display: flex;
+        flex-direction: column-reverse;
+    }
 `;
 
 export const PreviewImageLink = styled.a<IndexAwareImg>`
@@ -106,20 +121,37 @@ export const PreviewImageLink = styled.a<IndexAwareImg>`
     left: ${({index}: IndexAwareImg) => index % 2 ? '10%' : '45%'};
 
     transition: transform 250ms;
-    :hover {
-        transform: scale(1.1);
-        z-index: 1;
+
+    @media (min-width: 1251px) {
+        :hover {
+            transform: scale(1.1);
+            z-index: 1;
+        }
+    }
+
+    @media (max-width: 1250px) {
+        position: relative;
+        float: left;
+        left: 0px;
+        top: 0px;
+        margin-block: 50px;
+
+        height: unset;
+    }
+
+    @media (max-width: 675px) {
+        margin: 10px 0px 25px 0px;
     }
 `;
 
 export const PreviewImage = styled.img`
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-
     height: 100%;
+
+    @media (max-width: 1250px) {
+        height: unset;
+        width: 95%;
+        margin-left: 2.5%;
+    }
 `;
 
 export const ProjectInfoContainer = styled.div<IndexAwareDiv>`
@@ -133,6 +165,32 @@ export const ProjectInfoContainer = styled.div<IndexAwareDiv>`
     flex-direction: column;
     align-items: ${({index}: IndexAwareDiv) => index % 2 ? 'flex-end' : 'flex-start'};
     justify-content: space-evenly;
+
+    @media (max-width: 1250px) {
+        display: grid;
+        grid-template-columns: 75fr 25fr;
+        grid-template-rows: 50px 1fr 50px;
+
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+
+        h3 {
+            text-align: ${({index}: IndexAwareDiv) => index % 2 ? 'right' : 'left'};
+        }
+    }
+
+    @media (max-width: 675px) {
+        top: 0px;
+        left: 0px;
+        position: relative;
+        background-color: transparent;
+    }
+
+    @media (max-width: 400px) {
+        grid-template-rows: 50px 1fr auto;
+    }
 `;
 
 export const ProjectTitle = styled.h3`
@@ -142,6 +200,15 @@ export const ProjectTitle = styled.h3`
     color: white;
 
     margin: 20px 0px 10px 0px;
+
+    @media (max-width: 1250px) {
+        margin: 0px 50px 10px 50px;
+        grid-column: -1/1;
+    }
+
+    @media (max-width: 675px) {
+        margin-inline: 5vw;
+    }
 `;
 
 export const ProjectDescription = styled.p`
@@ -155,12 +222,38 @@ export const ProjectDescription = styled.p`
 
     white-space: pre-line;
     line-height: 1.5;
+
+    @media (max-width: 1250px) {
+        margin: auto;
+        background-color: ${portfolioBackground200}f0;
+        grid-column: -1/1;
+    }
 `;
 
 export const ProjectTechnologies = styled.div`
     display: flex;
     flex-direction: row;
     gap: 15px;
+
+    @media (max-width: 1250px) {
+        padding-top: 5px;
+        align-self: start;
+        margin-left: 50px;
+    }
+
+    @media (max-width: 1000px) {
+        gap: 10px;
+        font-size: 14px;
+    }
+
+    @media (max-width: 675px) {
+        margin-left: 5vw;
+    }
+
+    @media (max-width: 400px) {
+        flex-direction: column;
+        padding-top: 10px;
+    }
 `;
 
 export const Technology = styled.h4`
@@ -173,6 +266,21 @@ export const ExternalLinks = styled.div`
     gap: 40px;
 
     align-items: center;
+
+    @media (max-width: 1250px) {
+        padding-top: 5px;
+        justify-self: end;
+        align-self: start;
+        margin-right: 50px;
+    }
+
+    @media (max-width: 675px) {
+        margin-right: 5vw;
+    }
+
+    @media (max-width: 400px) {
+        padding-top: 10px;
+    }
 `;
 
 export const GithubLink = styled.a`
@@ -199,11 +307,14 @@ export const ExternalLink = styled.a`
     }
 `;
 
+/**** Project Quote Area  *****/
+
 export interface IQuoteContainer extends HTMLProps<HTMLDivElement> {
     backgroundImage: string;
     backgroundPositionY: string;
     overlayOpacityHex?: string;
 }
+
 export const QuoteContainer = styled.div<IQuoteContainer>`
     display: grid;
     grid-gap: 25px;
@@ -214,21 +325,32 @@ export const QuoteContainer = styled.div<IQuoteContainer>`
     background: 
         ${({overlayOpacityHex='c0'}) => `linear-gradient(0, #000000${overlayOpacityHex}, #000000${overlayOpacityHex})`},
         url(${({backgroundImage}) => backgroundImage});
-    background-size: 100% auto;
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position-y: ${({backgroundPositionY}) => backgroundPositionY};
+
+    @media (max-width: 400px) {
+        background-size: 100% 100%;
+    }
 `;
 
 export const Quote = styled.h2`
     margin: unset;
     text-align: center;
-    //text-transform: capitalize;
     align-self: end;
 
     width: 75%;
 
     color: white;
     font-size: 32px;
+
+    @media (max-width: 500px) {
+        font-size: 24px;
+    }
+
+    @media (max-width: 400px) {
+        font-size: 19px;
+    }
 `;
 
 export const QuoteCTAsContainer = styled.div`
@@ -238,6 +360,33 @@ export const QuoteCTAsContainer = styled.div`
     justify-content: space-evenly;
 
     width: 50%;
+
+    @media (max-width: 650px) {
+        width: 80%;
+    }
+
+    @media (max-width: 400px) {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        row-gap: 10px;
+    }
+`;
+
+export const ProjectPrimaryCTA = styled(PrimaryCTA)`
+    @media (max-width: 715px) {
+        font-size: 15px;
+        padding-inline: 10px;
+    }
+`;
+
+export const ProjectSecondaryCTA = styled(SecondaryCTA)`
+    @media (max-width: 715px) {
+        font-size: 15px;
+        padding-inline: 10px;
+    }
 `;
 
 export const ProjectsList = styled.div`

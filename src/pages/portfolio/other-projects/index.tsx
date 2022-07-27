@@ -11,13 +11,11 @@ import {
     Quote,
     QuoteCTAsContainer,
     ProjectsList,
-    ProjectsTitle
+    ProjectsTitle,
+    ProjectSecondaryCTA,
+    ProjectPrimaryCTA
 } from '../elements';
 
-import {
-    PrimaryCTA,
-    SecondaryCTA
-} from '../../../elements';
 import { IAppSection } from '../../../dec';
 
 export interface OtherProjectsProps extends React.HTMLProps<HTMLDivElement> {
@@ -35,8 +33,8 @@ export function OtherProjects({active, setTopLevelPage}: OtherProjectsProps) {
                     How about a data analysis tool? An internal library?
                 </Quote>
                 <QuoteCTAsContainer>
-                    <PrimaryCTA onClick={() => setTopLevelPage('contact')}>Email me!</PrimaryCTA>
-                    <SecondaryCTA onClick={() => setTopLevelPage('about')}>See my history</SecondaryCTA>
+                    <ProjectPrimaryCTA onClick={() => setTopLevelPage('contact')}>Email me!</ProjectPrimaryCTA>
+                    <ProjectSecondaryCTA onClick={() => setTopLevelPage('about')}>See my history</ProjectSecondaryCTA>
                 </QuoteCTAsContainer>
             </QuoteContainer>
             <ProjectsTitle>My Other Projects</ProjectsTitle>

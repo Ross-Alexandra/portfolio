@@ -1,5 +1,5 @@
 import { map } from "lodash";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useCallback, useRef } from "react";
 import { IAppSection } from "../../dec";
 import { skills } from "../../app-data/skills";
 import { SkillBox } from "./skill-box";
@@ -33,6 +33,25 @@ export interface IAboutContent {
 
 export function AboutContent({setAppSection, scrollToBottom}: IAboutContent) {
     const [screenWidth] = useScreenSize();
+
+    const mySkillsRef = useRef<HTMLDivElement>();
+    const skillsOnClick = useCallback(() => {
+        if (mySkillsRef.current && screenWidth < 1000) {
+            const {width: skillsRefWidth} = mySkillsRef.current.getBoundingClientRect()
+            
+            if (skillsRefWidth + mySkillsRef.current.scrollLeft >= mySkillsRef.current.scrollWidth) {
+                mySkillsRef.current.scrollTo({
+                    left: 0,
+                    behavior: 'smooth'
+                });
+            } else {
+                mySkillsRef.current.scrollBy({
+                    left: (skillsRefWidth * .9) + 10,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    }, [screenWidth]);
 
     return (
         <AboutMeContainer>
@@ -84,7 +103,7 @@ export function AboutContent({setAppSection, scrollToBottom}: IAboutContent) {
                     </SocialsLinks>
                 </IntroPictureBox>
             </IntroBox>
-            <MySkills>
+            <MySkills ref={(ref) => mySkillsRef.current = ref ?? undefined} onClick={skillsOnClick}>
                 {map(skills, ({iconUrls, iconTitles, title, description}) => 
                     <SkillBox 
                         key={title}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { IAppSection } from '../../dec';
 import { DesktopProjects } from './desktop-projects';
 import {
@@ -30,10 +30,21 @@ function getPageIndex(page: PortfolioPage): number {
 }
 
 export function Portfolio({setTopLevelPage}: PortfolioProps) {
-    const [currentPage, setCurrentPage] = useState<PortfolioPage>("web");
+    const [currentPage, _setCurrentPage] = useState<PortfolioPage>("web");
     const [bodyHeight, setBodyHeight] = useState(document.getElementById(`${currentPage}-projects`)?.getBoundingClientRect().height);
     const pageIndex = getPageIndex(currentPage);
     
+    // When changing the current page, make sure
+    // that we scroll back to the top for convenience.
+    const setCurrentPage = useCallback((newPage: PortfolioPage) => {
+        _setCurrentPage(newPage);
+        document.getElementById('portfolio-paralax')?.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    }, [_setCurrentPage]);
+
     useEffect(() => {
         setTimeout(() => {
             setBodyHeight(document.getElementById(`${currentPage}-projects`)?.getBoundingClientRect().height);
