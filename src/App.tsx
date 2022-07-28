@@ -17,9 +17,14 @@ import { slowChangeValue } from "./utils";
 export function App() {
   const [appSection, setAppSection] = useState<IAppSection>("portfolio");
   const [scrollingDisabled, setScrollingDisabled] = useState<boolean>(false);
-  const [, viewportHeight] = useScreenSize();
 
   const [paralaxHeight, setParalaxHeight] = useState(window.scrollY);
+  const [, viewportHeight] = useScreenSize(() => {}, (prevHeight, nextHeight) => {
+    setParalaxHeight(prevParalaxHeight => {
+        const heightDelta = nextHeight  - prevHeight;
+        return heightDelta + prevParalaxHeight;
+    });
+  });
 
   const scrollPage = useCallback((deltaY: number) => {
     const paralaxDiv = document.getElementById('portfolio-paralax');
