@@ -21,7 +21,7 @@ export function App() {
 
   const [paralaxHeight, setParalaxHeight] = useState(window.scrollY);
 
-  const onScrollCallback = useCallback((event: WheelEvent) => {
+  const scrollPage = useCallback((deltaY: number) => {
     const paralaxDiv = document.getElementById('portfolio-paralax');
     const scrollTop = paralaxDiv?.scrollTop
 
@@ -33,12 +33,25 @@ export function App() {
             return scrollHeight;
         }
 
-        const update = scrollHeight + event.deltaY;
+        const update = scrollHeight + deltaY;
         if (update < 0) return 0;
         else if (update > viewportHeight) return viewportHeight;
         else return update;
     });
   }, [setParalaxHeight, viewportHeight, scrollingDisabled]);
+
+  const onScrollCallback = useCallback((e: WheelEvent) => {
+    scrollPage(e.deltaY);
+  }, [scrollPage]);
+
+  const [touchStart, setTouchStart] = useState<number | undefined>();
+  const onTouchCallback = useCallback((e: TouchEvent) => {
+    setTouchStart(e.touches[0].pageY);
+  }, []);
+  const onTouchMoveCallback = useCallback((e: TouchEvent) => {
+    scrollPage(-2 * (e.touches[0].pageY - (touchStart ?? 0)));
+    setTouchStart(e.touches[0].pageY);
+  }, [touchStart, scrollPage]);
 
   const scrollToBottom = useCallback(() => {
     slowChangeValue(setParalaxHeight, 40, viewportHeight);
@@ -61,9 +74,15 @@ export function App() {
 
   useEffect(() => {
     window.addEventListener('wheel', onScrollCallback);
+    window.addEventListener('touchstart', onTouchCallback);
+    window.addEventListener('touchmove', onTouchMoveCallback);
 
-    return () => window.removeEventListener('wheel', onScrollCallback);
-  }, [onScrollCallback, appSection]);
+    return () => {
+        window.removeEventListener('wheel', onScrollCallback);
+        window.removeEventListener('touchstart', onTouchCallback);
+        window.removeEventListener('touchmove', onTouchMoveCallback);
+    }
+  }, [onScrollCallback, onTouchCallback, onTouchMoveCallback]);
 
   // Lock screen to portrait mode to avoid
   // annoying styling stuff. Reset scroll
