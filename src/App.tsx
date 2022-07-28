@@ -98,6 +98,14 @@ export function App() {
     document.getElementById('portfolio-paralax')?.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    if (paralaxHeight <= 0) {
+        document.body.style.overscrollBehaviorY = 'contain';
+    } else {
+        document.body.style.overscrollBehaviorY = 'auto';
+    }
+  }, [paralaxHeight]);
+
   return (
     <>
       <Hero 
