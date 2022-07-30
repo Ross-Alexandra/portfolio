@@ -35,7 +35,7 @@ export const projects: IProject[] = [
         description: `ScrimSearch was used by competitive teams in <i>Tom Clancy's Rainbow Six: Siege</i> as a tool to help match them with other teams looking to scrim (practice). The tool will automatically match teams with similar times & map requests, and then send confirmation DMs to them on Discord, which allows teams to plan weeks in advance for their scrims.`,
         previewImageUrl: ScrimSearch,
         technologies: ["React", "JavaScript", "Python","Discord Bot", "PostgreSQL"],
-        externalLink: "http://scrimsearch.theserverproject.com"
+        githubLink: "https://github.com/Ross-Alexandra/ScrimFinder"
     },
     {
         type: "desktop",
