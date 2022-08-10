@@ -63,11 +63,11 @@ export function HeroContent({setAppSection}: IHeroContent) {
                     casually, to meet the needs of an array of disciplines. Some examples are as follows:  
                     </AboutParagraph>
                     <AboutParagraphList>
-                            • web and desktop apps,<br/>
-                            • data analysis &amp; visualization tools,<br/>
-                            • simple machine learning models,<br/>
-                            • basic embedded systems,<br/>
-                            • and even a 2D game
+                            • Web and desktop apps,<br/>
+                            • Data analysis &amp; visualization tools,<br/>
+                            • Simple machine learning models,<br/>
+                            • Basic embedded systems,<br/>
+                            • And even a 2D game
                         </AboutParagraphList>
                     <AboutCTAs>
                         <PrimaryAboutCTA onClick={() => setAppSection("about")}>Learn More</PrimaryAboutCTA>
