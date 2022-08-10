@@ -13,6 +13,8 @@ import {
     PreviewImageLink
 } from './elements';
 
+const GithubLinkElement = GithubLink('white');
+
 export interface ProjectProps extends React.HTMLProps<HTMLDivElement> {
     project: IProject;
     index: number;
@@ -42,7 +44,7 @@ export function Project({project, index}: ProjectProps) {
                     )}
                 </ProjectTechnologies>
                 <ExternalLinks>
-                    {githubLink && <GithubLink title='GitHub' href={githubLink} target="_blank" rel="noopener noreferrer" />}
+                    {githubLink && <GithubLinkElement title='GitHub' href={githubLink} target="_blank" rel="noopener noreferrer" />}
                     {externalLink && <ExternalLink href={externalLink} target="_blank" rel="noopener noreferrer" />}
                 </ExternalLinks>
             </ProjectInfoContainer>

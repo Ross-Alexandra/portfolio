@@ -1,4 +1,4 @@
-import {map} from 'lodash';
+import {map, get} from 'lodash';
 import {
     SkillBoxWrapper,
     SkillIcons,
@@ -19,7 +19,7 @@ export function SkillBox({skillIconUrls, skillIconTitles, skillTitle, skillDescr
         <SkillBoxWrapper>
             <SkillIcons>
                 {map(skillIconUrls, (url, index) => 
-                    <SkillIcon title={_.get(skillIconTitles, index, 'Unknown Icon')} key={`${url}-${index}`} src={url} />
+                    <SkillIcon title={get(skillIconTitles, index, 'Unknown Icon')} key={`${url}-${index}`} src={url} />
                 )}
             </SkillIcons>
             <SkillTitle>{skillTitle}</SkillTitle>
