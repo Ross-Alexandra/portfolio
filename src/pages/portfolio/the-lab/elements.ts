@@ -51,6 +51,10 @@ export const LabProjects = styled.div`
     padding: 0px 15% 50px 15%;
 
     row-gap: 25px;
+
+    @media (max-width: 900px) {
+        padding-inline: 20px;
+    }
 `;
 
 export const ProjectWrapper = styled.div`
