@@ -44,7 +44,7 @@ export function TheLab({active, setTopLevelPage}: TheLabProps) {
                     <ProjectTitle>React Utilities</ProjectTitle>
                     <ProjectDescription>A library of self-made react hooks &amp; components which I use in my projects</ProjectDescription>
                     <FrameWrapper>
-                        <ProjectIFrame src={'https://react-utilities.web.app/?path=/story/animated--animated-div'} />
+                        <ProjectIFrame src={'https://react-utilities.web.app/'} />
                         <IFrameGithubLink href={'https://github.com/Ross-Alexandra/react-utilities'} rel={'noopener noreferrer'} target={'_blank'}/>
                     </FrameWrapper>
                 </ProjectWrapper>
