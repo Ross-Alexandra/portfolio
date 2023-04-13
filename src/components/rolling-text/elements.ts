@@ -4,6 +4,10 @@ export const RollingTextContainer = styled.div`
     position: relative;
 
     overflow: hidden;
+
+    .hidden-text {
+        visibility: hidden;
+    }
 `;
 
 interface ShowingAwareProps extends React.HTMLProps<HTMLElement> {

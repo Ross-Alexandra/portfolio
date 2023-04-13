@@ -3,7 +3,6 @@ import { IAppSection } from "../../dec";
 
 import { 
     IntroTitle,
-    RollingTitles,
     RollingTitle,
     QuoteBox,
     AboutContainer,
@@ -19,10 +18,20 @@ import {
 } from "./elements";
 import {HeadshotImage} from '../../assets';
 import { SlideIn } from "../../components/slide-in";
+import { RollingText } from "../../components/rolling-text";
+
+const heroText = [
+    'Ross Alexandra',
+    'A Developer',
+    'A Maker',
+    'A Coach',
+    'A Nerd'
+];
 
 export interface IHeroContent {
     setAppSection: Dispatch<SetStateAction<IAppSection>>;
 }
+
 export function HeroContent({setAppSection}: IHeroContent) {
     return (
         <>
@@ -32,13 +41,11 @@ export function HeroContent({setAppSection}: IHeroContent) {
                     <IntroTitle>Hi, I'm</IntroTitle>
                 </SlideIn>
                 <SlideIn direction="top" delay={750}>
-                    <RollingTitles textDuration={2000} initialDelay={250}>
-                        <RollingTitle>Ross Alexandra</RollingTitle>
-                        <RollingTitle>A Developer</RollingTitle>
-                        <RollingTitle>A Maker</RollingTitle>
-                        <RollingTitle>A Coach</RollingTitle>
-                        <RollingTitle>A Nerd</RollingTitle>
-                    </RollingTitles>
+                    <RollingText textDuration={2000} initialDelay={250}>
+                        {heroText.map((text) => 
+                            <RollingTitle key={text}>{text}</RollingTitle>
+                        )}
+                    </RollingText>
                 </SlideIn>
                 <SlideIn direction="bottom" delay={1500}>
                     <QuoteBox>
@@ -52,11 +59,11 @@ export function HeroContent({setAppSection}: IHeroContent) {
                 <AboutContent>
                     <AboutPicture src={HeadshotImage} />
                     <AboutParagraph>
-                    Hi! My name is Ross Alexandra. I am a software engineer with a passion for building anything and everything.
-                    <br/>
-                    <br/>
-                    Over the past decade I have had many opportunities to develop a variety of projects, both professionally and
-                    casually, to meet the needs of an array of disciplines. Some examples are as follows:  
+                        Hi! My name is Ross Alexandra. I am a software engineer with a passion for building anything and everything.
+                        <br/>
+                        <br/>
+                        Over the past decade I have had many opportunities to develop a variety of projects, both professionally and
+                        casually, to meet the needs of an array of disciplines. Some examples are as follows:  
                     </AboutParagraph>
                     <AboutParagraphList>
                             • Web and desktop apps,<br/>

@@ -1,6 +1,5 @@
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
-import { RollingText } from "../../components/rolling-text";
 import { defaultFont, fancyFont, blackText, headerHeight, systemFont } from "../../theme";
 
 import {HeadshotImage, HeroBGImage} from '../../assets';
@@ -190,26 +189,6 @@ export const IntroTitle = styled.h2`
     @media (max-width: 385px) {
         font-size: 36px;
         line-height: 30px;
-    }
-`;
-
-export const RollingTitles = styled(RollingText)`
-    height: 160px;
-
-    @media (max-width: 1050px) {
-        height: 100px;
-    }
-
-    @media (max-width: 780px) {
-        height: 75px;
-    }
-
-    @media (max-width: 550px) {
-        height: 60px;
-    }
-
-    @media (max-width: 385px) {
-        height: 35px;
     }
 `;
 
