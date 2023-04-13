@@ -1,7 +1,6 @@
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import { RollingText } from "../../components/rolling-text";
-import { SlideIn } from "../../components/slide-in";
 import { defaultFont, fancyFont, blackText, headerHeight, systemFont } from "../../theme";
 
 import {HeadshotImage, HeroBGImage} from '../../assets';
@@ -165,22 +164,6 @@ export const SlideInContainer = styled.div`
     }
 `;
 
-export const IntroSlideIn = styled(SlideIn)`
-    height: 140px;
-
-    @media (max-width: 1050px) {
-        height: 100px;
-    }
-
-    @media (max-width: 780px) {
-        height: 85px;
-    }
-
-    @media (max-width: 385px) {
-        height: 40px;
-    }
-`;
-
 export const IntroTitle = styled.h2`
     font-family: ${fancyFont};
     font-size: 140px;
@@ -207,22 +190,6 @@ export const IntroTitle = styled.h2`
     @media (max-width: 385px) {
         font-size: 36px;
         line-height: 30px;
-    }
-`;
-
-export const RollingSlideIn = styled(SlideIn)`
-    height: 160px;
-
-    @media (max-width: 1050px) {
-        height: 100px;
-    }
-
-    @media (max-width: 780px) {
-        height: 80px;
-    }
-
-    @media (max-width: 385px) {
-        height: 35px;
     }
 `;
 
@@ -279,55 +246,36 @@ export const RollingTitle = styled.h2`
     }
 `;
 
-export const QuoteSlideIn = styled(SlideIn)`
-    height: 80px;
+export const QuoteBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
 
-    @media (max-width: 850px) {
-        height: 100px;
-    }
-
-    @media (max-width: 385px) {
-        height: 120px;
-    }
-`;
-
-export const QuoteBox = styled.p`
-    padding-left: 15px;
-
-    height: 80px;
-    width: 50%;
+    width: fit-content;
+    padding-inline: 15px;
+    border-left: 5px solid;
 
     font-family: ${defaultFont};
     font-size: 18px;
-    line-height: 20px;
     
     opacity: 0.75;
-    border-left: 5px solid;
+
+    .author {
+        margin-top: 10px;
+        text-align: right;
+    }
 
     @media (max-width: 850px) {
-        width: 75%;
         font-size: 14px;
     }
 
-    @media (max-width: 385px) {
-        width: 90%;
+    quotes: "“" "”";
+    ::before {
+        content: open-quote;
+        font-size: 80px;
+
+        height: 45px; // This is a hack to make the quote sign appear above the text
     }
-`;
-
-export const QuoteSignContainer = styled.span`
-    position: relative;
-    top: 35%;
-    padding-right: 10px;
-
-    font-size: 80px;
-`;
-
-export const QuoteAuthor = styled.span`
-    display: block;
-    margin: unset;
-
-    width: 100%;
-    text-align: end;
 `;
 
 export const ScrollBox = styled.div`

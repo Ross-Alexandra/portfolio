@@ -12,6 +12,9 @@ export interface SlideInProps extends React.DetailedHTMLProps<React.HTMLAttribut
 export function SlideIn({direction, delay, children, ...props}: SlideInProps) {
     return (
         <BaseDiv {...props}>
+            <div className='hidden-children'>
+                {children}
+            </div>
             <AnimationDiv slidePosition={direction} delay={delay}>
                 {children}
             </AnimationDiv>
