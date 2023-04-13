@@ -19,7 +19,7 @@ export interface WebProjectProps extends React.HTMLProps<HTMLDivElement> {
 
 export function WebProjects({active}: WebProjectProps) {
     return (
-        <WebProjectsContainer id="web-projects" active={active}>
+        <WebProjectsContainer active={active}>
             <QuoteContainer backgroundImage={ProjectsBanner} backgroundPositionY={'45%'}>
                 <Quote>Want someone to help create beautiful &#38; accessible web apps?</Quote>
             </QuoteContainer>

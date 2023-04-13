@@ -20,7 +20,7 @@ export interface DesktopProjectsProps extends React.HTMLProps<HTMLDivElement> {
 
 export function DesktopProjects({active}: DesktopProjectsProps) {
     return (
-        <DesktopProjectsContainer id="desktop-projects" active={active}>
+        <DesktopProjectsContainer active={active}>
             <QuoteContainer backgroundImage={ProjectsBanner} backgroundPositionY={'69%'}>
                 <Quote>Need someone to help build powerful &#38; dynamic desktop apps?</Quote>
             </QuoteContainer>

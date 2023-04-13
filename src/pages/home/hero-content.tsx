@@ -1,6 +1,6 @@
 import {HeadshotImage} from '../../assets';
-import { SlideIn } from "../../components/slide-in";
-import { RollingText } from "../../components/rolling-text";
+import { SlideIn } from "../../ui-atoms/slide-in";
+import { RollingText } from "../../ui-atoms/rolling-text";
 import styled from "@emotion/styled";
 import { defaultFont, fancyFont, headerHeight } from "../../theme";
 

@@ -23,7 +23,7 @@ export interface TheLabProps extends React.HTMLProps<HTMLDivElement> {
 
 export function TheLab({active}: TheLabProps) {
     return (
-        <LabContainer id="lab-projects" active={active}>
+        <LabContainer active={active}>
             <QuoteContainer backgroundImage={LabBanner} backgroundPositionY={'100%'} overlayOpacityHex={'80'}>
                 <Quote>Interested in someone who&lsquo;s always learning?</Quote>
             </QuoteContainer>

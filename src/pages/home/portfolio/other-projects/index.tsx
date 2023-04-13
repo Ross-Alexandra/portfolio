@@ -20,7 +20,7 @@ export interface OtherProjectsProps extends React.HTMLProps<HTMLDivElement> {
 
 export function OtherProjects({active}: OtherProjectsProps) {
     return (
-        <OtherProjectsContainer id="other-projects" active={active}>
+        <OtherProjectsContainer active={active}>
             <QuoteContainer backgroundImage={ProjectsBanner} backgroundPositionY={'88%'}>
                 <Quote>
                     Require someone to help produce a scalable &#38; robust backend service?
