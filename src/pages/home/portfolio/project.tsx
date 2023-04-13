@@ -1,4 +1,4 @@
-import { IProject } from "../../dec";
+import { IProject } from "../../../dec";
 import {
     ProjectContainer,
     PreviewImage,

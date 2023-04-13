@@ -1,6 +1,5 @@
 import { getFunctions, httpsCallable } from "firebase/functions";
-import React, { Dispatch, SetStateAction, useCallback, useEffect, useState } from "react";
-import { IAppSection } from "../../dec";
+import React, { useCallback, useEffect, useState } from "react";
 
 import {
     ContactMeWrapper,
@@ -32,12 +31,7 @@ async function sendEmail(email: string, subject: string, message: string) {
     }
 }
 
-export interface IContactContent {
-    setAppSection: Dispatch<SetStateAction<IAppSection>>;
-    setScrollingDisabled: Dispatch<SetStateAction<boolean>>;
-}
-
-export function ContactContent({setScrollingDisabled}: IContactContent) {
+export function Contact() {
     const [emailSent, setEmailSent] = useState(false);
     const [emailError, setEmailError] = useState("");
     const [subjectError, setSubjectError] = useState("");
@@ -108,8 +102,6 @@ export function ContactContent({setScrollingDisabled}: IContactContent) {
                         form='email-form'
                         placeholder="Your Message"
                         error={messageError}
-                        onFocus={() => setScrollingDisabled(true)}
-                        onBlur={() => setScrollingDisabled(false)}
                      />
                     {messageError && <ErrorText>{messageError}</ErrorText>}
                     <SubmitButton type='submit' value={emailSent ? 'Sent!' : 'Submit!'} />

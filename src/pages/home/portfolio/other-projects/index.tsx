@@ -1,6 +1,6 @@
-import { projects } from '../../../app-data/projects';
+import { projects } from '../../../../app-data/projects';
 import { Project } from '../project';
-import {ProjectsBanner} from '../../../assets';
+import {ProjectsBanner} from '../../../../assets';
 
 import {
     OtherProjectsContainer
@@ -9,21 +9,16 @@ import {
 import {
     QuoteContainer,
     Quote,
-    QuoteCTAsContainer,
     ProjectsList,
     ProjectsTitle,
-    ProjectSecondaryCTA,
-    ProjectPrimaryCTA
 } from '../elements';
 
-import { IAppSection } from '../../../dec';
 
 export interface OtherProjectsProps extends React.HTMLProps<HTMLDivElement> {
     active: boolean;
-    setTopLevelPage: (newSection: IAppSection) => void;
 }
 
-export function OtherProjects({active, setTopLevelPage}: OtherProjectsProps) {
+export function OtherProjects({active}: OtherProjectsProps) {
     return (
         <OtherProjectsContainer id="other-projects" active={active}>
             <QuoteContainer backgroundImage={ProjectsBanner} backgroundPositionY={'88%'}>
@@ -32,10 +27,6 @@ export function OtherProjects({active, setTopLevelPage}: OtherProjectsProps) {
                     <br/>
                     How about a data analysis tool? An internal library?
                 </Quote>
-                <QuoteCTAsContainer>
-                    <ProjectPrimaryCTA onClick={() => setTopLevelPage('contact')}>Email me!</ProjectPrimaryCTA>
-                    <ProjectSecondaryCTA onClick={() => setTopLevelPage('about')}>See my history</ProjectSecondaryCTA>
-                </QuoteCTAsContainer>
             </QuoteContainer>
             <ProjectsTitle>My Other Projects</ProjectsTitle>
             <ProjectsList>

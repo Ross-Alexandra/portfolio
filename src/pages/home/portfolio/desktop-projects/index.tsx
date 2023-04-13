@@ -1,6 +1,6 @@
-import { projects } from '../../../app-data/projects';
+import { projects } from '../../../../app-data/projects';
 import { Project } from '../project';
-import {ProjectsBanner} from '../../../assets';
+import {ProjectsBanner} from '../../../../assets';
 
 import {
     DesktopProjectsContainer
@@ -9,29 +9,20 @@ import {
 import {
     QuoteContainer,
     Quote,
-    QuoteCTAsContainer,
     ProjectsList,
     ProjectsTitle,
-    ProjectPrimaryCTA,
-    ProjectSecondaryCTA
 } from '../elements';
 
-import { IAppSection } from '../../../dec';
 
 export interface DesktopProjectsProps extends React.HTMLProps<HTMLDivElement> {
     active: boolean;
-    setTopLevelPage: (newSection: IAppSection) => void;
 }
 
-export function DesktopProjects({active, setTopLevelPage}: DesktopProjectsProps) {
+export function DesktopProjects({active}: DesktopProjectsProps) {
     return (
         <DesktopProjectsContainer id="desktop-projects" active={active}>
             <QuoteContainer backgroundImage={ProjectsBanner} backgroundPositionY={'69%'}>
                 <Quote>Need someone to help build powerful &#38; dynamic desktop apps?</Quote>
-                <QuoteCTAsContainer>
-                    <ProjectPrimaryCTA onClick={() => setTopLevelPage('contact')}>Contact me</ProjectPrimaryCTA>
-                    <ProjectSecondaryCTA onClick={() => setTopLevelPage('about')}>Get to know me</ProjectSecondaryCTA>
-                </QuoteCTAsContainer>
             </QuoteContainer>
             <ProjectsTitle>My Desktop Apps</ProjectsTitle>
             <ProjectsList>

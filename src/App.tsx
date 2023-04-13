@@ -1,129 +1,54 @@
 // Initialize firebase stuff.
-import'./services/firebase';
+import './services/firebase';
 
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
 
-import { Hero } from "./pages/hero";
-import { Portfolio } from "./pages/portfolio";
+import { Home } from "./pages/home";
 import { IAppSection } from "./dec";
-import { useScreenSize } from "./hooks";
 
 import {
-  ParalaxDiv,
-  PageContent
+    Nav,
+    NavLogo,
+    NavigationLinks,
+    NavigationLink,
+    ContentWrapper
 } from './elements';
-import { slowChangeValue } from "./utils";
+import { About } from './pages/about';
+import { Contact } from './pages/contact';
 
 export function App() {
-  const [appSection, setAppSection] = useState<IAppSection>("portfolio");
-  const [scrollingDisabled, setScrollingDisabled] = useState<boolean>(false);
+    const [appSection, setAppSection] = useState<IAppSection>("portfolio");
+    return (
+        <>
+            <Nav>
+                <NavLogo primaryColor={'#ffffff'} width={50} height={75}/>
+                <NavigationLinks>
+                    <NavigationLink 
+                        selected={appSection === "portfolio"}
+                        onClick={() => setAppSection("portfolio")}
+                    >
+                        Home
+                    </NavigationLink>
+                    <NavigationLink 
+                        selected={appSection === "about"}
+                        onClick={() => setAppSection("about")}
+                    >
+                        About Me
+                    </NavigationLink>
+                    <NavigationLink
+                        selected={appSection === "contact"}
+                        onClick={() => setAppSection("contact")}
+                    >
+                        Contact
+                    </NavigationLink>
+                </NavigationLinks>
+            </Nav>
 
-  const [paralaxHeight, setParalaxHeight] = useState(window.scrollY);
-  const [, viewportHeight] = useScreenSize(() => {}, (prevHeight, nextHeight) => {
-    setParalaxHeight(prevParalaxHeight => {
-        const heightDelta = nextHeight  - prevHeight;
-        return heightDelta + prevParalaxHeight;
-    });
-  });
-
-  const scrollPage = useCallback((deltaY: number) => {
-    const paralaxDiv = document.getElementById('portfolio-paralax');
-    const scrollTop = paralaxDiv?.scrollTop
-
-    if (scrollTop === 0) setParalaxHeight((scrollHeight: number) => {
-        // If we're on the contact page, allow users to scroll up but not down
-        // if they're already scrolled all the way (so they can scroll on the
-        // text box).
-        if (scrollingDisabled) {
-            return scrollHeight;
-        }
-
-        const update = scrollHeight + deltaY;
-        if (update < 0) return 0;
-        else if (update > viewportHeight) return viewportHeight;
-        else return update;
-    });
-  }, [setParalaxHeight, viewportHeight, scrollingDisabled]);
-
-  const onScrollCallback = useCallback((e: WheelEvent) => {
-    scrollPage(e.deltaY);
-  }, [scrollPage]);
-
-  const [touchStart, setTouchStart] = useState<number | undefined>();
-  const onTouchCallback = useCallback((e: TouchEvent) => {
-    setTouchStart(e.touches[0].pageY);
-  }, []);
-  const onTouchMoveCallback = useCallback((e: TouchEvent) => {
-    scrollPage(-2 * (e.touches[0].pageY - (touchStart ?? 0)));
-    setTouchStart(e.touches[0].pageY);
-  }, [touchStart, scrollPage]);
-
-  const scrollToBottom = useCallback(() => {
-    slowChangeValue(setParalaxHeight, 40, viewportHeight);
-  }, [setParalaxHeight, viewportHeight]);
-
-  const scrollToTop = useCallback(() => {
-    slowChangeValue(setParalaxHeight, 40, 0);
-  }, [setParalaxHeight]);
-
-  const setTopLevelPage = useCallback((newSection: IAppSection) => {
-    setAppSection(newSection);
-    scrollToTop();
-
-    // Scroll animation takes 250ms. Wait for 300, then scroll the
-    // portfolio page back to top, as if it is not at the top then
-    // scrolling back down the portfolio requires clicking
-    // the scroll button.
-    setTimeout(() => document.getElementById('portfolio-paralax')?.scrollTo(0, 0), 300);
-  }, [scrollToTop, setAppSection]);
-
-  useEffect(() => {
-    window.addEventListener('wheel', onScrollCallback);
-    window.addEventListener('touchstart', onTouchCallback);
-    window.addEventListener('touchmove', onTouchMoveCallback);
-
-    return () => {
-        window.removeEventListener('wheel', onScrollCallback);
-        window.removeEventListener('touchstart', onTouchCallback);
-        window.removeEventListener('touchmove', onTouchMoveCallback);
-    }
-  }, [onScrollCallback, onTouchCallback, onTouchMoveCallback]);
-
-  // Lock screen to portrait mode to avoid
-  // annoying styling stuff. Reset scroll
-  // to 0 to prevent issues with
-  // scrolling after refresh.
-  useEffect(() => {
-    window.screen.orientation.lock('portrait-primary');
-    document.getElementById('portfolio-paralax')?.scrollTo(0, 0);
-  }, []);
-
-  useEffect(() => {
-    if (paralaxHeight <= 0) {
-        document.body.style.overscrollBehaviorY = 'contain';
-    } else {
-        document.body.style.overscrollBehaviorY = 'auto';
-    }
-  }, [paralaxHeight]);
-
-  return (
-    <>
-      <Hero 
-        appSection={appSection}
-        setAppSection={setAppSection}
-        paralaxHeight={paralaxHeight}
-        scrollToBottom={scrollToBottom}
-        setScrollingDisabled={setScrollingDisabled}
-      />
-      <ParalaxDiv 
-        id="portfolio-paralax"
-        viewportHeight={viewportHeight}
-        paralaxHeight={paralaxHeight}
-      >
-        <PageContent>
-          <Portfolio setTopLevelPage={setTopLevelPage}/>
-        </PageContent>
-      </ParalaxDiv>
-    </>
-  );
+            <ContentWrapper>
+                {appSection === 'portfolio' && <Home />}
+                {appSection === 'about' && <About />}
+                {appSection === 'contact' && <Contact />}
+            </ContentWrapper>
+        </>
+    );
 }

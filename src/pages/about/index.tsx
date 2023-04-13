@@ -1,6 +1,4 @@
 import { map } from "lodash";
-import { Dispatch, SetStateAction, useCallback, useRef } from "react";
-import { IAppSection } from "../../dec";
 import { skills } from "../../app-data/skills";
 import { SkillBox } from "./skill-box";
 
@@ -14,9 +12,6 @@ import {
     Name,
     Title,
     IntroParagraph,
-    IntroCTAs,
-    PortfolioButton,
-    ContactButton,
     IntroPictureBox,
     IntroPicture,
     SocialsLinks,
@@ -24,35 +19,8 @@ import {
     MySkills,
     StyledGithubLogo
 } from './elements';
-import { useScreenSize } from "../../hooks";
 
-export interface IAboutContent {
-    setAppSection: Dispatch<SetStateAction<IAppSection>>;
-    scrollToBottom: () => void;
-}
-
-export function AboutContent({setAppSection, scrollToBottom}: IAboutContent) {
-    const [screenWidth] = useScreenSize();
-
-    const mySkillsRef = useRef<HTMLDivElement>();
-    const skillsOnClick = useCallback(() => {
-        if (mySkillsRef.current && screenWidth < 1000) {
-            const {width: skillsRefWidth} = mySkillsRef.current.getBoundingClientRect()
-            
-            if (skillsRefWidth + mySkillsRef.current.scrollLeft >= mySkillsRef.current.scrollWidth) {
-                mySkillsRef.current.scrollTo({
-                    left: 0,
-                    behavior: 'smooth'
-                });
-            } else {
-                mySkillsRef.current.scrollBy({
-                    left: (skillsRefWidth * .9) + 10,
-                    behavior: 'smooth'
-                });
-            }
-        }
-    }, [screenWidth]);
-
+export function About() {
     return (
         <AboutMeContainer>
             <IntroBox>
@@ -60,36 +28,17 @@ export function AboutContent({setAppSection, scrollToBottom}: IAboutContent) {
                     <Name>Ross Alexandra</Name>
                     <Title>Software Engineer</Title>
                     <IntroParagraph>
-                        { screenWidth > 725 && 
-                            <>
-                                I am a software engineering graduate from the University of Victoria (UVIC). Technological
-                                experimentation and invention has been a passion of mine since 2012; however, in 2017 when
-                                I enrolled in the co-op (internship) program at UVIC, I was thrilled to refine my previous
-                                passions into a practical profession. Thanks to UVIC&apos;s co-op program, my professional
-                                experience extends to many fields, from web design, to fullstack development, to data science.
-                                Since graduating my focus has been set on a collection of projects centered around esports.
-                                These projects have helped bolster a professional <i>Tom Clancy's Rainbow Six: Siege</i> team, 
-                                which I was contracted to coach.
-                                <br/>
-                                <br/>
-                            </>
-                        }
-                        { screenWidth > 450 && 
-                            <>
-                                From years of professional and casual coaching experience I have learned that collaboration is
-                                the best way to multiply individual performances in any type of team.
-                            </>
-                        }
-                        {' '}I believe that the job of
-                        a software engineer is not to just write code, but to collaborate to find the best solution for
-                        a problem. Then, once a plan has been constructed, collaboration must be used once more to bring
-                        the reality of that solution to fruition. Things which are truly amazing come from countless
-                        hours of teamwork and cooperation. No one person can do it all.
+                        Hi! My name is Ross Alexandra. I am a software engineer with a passion for building anything and everything.
+                        <br/>
+                        <br/>
+                        Over the past decade I have had many opportunities to develop a variety of projects, both professionally and
+                        casually, to meet the needs of an array of disciplines. Some examples are as follows:  
+                        • Web and desktop apps,<br/>
+                        • Data analysis &amp; visualization tools,<br/>
+                        • Simple machine learning models,<br/>
+                        • Basic embedded systems,<br/>
+                        • And even a 2D game
                     </IntroParagraph>
-                    <IntroCTAs>
-                        <PortfolioButton onClick={scrollToBottom}>View Portfolio</PortfolioButton>
-                        <ContactButton onClick={() => setAppSection('contact')}>Get In Touch</ContactButton>
-                    </IntroCTAs>
                 </IntroTextBox>
                 <IntroPictureBox>
                     <IntroPicture src={HeadshotAlternate} />
@@ -103,7 +52,7 @@ export function AboutContent({setAppSection, scrollToBottom}: IAboutContent) {
                     </SocialsLinks>
                 </IntroPictureBox>
             </IntroBox>
-            <MySkills ref={(ref) => mySkillsRef.current = ref ?? undefined} onClick={skillsOnClick}>
+            <MySkills>
                 {map(skills, ({iconUrls, iconTitles, title, description}) => 
                     <SkillBox 
                         key={title}

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import React from "react";
-import { portfolioBackground100, rotationTime } from "../../../theme";
+import { portfolioBackground100 } from "../../../../theme";
 import { GithubLink, ProjectsTitle } from "../elements";
 
 interface ActiveAwareDiv extends React.HTMLProps<HTMLDivElement> {
@@ -8,29 +8,10 @@ interface ActiveAwareDiv extends React.HTMLProps<HTMLDivElement> {
 }
 
 export const LabContainer = styled.div<ActiveAwareDiv>`
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-
     display: flex;
     flex-direction: column;
 
     background-color: ${portfolioBackground100};
-
-    transform-style: preserve-3d;
-    transform: translateX(-50%) rotateY(-90deg);
-
-    backface-visibility: hidden;
-    overflow: hidden;
-
-    ${({active}: ActiveAwareDiv) => active ? `
-        max-height: 5000vh;
-    ` : `
-        transition: max-height: 1ms;
-        transition-delay: ${rotationTime};
-        max-height: 0px;
-    `}
 `;
 
 export const LabTitle = styled(ProjectsTitle)`
