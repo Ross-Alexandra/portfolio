@@ -42,6 +42,7 @@ export function RollingText({textDuration, initialDelay, children, className}: R
     const nextChild = React.Children.toArray(children)?.[nextIndex];
     return (
         <RollingTextContainer className={className}>
+            <p className='hidden-text'>{displayedChild}</p>
             <NextText 
                 showNext={showingNext}
                 resetting={!showingNext}

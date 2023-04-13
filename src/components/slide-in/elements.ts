@@ -17,6 +17,10 @@ const slideInKeyframes = (slidePosition: IDirection) => keyframes`
 export const BaseDiv = styled.div`
     position: relative;
     overflow: hidden;
+
+    .hidden-children {
+        visibility: hidden;
+    }
 `;
 
 export const AnimationDiv = styled.div<AnimationAwareProps>`
