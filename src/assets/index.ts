@@ -3,7 +3,7 @@ export {default as ProjectsBanner} from './images/projects-banner.png';
 export {default as LabBanner} from './images/lab-banner.png';
 export {default as HeadshotImage} from './images/headshot.png';
 export {default as HeadshotAlternate} from './images/headshot-alternate.png';
-export {default as HeroBGImage} from './images/hero-bg-image.png';
+export {default as HeadshotBGImage} from './images/headshot-bg-image.png';
 export {default as StratmapperImage} from './images/stratbook.png';
 export {default as PortfolioImage} from './images/portfolio.png';
 export {default as SiegeGGScraperImage} from './images/siegegg-scraper.png';

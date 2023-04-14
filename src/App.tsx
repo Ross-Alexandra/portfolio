@@ -7,7 +7,7 @@ import { About } from './pages/about';
 import { Contact } from './pages/contact';
 import { Routes, Route, useLocation, Link } from 'react-router-dom';
 import styled from '@emotion/styled';
-import { blackText, headerHeight, systemFont } from './theme';
+import { blackText, headerHeight, maxPhoneBreakpoint, systemFont } from './theme';
 import { PortfolioLogo } from './assets';
 
 const Wrapper = styled.div`
@@ -24,28 +24,44 @@ const Wrapper = styled.div`
         top: 0px;
         height: ${headerHeight}px;
         width: 100%;
-        z-index: 1;
+        z-index: 100;
 
         background-color: white;
     
-        display: flex;
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: 50px minmax(0px, 1fr);
         align-items: center;
         justify-content: space-between;
 
         svg {
             margin: 0px 0px 0px 30px;
+            width: 50px;
+            height 75px;
+
+            @media (max-width: ${maxPhoneBreakpoint}px) {
+                width: 30px;
+                height: 45px;
+            }
         }
 
         .links {
             margin: 0px 30px 0px 0px;
-            width: 33%;
+            width: min(100%, 600px);
             height: 100%;
-        
+            justify-self: end;
+
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: space-evenly;
+            justify-content: end;
+
+            gap: 85px;
+            padding-right: 170px;
+
+            @media (max-width: ${maxPhoneBreakpoint}px) {
+                gap: 15px;
+                padding-right: 0px;
+            }
         }
 
         a {
@@ -102,7 +118,7 @@ function NavigationBar() {
 
     return (
         <nav>
-            <PortfolioLogo primaryColor={'#ffffff'} width={50} height={75} />
+            <PortfolioLogo primaryColor={'#ffffff'} />
             <div className='links'>
                 <Link
                     to="/"
@@ -123,6 +139,11 @@ function NavigationBar() {
                     Contact
                 </Link>
             </div>
+            {/* <select className='mobile-links' value={location.pathname}>
+                <option value="/">Home</option>
+                <option value="/about">About Me</option>
+                <option value="/contact">Contact</option>
+            </select> */}
         </nav>
     )
 }

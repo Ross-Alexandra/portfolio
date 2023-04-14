@@ -21,3 +21,8 @@ export const portfolioBackground300 = '#525a52';
 /***** Animation Styling *****/
 // Timings
 export const rotationTime = "400ms";
+
+/***** Breakpoints *****/
+export const maxDesktopBreakpoint = 1919;
+export const maxTabletBreakpoint = 1023;
+export const maxPhoneBreakpoint = 767;

@@ -3,8 +3,8 @@ import { portfolioActive } from "../theme";
 
 export interface ILogo extends React.SVGProps<SVGSVGElement> {
     primaryColor?: string;
-    width: number;
-    height: number;
+    width?: number;
+    height?: number;
 } 
 export function PortfolioLogo({primaryColor=portfolioActive, width, height, ...props}: ILogo) {
     return (

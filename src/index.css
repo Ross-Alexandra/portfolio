@@ -17,9 +17,20 @@ code {
 }
 
 * {
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  scrollbar-width: none;  /* Firefox */
+  box-sizing: border-box;
+
+  scrollbar-color: #00d6b4 #f5f5f5;
+  scrollbar-width: thin;
 }
-*::-webkit-scrollbar { 
-  display: none;  /* Safari and Chrome */
+
+*::-webkit-scrollbar {
+    width: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: #00d6b4;
+}
+
+*::-webkit-scrollbar-track-piece {
+    background: #f5f5f5;
 }
