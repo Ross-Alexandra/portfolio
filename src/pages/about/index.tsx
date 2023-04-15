@@ -5,6 +5,8 @@ import { SlideIn } from "../../ui-atoms/slide-in";
 import { primaryButtonCSS } from "../../elements";
 import { jobs } from "../../app-data/jobs";
 import { JobCard } from "./components";
+import { projects } from "../../app-data/projects";
+import { ProjectCard } from "./components/project-card";
 
 const Wrapper = styled.div`
     display: flex;
@@ -180,7 +182,8 @@ const Wrapper = styled.div`
         }
     }
 
-    #work-experience {
+    #work-experience,
+    #projects {
         display: flex;
         flex-direction: column;
         padding: 0px 30px;
@@ -254,10 +257,18 @@ export function About() {
             </div>
 
             <div id="work-experience">
-                <h2 className='sub-section-title'>Work Experience</h2>
+                <h2>Work Experience</h2>
 
                 {jobs.map((job, index) => (
                     <JobCard key={index} {...job} />
+                ))}
+            </div>
+
+            <div id="projects">
+                <h2>Projects</h2>
+
+                {projects.map((project, index) => (
+                    <ProjectCard key={index} {...project} />
                 ))}
             </div>
         </Wrapper>

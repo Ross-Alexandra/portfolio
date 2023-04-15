@@ -8,7 +8,8 @@ import { Contact } from './pages/contact';
 import { Routes, Route, useLocation, Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { headerHeight, maxPhoneBreakpoint, portfolioBackground, systemFont, text } from './theme';
-import { PortfolioLogo } from './assets';
+import { GithubLogo, LinkedInLogo, PortfolioLogo } from './assets';
+import { primaryButtonCSS } from './elements';
 
 const Wrapper = styled.div`
     position: relative;
@@ -111,6 +112,65 @@ const Wrapper = styled.div`
             }
         }
     }
+
+    footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        place-items: center;
+
+        width: 100%;
+
+        margin-top: 20px;
+        padding: 20px 50px;
+
+        background-color: rgba(0, 0, 0, 0.5);
+
+        @media (max-width: ${maxPhoneBreakpoint}px) {
+            display: flex;
+            flex-direction: column-reverse;
+
+            gap: 10px;
+        }
+
+        p {
+            font-family: ${systemFont};
+            font-size: 15px;
+
+            color: ${text};
+        }
+
+        .internal-links {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            gap: 25px;
+
+            justify-content: start;
+
+            @media (max-width: ${maxPhoneBreakpoint}px) {
+                justify-content: center;
+            }
+        }
+
+        .external-links {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            gap: 25px;
+
+            justify-content: end;
+
+            @media (max-width: ${maxPhoneBreakpoint}px) {
+                justify-content: center;
+            }
+        }
+
+        a {
+            ${primaryButtonCSS}
+            background-color: transparent;
+            padding: 0px;
+        }
+    }
 `;
 
 function NavigationBar() {
@@ -139,13 +199,27 @@ function NavigationBar() {
                     Contact
                 </Link>
             </div>
-            {/* <select className='mobile-links' value={location.pathname}>
-                <option value="/">Home</option>
-                <option value="/about">About Me</option>
-                <option value="/contact">Contact</option>
-            </select> */}
         </nav>
     )
+}
+
+export function Footer() {
+    return (
+        <footer>
+            <div className='internal-links'>
+                <PortfolioLogo width={50} height={50} />
+            </div>
+            <p>&copy; {new Date().getFullYear()} Ross Alexandra </p>
+            <div className='external-links'>
+                <a href='https://github.com/Ross-Alexandra' target='_blank' rel='noopener noreferrer'>
+                    <GithubLogo width={35} height={35} />
+                </a>
+                <a href='https://www.linkedin.com/in/ross-alexandra-5201ab149/' target='_blank' rel='noopener noreferrer'>
+                    <LinkedInLogo width={35} height={35} />
+                </a>
+            </div>
+        </footer>
+    );
 }
 
 export function App() {
@@ -158,6 +232,8 @@ export function App() {
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
             </Routes>
+
+            <Footer />
         </Wrapper>
     );
 }

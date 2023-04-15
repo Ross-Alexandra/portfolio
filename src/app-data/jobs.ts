@@ -31,6 +31,7 @@ export const jobs: Job[] = [{
         "New processes require champions to prevent people bypassing them",
         "Clear requirements, designs, and planning are necessary for successful products",
     ],
+    portfolioLink: "/#battlefy",
 }, {
     company: "Tutela",
     logo: TutelaBanner,

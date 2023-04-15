@@ -21,6 +21,12 @@ export {default as AudetteBanner} from './images/audette-banner.png';
 export {default as BamboraBanner} from './images/bambora-banner.png';
 export {default as UvicBanner} from './images/uvic-banner.png';
 export {default as CradlepointBanner} from './images/cradlepoint-banner.png';
-
+export {default as PortfolioBanner} from './images/portfolio-banner.png';
+export {default as StratbookBanner} from './images/stratbook-banner.png';
+export {default as ScrimSearchBanner} from './images/scrim-finder-banner.png';
+export {default as StatTrackerBanner} from './images/siege-stats-banner.png';
+export {default as TrafficLightBanner} from './images/traffic-light-banner.png';
+export {default as RecipeListBanner} from './images/recipe-list-banner.png';
+export {default as RewardYourselfBanner} from './images/reward-yourself-banner.png';
 
 export * from './icons';
