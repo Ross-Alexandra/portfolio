@@ -195,7 +195,7 @@ const Wrapper = styled.div`
     }
 `;
 
-export function About() {
+export function Experience() {
     return (
         <Wrapper>
             <h1>Ross Alexandra</h1>
