@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { portfolioActive, portfolioActiveSecondary, systemFont } from "./theme";
+import { portfolioActive, portfolioActiveSecondary, systemFont, text } from "./theme";
 
 export const PageContent = styled.div`
     position: absolute;
@@ -10,6 +10,10 @@ export const PageContent = styled.div`
 `;
 
 export const buttonCSS = css`
+    appearance: none;
+    outline: transparent;
+    border: unset;
+
     text-align: center;
     text-transform: capitalize;
     font-family: ${systemFont};
@@ -34,28 +38,20 @@ export const buttonCSS = css`
 
 export const primaryButtonCSS = css`
     ${buttonCSS}
-    color: black;
+    color: ${text};
     background-color: ${portfolioActive};
-
-    :hover {
-        color: white;
-    }
 `;
 
 export const secondaryButtonCSS = css`
     ${buttonCSS}
-    color: black;
+    color: ${text};
     background-color: ${portfolioActiveSecondary};
-
-    :hover {
-        color: white;
-    }
 `;
 
-export const PrimaryCTA = styled.div`
+export const PrimaryCTA = styled.button`
     ${primaryButtonCSS}
 `;
 
-export const SecondaryCTA = styled.div`
+export const SecondaryCTA = styled.button`
     ${secondaryButtonCSS}
 `;

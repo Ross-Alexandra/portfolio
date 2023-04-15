@@ -30,7 +30,7 @@ const Wrapper = styled.div`
     .headshot {
         position: absolute;
         top: 125px;
-        right: 50px;
+        right: 0px;
 
         display: grid;
         place-items: center;
@@ -38,7 +38,8 @@ const Wrapper = styled.div`
         padding: 100px 65px;
         box-sizing: border-box;
         background-image: url(${HeadshotBGImage});
-        background-size: cover;
+        background-size: contain;
+        background-repeat: no-repeat;
 
         z-index: 1;
 

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import React from "react";
-import { portfolioBackground100 } from "../../../../theme";
+import { portfolioBackground } from "../../../../theme";
 import { GithubLink, ProjectsTitle } from "../elements";
 
 interface ActiveAwareDiv extends React.HTMLProps<HTMLDivElement> {
@@ -11,7 +11,7 @@ export const LabContainer = styled.div<ActiveAwareDiv>`
     display: flex;
     flex-direction: column;
 
-    background-color: ${portfolioBackground100};
+    background-color: ${portfolioBackground};
 `;
 
 export const LabTitle = styled(ProjectsTitle)`

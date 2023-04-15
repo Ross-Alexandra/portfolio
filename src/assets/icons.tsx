@@ -1,58 +1,64 @@
 import React from "react";
-import { portfolioActive } from "../theme";
+import { portfolioActive, portfolioBackground, text } from "../theme";
 
 export interface ILogo extends React.SVGProps<SVGSVGElement> {
     primaryColor?: string;
+    backgroundColor?: string;
     width?: number;
     height?: number;
 } 
-export function PortfolioLogo({primaryColor=portfolioActive, width, height, ...props}: ILogo) {
+export function PortfolioLogo({
+    primaryColor=text,
+    backgroundColor=portfolioBackground,
+    width,
+    height,
+    ...props
+}: ILogo) {
     return (
         <svg {...props} xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 74.182 114.914">
-            <path fill={primaryColor} fillOpacity=".996" d="M0-.074h74.206V114.98H0z" />
             <g transform="translate(-10 -49.99)" fillOpacity=".996">
-                <ellipse cx="17.501" cy="57.451" rx="4.262" ry="4.233" stroke="#000" strokeWidth="6.458" />
-                <ellipse cx="17.455" cy="-57.709" rx="1.241" ry="1.233" transform="scale(1 -1)" fill={primaryColor} stroke={primaryColor}
+                <ellipse cx="17.501" cy="57.451" rx="4.262" ry="4.233" stroke={primaryColor} strokeWidth="6.458" />
+                <ellipse cx="17.455" cy="-57.709" rx="1.241" ry="1.233" transform="scale(1 -1)" fill={backgroundColor} stroke={backgroundColor}
                     strokeWidth="4.255" />
             </g>
             <g transform="matrix(.75013 0 0 .74515 24.191 -36.93)" fillOpacity=".996">
-                <circle cx="9.984" cy="59.575" stroke="#000" strokeWidth="8.637" r="5.681" />
-                <circle cx="9.922" cy="-59.921" transform="scale(1 -1)" fill={primaryColor} stroke={primaryColor} strokeWidth="5.691"
+                <circle cx="9.984" cy="59.575" stroke={primaryColor} strokeWidth="8.637" r="5.681" />
+                <circle cx="9.922" cy="-59.921" transform="scale(1 -1)" fill={backgroundColor} stroke={backgroundColor} strokeWidth="5.691"
                     r="1.655" />
             </g>
             <g transform="matrix(.75013 0 0 .74515 58.744 -28.253)" fillOpacity=".996">
-                <circle cx="9.984" cy="59.575" stroke="#000" strokeWidth="8.637" r="5.681" />
-                <circle cx="9.922" cy="-59.921" transform="scale(1 -1)" fill={primaryColor} stroke={primaryColor} strokeWidth="5.691"
+                <circle cx="9.984" cy="59.575" stroke={primaryColor} strokeWidth="8.637" r="5.681" />
+                <circle cx="9.922" cy="-59.921" transform="scale(1 -1)" fill={backgroundColor} stroke={backgroundColor} strokeWidth="5.691"
                     r="1.655" />
             </g>
             <g transform="matrix(.75013 0 0 .74515 58.744 -3.253)" fillOpacity=".996">
-                <circle cx="9.984" cy="59.575" stroke="#000" strokeWidth="8.637" r="5.681" />
-                <circle cx="9.922" cy="-59.921" transform="scale(1 -1)" fill={primaryColor} stroke={primaryColor} strokeWidth="5.691"
+                <circle cx="9.984" cy="59.575" stroke={primaryColor} strokeWidth="8.637" r="5.681" />
+                <circle cx="9.922" cy="-59.921" transform="scale(1 -1)" fill={backgroundColor} stroke={backgroundColor} strokeWidth="5.691"
                     r="1.655" />
             </g>
             <g transform="matrix(.75013 0 0 .74515 24.191 13.07)" fillOpacity=".996">
-                <circle cx="9.984" cy="59.575" stroke="#000" strokeWidth="8.637" r="5.681" />
-                <circle cx="9.922" cy="-59.921" transform="scale(1 -1)" fill={primaryColor} stroke={primaryColor} strokeWidth="5.691"
+                <circle cx="9.984" cy="59.575" stroke={primaryColor} strokeWidth="8.637" r="5.681" />
+                <circle cx="9.922" cy="-59.921" transform="scale(1 -1)" fill={backgroundColor} stroke={backgroundColor} strokeWidth="5.691"
                     r="1.655" />
             </g>
             <g transform="matrix(.75013 0 0 .74515 .012 13.07)" fillOpacity=".996">
-                <circle cx="9.984" cy="59.575" stroke="#000" strokeWidth="8.637" r="5.681" />
-                <circle cx="9.922" cy="-59.921" transform="scale(1 -1)" fill={primaryColor} stroke={primaryColor} strokeWidth="5.691"
+                <circle cx="9.984" cy="59.575" stroke={primaryColor} strokeWidth="8.637" r="5.681" />
+                <circle cx="9.922" cy="-59.921" transform="scale(1 -1)" fill={backgroundColor} stroke={backgroundColor} strokeWidth="5.691"
                     r="1.655" />
             </g>
             <g transform="matrix(.75013 0 0 .74515 .012 63.07)" fillOpacity=".996">
-                <circle cx="9.984" cy="59.575" stroke="#000" strokeWidth="8.637" r="5.681" />
-                <circle cx="9.922" cy="-59.921" transform="scale(1 -1)" fill={primaryColor} stroke={primaryColor} strokeWidth="5.691"
+                <circle cx="9.984" cy="59.575" stroke={primaryColor} strokeWidth="8.637" r="5.681" />
+                <circle cx="9.922" cy="-59.921" transform="scale(1 -1)" fill={backgroundColor} stroke={backgroundColor} strokeWidth="5.691"
                     r="1.655" />
             </g>
             <g transform="matrix(.75013 0 0 .74515 59.191 63.07)" fillOpacity=".996">
-                <circle cx="9.984" cy="59.575" stroke="#000" strokeWidth="8.637" r="5.681" />
-                <circle cx="9.922" cy="-59.921" transform="scale(1 -1)" fill={primaryColor} stroke={primaryColor} strokeWidth="5.691"
+                <circle cx="9.984" cy="59.575" stroke={primaryColor} strokeWidth="8.637" r="5.681" />
+                <circle cx="9.922" cy="-59.921" transform="scale(1 -1)" fill={backgroundColor} stroke={backgroundColor} strokeWidth="5.691"
                     r="1.655" />
             </g>
             <path
                 d="M37.096 6.367h27.781L66.2 7.69v2.646M66.2 21.448v15.875M66.2 47.377v5.821l-3.969 3.44h-24.87M34.45 62.459l29.104 41.01M7.463 12.982v38.364M7.463 63.517v38.63"
-                fill="none" stroke="#000" strokeWidth="6.767" />
+                fill="none" stroke={primaryColor} strokeWidth="6.767" />
         </svg>
     );
 }
@@ -73,6 +79,48 @@ export function LinkedInLogo({fill=portfolioActive, ...props}) {
             <path
                 d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S.02 4.881.02 3.5C.02 2.12 1.13 1 2.5 1s2.48 1.12 2.48 2.5zM5 8H0v16h5V8zm7.982 0H8.014v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0V24H24V13.869c0-7.88-8.922-7.593-11.018-3.714V8z"
                 fill={fill}    
+            />
+        </svg>
+    );
+}
+
+export function ResponsibilityIcon({fill=text, ...props}) {
+    return (
+        <svg {...props} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd">
+            <path
+                d="M6.994 15.026v-1.833c-.004-1.295-.168-2.66 2.502-3.268 1.01-.229 2.395-.544 2.622-1.046.024-.051.095-.209-.106-.582-1.431-2.638-1.698-4.965-.754-6.552.65-1.092 1.834-1.719 3.248-1.719 1.403 0 2.579.618 3.228 1.694.943 1.568.684 3.902-.731 6.573-.198.376-.125.535-.101.587.231.502 1.571.808 2.647 1.053 2.77.631 2.416 2.236 2.451 3.279v3.958c0 .49-.201.977-.609 1.356-1.378 1.28-4.453 4.026-4.935 4.467-.749.687-1.518 1.006-2.421 1.006-.405 0-.832-.065-1.308-.2-2.773-.783-4.484-1.036-5.727-1.105v1.332h-5v-9h4.994zm-.994 1h-3v7h3v-7zm1 5.664c2.092.118 4.405.696 5.999 1.147.817.231 1.761.354 2.782-.581 1.279-1.172 2.722-2.413 4.929-4.463.824-.765-.178-1.783-1.022-1.113 0 0-2.961 2.299-3.689 2.843-.379.285-.695.519-1.148.519-.36 0-2.232-.467-3.104-.743-.575-.183-.371-.993.268-.858.447.093 1.594.35 2.201.52 1.017.281 1.276-.867.422-1.152-.562-.19-.537-.198-1.889-.665-1.301-.451-2.214-.753-3.585-.156-.639.278-1.432.616-2.164.814v3.888zm14.006-6.066v-2.422c.008-1.858-.269-1.972-1.679-2.294-1.49-.34-2.898-.66-3.334-1.611-.201-.438-.158-.933.126-1.472 1.244-2.349 1.513-4.334.757-5.59-.469-.779-1.31-1.209-2.37-1.209-1.068 0-1.916.437-2.389 1.23-.757 1.272-.482 3.248.774 5.565.291.537.338 1.032.138 1.471-.432.955-1.897 1.287-3.312 1.608-1.402.321-1.724.415-1.717 2.297v3.2l.765-.325c.642-.28 1.259-.417 1.887-.417 1.214 0 2.205.499 4.303 1.205.64.214 1.076.716 1.175 1.306 1.124-.863 2.92-2.257 2.937-2.27.357-.284.773-.434 1.2-.434.262 0 .513.058.739.162z"
+                fill={fill}
+            />
+        </svg>
+    );
+}
+
+export function AchievementsIcon({fill=text, ...props}) {
+    return (
+        <svg
+            {...props}
+            clipRule="evenodd"
+            fillRule="evenodd"
+            strokeLinejoin="round"
+            strokeMiterlimit="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
+                fillRule="nonzero"
+                fill={fill}
+            />
+        </svg>
+    );
+}
+
+export function LessonsIcon({fill=text, ...props}) {
+    return (
+        <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+                d="M20 12.875v5.068c0 2.754-5.789 4.057-9 4.057-3.052 0-9-1.392-9-4.057v-6.294l9 4.863 9-3.637zm-8.083-10.875l-12.917 5.75 12 6.5 11-4.417v7.167h2v-8.25l-12.083-6.75zm13.083 20h-4c.578-1 1-2.5 1-4h2c0 1.516.391 2.859 1 4z"
+                fill={fill}
             />
         </svg>
     );

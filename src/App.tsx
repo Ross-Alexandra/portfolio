@@ -7,7 +7,7 @@ import { About } from './pages/about';
 import { Contact } from './pages/contact';
 import { Routes, Route, useLocation, Link } from 'react-router-dom';
 import styled from '@emotion/styled';
-import { blackText, headerHeight, maxPhoneBreakpoint, systemFont } from './theme';
+import { headerHeight, maxPhoneBreakpoint, portfolioBackground, systemFont, text } from './theme';
 import { PortfolioLogo } from './assets';
 
 const Wrapper = styled.div`
@@ -15,9 +15,9 @@ const Wrapper = styled.div`
     width: 100%;
     height: calc(100svh - ${headerHeight}px);
 
-    background-color: white;
-    color: #333333;
-    border-color: #333333;
+    background-color: ${portfolioBackground};
+    color: ${text};
+    border-color: ${text};
 
     nav {
         position: sticky;
@@ -26,7 +26,7 @@ const Wrapper = styled.div`
         width: 100%;
         z-index: 100;
 
-        background-color: white;
+        background-color: ${portfolioBackground};
     
         display: grid;
         grid-template-columns: 50px minmax(0px, 1fr);
@@ -71,7 +71,7 @@ const Wrapper = styled.div`
             font-weight: 500;
             font-size: 19px;
             line-height: 36px;
-            color: ${blackText};
+            color: ${text};
             text-decoration: none;
         
             opacity: 0.5;
@@ -91,7 +91,7 @@ const Wrapper = styled.div`
                 width: 100%;
                 height: 3px;
         
-                background-color: ${blackText};
+                background-color: ${text};
         
                 transition: transform 250ms;
                 transform: scaleX(0);
@@ -118,7 +118,7 @@ function NavigationBar() {
 
     return (
         <nav>
-            <PortfolioLogo primaryColor={'#ffffff'} />
+            <PortfolioLogo />
             <div className='links'>
                 <Link
                     to="/"

@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import React, { HTMLProps } from "react";
 import { externalLinkUrl } from "../../../assets/icons";
 import { PrimaryCTA, SecondaryCTA } from "../../../elements";
-import { portfolioActive, portfolioBackground200 } from "../../../theme";
+import { portfolioActive } from "../../../theme";
 
 interface IndexAwareImg extends React.HTMLProps<HTMLImageElement> {
     index: number;
@@ -127,7 +127,6 @@ export const ProjectTitle = styled.h3`
 
 export const ProjectDescription = styled.p`
     color: white;
-    background-color: ${portfolioBackground200};
 
     width: 85%;
     padding: 15px;
@@ -139,7 +138,6 @@ export const ProjectDescription = styled.p`
 
     @media (max-width: 1250px) {
         margin: auto;
-        background-color: ${portfolioBackground200}f0;
         grid-column: -1/1;
     }
 `;

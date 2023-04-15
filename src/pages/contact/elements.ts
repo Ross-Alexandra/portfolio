@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { primaryButtonCSS } from "../../elements";
-import { defaultFont, portfolioActive, systemFont } from "../../theme";
+import { defaultFont, portfolioActive, portfolioBackground, systemFont } from "../../theme";
 import { ContactBackdrop as ContactBackdropImage} from "../../assets";
 import { css } from "@emotion/react";
 
@@ -36,7 +36,7 @@ export const ContactMeContent = styled.div`
     align-items: center;
     justify-content: center;
 
-    background-color: white;
+    background-color: ${portfolioBackground};
     border-radius: 10px;
     box-shadow: 8px 7px 32px -1px #000000;
 
