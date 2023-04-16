@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { fancyFont, maxDesktopBreakpoint, maxLaptopBreakpoint, maxPhoneBreakpoint, maxTabletBreakpoint, portfolioBackground, text } from "../../theme";
+import { fancyFont, layerColor, maxDesktopBreakpoint, maxLaptopBreakpoint, maxPhoneBreakpoint, maxTabletBreakpoint, portfolioBackground, text } from "../../theme";
 import { GraduationPhoto, ProjectsImage, TutelaImage } from "../../assets";
 import { SlideIn } from "../../ui-atoms/slide-in";
 import { primaryButtonCSS } from "../../elements";
@@ -21,21 +21,19 @@ const Wrapper = styled.div`
         font-family: ${fancyFont};
     }
 
-    h1 {
-        padding-left: 30px;
-        font-size: 53px;
-
-        @media (max-width: ${maxTabletBreakpoint}px) {
-            padding-left: 15px;
-            font-size: 40px;
-        }
-    }
-
     h2 {
         font-size: 35px;
 
+        &.top-title {
+            padding-left: 30px;
+        }
+
         @media (max-width: ${maxTabletBreakpoint}px) {
             font-size: 30px;
+
+            &.top-title {
+                padding-left: 15px;
+            }
         }
     }
 
@@ -151,7 +149,7 @@ const Wrapper = styled.div`
         }
 
         position: relative;
-        background-color: rgba(255, 255, 255, 0.15);
+        background-color: ${layerColor};
 
         @media (max-width: ${maxTabletBreakpoint}px) {
             padding: 30px;
@@ -198,7 +196,7 @@ const Wrapper = styled.div`
 export function Experience() {
     return (
         <Wrapper>
-            <h1>Ross Alexandra</h1>
+            <h2 className='top-title'>At a Glance</h2>
 
             <div id='at-a-glance'>
                 <SlideIn direction="bottom">

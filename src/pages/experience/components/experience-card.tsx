@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import { maxDesktopBreakpoint, maxPhoneBreakpoint, maxTabletBreakpoint, text } from '../../../theme';
+import { layerColor, maxDesktopBreakpoint, maxPhoneBreakpoint, maxTabletBreakpoint, text } from '../../../theme';
 import { primaryButtonCSS } from '../../../elements';
 
 const Wrapper = styled.div`
@@ -11,7 +11,7 @@ const Wrapper = styled.div`
     max-width: 2000px;
     margin: 0px auto;
 
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: ${layerColor};
     border-radius: 10px;
     padding: 20px;
     border: 1px solid ${text}80;
@@ -197,7 +197,7 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({
     });
 
     return (
-        <Wrapper {...props}>
+        <Wrapper id={cardTitle.toLowerCase().replaceAll(' ', '-')} {...props}>
             <div className="company-info">
                 <h3>{cardTitle}</h3>
                 <div className="logo-container">

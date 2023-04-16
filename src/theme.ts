@@ -14,6 +14,7 @@ export const portfolioActive = '#635763';
 export const portfolioActiveSecondary = '#453d45';
 
 export const portfolioBackground = '#2a252a';
+export const layerColor = 'rgba(255, 255, 255, 0.15)';
 
 /***** Animation Styling *****/
 // Timings
@@ -24,3 +25,4 @@ export const maxDesktopBreakpoint = 1919;
 export const maxLaptopBreakpoint = 1379;
 export const maxTabletBreakpoint = 1023;
 export const maxPhoneBreakpoint = 767;
+export const maxSmallPhoneBreakpoint = 370;

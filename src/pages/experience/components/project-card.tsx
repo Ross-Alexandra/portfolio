@@ -30,9 +30,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
     return (
         <ExperienceCard
-            cardTitle={type}
+            cardTitle={title}
             image={image ?? PortfolioBanner}
-            sectionTitle={title}
+            sectionTitle={type}
             sectionSubtitle={duration}
             columnNames={['Features', 'Technology', 'Lessons Learned']}
             columnImages={[<FeaturesIcon width={50} height={50} />, <TechnologyIcon width={50} height={50} />, <LessonsIcon width={50} height={50} />]}

@@ -28,5 +28,10 @@ export {default as StatTrackerBanner} from './images/siege-stats-banner.png';
 export {default as TrafficLightBanner} from './images/traffic-light-banner.png';
 export {default as RecipeListBanner} from './images/recipe-list-banner.png';
 export {default as RewardYourselfBanner} from './images/reward-yourself-banner.png';
+export {default as NHL22Banner} from './images/nhl-22-banner.png';
+export {default as ZotacCupBanner} from './images/zotac-cup-banner.png';
+export {default as ConnectedCupBanner} from './images/connected-cup-banner.png';
+export {default as ePLBanner} from './images/epl-banner.png';
+export {default as PickBanBanner} from './images/pick-ban-banner.png';
 
 export * from './icons';
