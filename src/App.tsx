@@ -1,129 +1,313 @@
 // Initialize firebase stuff.
-import'./services/firebase';
+import './services/firebase';
 
-import { useCallback, useEffect, useState } from "react";
-
-import { Hero } from "./pages/hero";
-import { Portfolio } from "./pages/portfolio";
-import { IAppSection } from "./dec";
-import { useScreenSize } from "./hooks";
+import styled from '@emotion/styled';
+import React from 'react';
+import {
+    Routes,
+    Route,
+    useLocation,
+    Link,
+} from 'react-router-dom';
 
 import {
-  ParalaxDiv,
-  PageContent
-} from './elements';
-import { slowChangeValue } from "./utils";
+    GithubLogo,
+    LinkedInLogo,
+    PortfolioLogo,
+    UpChevron,
+} from './assets';
+import { primaryButtonCSS } from './elements';
+import { Contact } from './pages/contact';
+import { Experience } from './pages/experience';
+import { Home } from './pages/home';
+import {
+    headerHeight,
+    layerColor,
+    maxPhoneBreakpoint,
+    portfolioBackground,
+    systemFont,
+    text,
+} from './theme';
 
-export function App() {
-  const [appSection, setAppSection] = useState<IAppSection>("portfolio");
-  const [scrollingDisabled, setScrollingDisabled] = useState<boolean>(false);
+const Wrapper = styled.div`
+    position: relative;
+    width: 100%;
+    height: calc(100svh - ${headerHeight}px);
 
-  const [paralaxHeight, setParalaxHeight] = useState(window.scrollY);
-  const [, viewportHeight] = useScreenSize(() => {}, (prevHeight, nextHeight) => {
-    setParalaxHeight(prevParalaxHeight => {
-        const heightDelta = nextHeight  - prevHeight;
-        return heightDelta + prevParalaxHeight;
-    });
-  });
+    background-color: ${portfolioBackground};
+    color: ${text};
+    border-color: ${text};
 
-  const scrollPage = useCallback((deltaY: number) => {
-    const paralaxDiv = document.getElementById('portfolio-paralax');
-    const scrollTop = paralaxDiv?.scrollTop
+    nav {
+        position: sticky;
+        top: 0px;
+        height: ${headerHeight}px;
+        width: 100%;
+        z-index: 100;
 
-    if (scrollTop === 0) setParalaxHeight((scrollHeight: number) => {
-        // If we're on the contact page, allow users to scroll up but not down
-        // if they're already scrolled all the way (so they can scroll on the
-        // text box).
-        if (scrollingDisabled) {
-            return scrollHeight;
+        &.with-border {
+            border-bottom: 1px solid ${layerColor};
         }
 
-        const update = scrollHeight + deltaY;
-        if (update < 0) return 0;
-        else if (update > viewportHeight) return viewportHeight;
-        else return update;
-    });
-  }, [setParalaxHeight, viewportHeight, scrollingDisabled]);
+        background-color: ${portfolioBackground};
+    
+        display: grid;
+        grid-template-columns: 50px minmax(0px, 1fr);
+        align-items: center;
+        justify-content: space-between;
 
-  const onScrollCallback = useCallback((e: WheelEvent) => {
-    scrollPage(e.deltaY);
-  }, [scrollPage]);
+        svg {
+            margin: 0px 0px 0px 30px;
+            width: 50px;
+            height 75px;
 
-  const [touchStart, setTouchStart] = useState<number | undefined>();
-  const onTouchCallback = useCallback((e: TouchEvent) => {
-    setTouchStart(e.touches[0].pageY);
-  }, []);
-  const onTouchMoveCallback = useCallback((e: TouchEvent) => {
-    scrollPage(-2 * (e.touches[0].pageY - (touchStart ?? 0)));
-    setTouchStart(e.touches[0].pageY);
-  }, [touchStart, scrollPage]);
+            @media (max-width: ${maxPhoneBreakpoint}px) {
+                width: 30px;
+                height: 45px;
+            }
+        }
 
-  const scrollToBottom = useCallback(() => {
-    slowChangeValue(setParalaxHeight, 40, viewportHeight);
-  }, [setParalaxHeight, viewportHeight]);
+        .links {
+            margin: 0px 30px 0px 0px;
+            width: min(100%, 600px);
+            height: 100%;
+            justify-self: end;
 
-  const scrollToTop = useCallback(() => {
-    slowChangeValue(setParalaxHeight, 40, 0);
-  }, [setParalaxHeight]);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: end;
 
-  const setTopLevelPage = useCallback((newSection: IAppSection) => {
-    setAppSection(newSection);
-    scrollToTop();
+            gap: 85px;
+            padding-right: 170px;
 
-    // Scroll animation takes 250ms. Wait for 300, then scroll the
-    // portfolio page back to top, as if it is not at the top then
-    // scrolling back down the portfolio requires clicking
-    // the scroll button.
-    setTimeout(() => document.getElementById('portfolio-paralax')?.scrollTo(0, 0), 300);
-  }, [scrollToTop, setAppSection]);
+            @media (max-width: ${maxPhoneBreakpoint}px) {
+                gap: 15px;
+                padding-right: 0px;
+            }
+        }
 
-  useEffect(() => {
-    window.addEventListener('wheel', onScrollCallback);
-    window.addEventListener('touchstart', onTouchCallback);
-    window.addEventListener('touchmove', onTouchMoveCallback);
+        a {
+            position: relative;
 
-    return () => {
-        window.removeEventListener('wheel', onScrollCallback);
-        window.removeEventListener('touchstart', onTouchCallback);
-        window.removeEventListener('touchmove', onTouchMoveCallback);
+            font-family: ${systemFont};
+            font-weight: 500;
+            font-size: 19px;
+            line-height: 36px;
+            color: ${text};
+            text-decoration: none;
+        
+            opacity: 0.5;
+            cursor: pointer;
+    
+            transition: opacity 250ms;
+    
+            :hover {
+                opacity: 1;
+            }
+
+            :after {
+                content: '';
+                position: absolute;
+                left: 0px;
+                bottom: 0px;
+                width: 100%;
+                height: 3px;
+        
+                background-color: ${text};
+        
+                transition: transform 250ms;
+                transform: scaleX(0);
+            }
+        
+            &.selected::after {
+                transform: scaleX(1);
+            }
+
+            &.selected {
+                opacity: 1;
+                cursor: default;
+            }
+        
+            @media (max-width: 385px) {
+                font-size: 16px;
+            }
+        }
     }
-  }, [onScrollCallback, onTouchCallback, onTouchMoveCallback]);
 
-  // Lock screen to portrait mode to avoid
-  // annoying styling stuff. Reset scroll
-  // to 0 to prevent issues with
-  // scrolling after refresh.
-  useEffect(() => {
-    window.screen.orientation.lock('portrait-primary');
-    document.getElementById('portfolio-paralax')?.scrollTo(0, 0);
-  }, []);
+    .scroll-to-top-button {
+        position: sticky;
+        bottom: 20px;
+        z-index: 100;
 
-  useEffect(() => {
-    if (paralaxHeight <= 0) {
-        document.body.style.overscrollBehaviorY = 'contain';
-    } else {
-        document.body.style.overscrollBehaviorY = 'auto';
+        margin: 0px 20px 0px calc(100vw - 55px);
+        cursor: pointer;
+
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 250ms, opacity 250ms linear;
+
+        &.visible {
+            visibility: visible;
+            opacity: 1;
+
+            transition: visibility 0ms, opacity 250ms linear;
+        }
     }
-  }, [paralaxHeight]);
 
-  return (
-    <>
-      <Hero 
-        appSection={appSection}
-        setAppSection={setAppSection}
-        paralaxHeight={paralaxHeight}
-        scrollToBottom={scrollToBottom}
-        setScrollingDisabled={setScrollingDisabled}
-      />
-      <ParalaxDiv 
-        id="portfolio-paralax"
-        viewportHeight={viewportHeight}
-        paralaxHeight={paralaxHeight}
-      >
-        <PageContent>
-          <Portfolio setTopLevelPage={setTopLevelPage}/>
-        </PageContent>
-      </ParalaxDiv>
-    </>
-  );
+    footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        place-items: center;
+
+        width: 100%;
+
+        margin-top: 20px;
+        padding: 20px 50px;
+
+        background-color: rgba(0, 0, 0, 0.5);
+
+        @media (max-width: ${maxPhoneBreakpoint}px) {
+            display: flex;
+            flex-direction: column-reverse;
+
+            gap: 10px;
+        }
+
+        p {
+            font-family: ${systemFont};
+            font-size: 15px;
+
+            color: ${text};
+        }
+
+        .internal-links {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            gap: 25px;
+
+            justify-content: start;
+
+            @media (max-width: ${maxPhoneBreakpoint}px) {
+                justify-content: center;
+            }
+        }
+
+        .external-links {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            gap: 25px;
+
+            justify-content: end;
+
+            @media (max-width: ${maxPhoneBreakpoint}px) {
+                justify-content: center;
+            }
+        }
+
+        a {
+            ${primaryButtonCSS}
+            background-color: transparent;
+            padding: 0px;
+        }
+    }
+`;
+
+function NavigationBar() {
+    const location = useLocation();
+
+    return (
+        <nav className={`${location.pathname === '/' ? '' : 'with-border'}`}>
+            <PortfolioLogo />
+            <div className='links'>
+                <Link
+                    to="/"
+                    className={`link ${location.pathname === '/' ? 'selected' : ''}`}
+                >
+                    Home
+                </Link>
+                <Link
+                    to="/experience"
+                    className={`link ${location.pathname === '/experience' ? 'selected' : ''}`}
+                >
+                    Experience
+                </Link>
+                <Link
+                    to="/contact"
+                    className={`link ${location.pathname === '/contact' ? 'selected' : ''}`}
+                >
+                    Contact
+                </Link>
+            </div>
+        </nav>
+    );
+}
+
+export function Footer() {
+    return (
+        <footer>
+            <div className='internal-links'>
+                <PortfolioLogo width={50} height={50} />
+            </div>
+            <p>&copy; {new Date().getFullYear()} Ross Alexandra </p>
+            <div className='external-links'>
+                <a href='https://github.com/Ross-Alexandra' target='_blank' rel='noopener noreferrer'>
+                    <GithubLogo width={35} height={35} />
+                </a>
+                <a href='https://www.linkedin.com/in/ross-alexandra-5201ab149/' target='_blank' rel='noopener noreferrer'>
+                    <LinkedInLogo width={35} height={35} />
+                </a>
+            </div>
+        </footer>
+    );
+}
+
+function ScrollToTopButton() {
+    const [scrollHeight, setScrollHeight] = React.useState(0);
+
+    React.useEffect(() => {
+        const handleScroll = () => {
+            setScrollHeight(window.scrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [setScrollHeight]);
+
+    // The nav bar is {headerHeight} pixels tall, so we don't want
+    // to show the button until the user has scrolled far enough
+    // to hide the nav bar.
+    const isVisible = scrollHeight > window.innerHeight - headerHeight;
+
+    return (
+        <UpChevron 
+            width={25}
+            height={25}
+            className={`scroll-to-top-button ${isVisible ? 'visible' : ''}`}
+            onClick={() => window.scrollTo(0, 0)}
+        />
+    );
+}
+
+export function App() {
+    return (
+        <Wrapper>
+            <NavigationBar />
+
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/experience" element={<Experience />} />
+                <Route path="/contact" element={<Contact />} />
+            </Routes>
+
+            <ScrollToTopButton />
+
+            <Footer />
+        </Wrapper>
+    );
 }

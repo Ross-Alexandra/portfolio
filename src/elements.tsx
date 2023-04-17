@@ -1,27 +1,12 @@
-import { css } from "@emotion/react";
-import styled from "@emotion/styled";
-import React from "react";
-import { portfolioBackground100, portfolioActive, portfolioActiveSecondary, systemFont } from "./theme";
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
-interface ParalaxProps extends React.HTMLProps<HTMLDivElement> {
-    paralaxHeight: number;
-    viewportHeight: number;
-}
-
-export const ParalaxDiv = styled.div<ParalaxProps>`
-    position: fixed;
-    left: 0px;
-    right: 0px;
-    background-color: ${portfolioBackground100};
-
-    ${({paralaxHeight, viewportHeight}: ParalaxProps) => `
-        top: ${viewportHeight - paralaxHeight}px;
-        bottom: 0px;
-        overflow: ${viewportHeight === paralaxHeight ? 'scroll' : 'hidden'};
-    `}
-
-    transition: top 200ms;
-`;
+import {
+    portfolioActive,
+    portfolioActiveSecondary,
+    systemFont,
+    text,
+} from './theme';
 
 export const PageContent = styled.div`
     position: absolute;
@@ -31,6 +16,10 @@ export const PageContent = styled.div`
 `;
 
 export const buttonCSS = css`
+    appearance: none;
+    outline: transparent;
+    border: unset;
+
     text-align: center;
     text-transform: capitalize;
     font-family: ${systemFont};
@@ -55,28 +44,20 @@ export const buttonCSS = css`
 
 export const primaryButtonCSS = css`
     ${buttonCSS}
-    color: black;
+    color: ${text};
     background-color: ${portfolioActive};
-
-    :hover {
-        color: white;
-    }
 `;
 
 export const secondaryButtonCSS = css`
     ${buttonCSS}
-    color: black;
+    color: ${text};
     background-color: ${portfolioActiveSecondary};
-
-    :hover {
-        color: white;
-    }
 `;
 
-export const PrimaryCTA = styled.div`
+export const PrimaryCTA = styled.button`
     ${primaryButtonCSS}
 `;
 
-export const SecondaryCTA = styled.div`
+export const SecondaryCTA = styled.button`
     ${secondaryButtonCSS}
 `;

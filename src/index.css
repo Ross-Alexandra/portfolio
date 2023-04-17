@@ -1,10 +1,10 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: #2a252a;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -17,9 +17,21 @@ code {
 }
 
 * {
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  scrollbar-width: none;  /* Firefox */
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+
+  scrollbar-color: #ffffff transparent;
+  scrollbar-width: thin;
 }
-*::-webkit-scrollbar { 
-  display: none;  /* Safari and Chrome */
+
+*::-webkit-scrollbar {
+    width: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: #ffffff;
+}
+
+*::-webkit-scrollbar-track-piece {
+    background: transparent;
 }
