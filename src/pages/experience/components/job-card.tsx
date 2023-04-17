@@ -1,7 +1,9 @@
 import React from 'react';
+
 import { Job } from '../../../app-data/jobs';
-import { ExperienceCard } from './experience-card';
 import { AchievementsIcon, LessonsIcon, ResponsibilityIcon } from '../../../assets';
+
+import { ExperienceCard } from './experience-card';
 
 type JobCardProps = Omit<React.HTMLProps<HTMLDivElement>, 'as'> & Job;
 
@@ -24,7 +26,11 @@ export const JobCard: React.FC<JobCardProps> = ({
             sectionTitle={title}
             sectionSubtitle={duration}
             columnNames={['Responsibilities', 'Achievements', 'Lessons Learned']}
-            columnImages={[<ResponsibilityIcon width={50} height={50} />, <AchievementsIcon width={50} height={50} />, <LessonsIcon width={50} height={50} />]}
+            columnImages={[
+                <ResponsibilityIcon key='responsibility-icon' width={50} height={50} />,
+                <AchievementsIcon key='achievements-icon' width={50} height={50} />,
+                <LessonsIcon key='lessons-icon' width={50} height={50} />,
+            ]}
             columnData={[responsibilities, achievements, lessons]}
             buttonLinks={buttonLinks}
         />

@@ -1,8 +1,14 @@
-import styled from "@emotion/styled";
-import { primaryButtonCSS } from "../../elements";
-import { defaultFont, portfolioActive, portfolioBackground, systemFont } from "../../theme";
-import { ContactBackdrop as ContactBackdropImage} from "../../assets";
-import { css } from "@emotion/react";
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+
+import { ContactBackdrop as ContactBackdropImage } from '../../assets';
+import { primaryButtonCSS } from '../../elements';
+import {
+    defaultFont,
+    portfolioActive,
+    portfolioBackground,
+    systemFont,
+} from '../../theme';
 
 export const ContactMeWrapper = styled.div`
     display: grid;
@@ -85,15 +91,15 @@ export const textInputCSS = (error: string) => css`
 `;
 
 export const EmailFrom = styled.input<{error: string}>`
-    ${({error}) => textInputCSS(error)}
+    ${({ error }) => textInputCSS(error)}
 `;
 
 export const EmailSubject = styled.input<{error: string}>`
-    ${({error}) => textInputCSS(error)}
+    ${({ error }) => textInputCSS(error)}
 `;
 
 export const EmailText = styled.textarea<{error: string}>`
-    ${({error}) => textInputCSS(error)}
+    ${({ error }) => textInputCSS(error)}
 
     height: 150px;
     padding-top: 10px;

@@ -1,6 +1,12 @@
-import { css } from "@emotion/react";
-import styled from "@emotion/styled";
-import { portfolioActive, portfolioActiveSecondary, systemFont, text } from "./theme";
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+
+import {
+    portfolioActive,
+    portfolioActiveSecondary,
+    systemFont,
+    text,
+} from './theme';
 
 export const PageContent = styled.div`
     position: absolute;

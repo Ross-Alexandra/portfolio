@@ -1,1 +1,1 @@
-export type IDirection = "top" | "bottom" | "left" | "right";
+export type IDirection = 'top' | 'bottom' | 'left' | 'right';

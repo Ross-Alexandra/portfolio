@@ -18,7 +18,7 @@ export const layerColor = 'rgba(255, 255, 255, 0.15)';
 
 /***** Animation Styling *****/
 // Timings
-export const rotationTime = "400ms";
+export const rotationTime = '400ms';
 
 /***** Breakpoints *****/
 export const maxDesktopBreakpoint = 1919;

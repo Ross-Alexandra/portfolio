@@ -1,10 +1,16 @@
 import styled from '@emotion/styled';
 import React from 'react';
 
-import { defaultFont, layerColor, maxPhoneBreakpoint, maxSmallPhoneBreakpoint, portfolioBackground } from "../../../theme";
-import { primaryButtonCSS } from "../../../elements";
-import { ExternalLink } from "../../../assets";
 import { PortfolioPageInfo } from '../../../app-data/portfolio-items';
+import { ExternalLink } from '../../../assets';
+import { primaryButtonCSS } from '../../../elements';
+import {
+    defaultFont,
+    layerColor,
+    maxPhoneBreakpoint,
+    maxSmallPhoneBreakpoint,
+    portfolioBackground,
+} from '../../../theme';
 import { Carousel } from '../../../ui-atoms/carousel';
 
 const Wrapper = styled.div<{backgroundImage: string}>`
@@ -28,7 +34,7 @@ const Wrapper = styled.div<{backgroundImage: string}>`
             position: absolute;
             inset: 0px;
 
-            background-image: url("${({backgroundImage}) => backgroundImage}");
+            background-image: url("${({ backgroundImage }) => backgroundImage}");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -253,7 +259,7 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({
 
                             <Carousel 
                                 images={featureImages}
-                                onClickActiveImage={(image) => setFocusedImage(image)}
+                                onClickActiveImage={image => setFocusedImage(image)}
                             />
                             
                             <img 

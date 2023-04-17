@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import React from 'react';
+
 import { LeftChevron, RightChevron } from '../../assets';
 
 const Wrapper = styled.div<{
@@ -43,7 +44,7 @@ const Wrapper = styled.div<{
             2nd of 3 images, the last 1 column is hidden, 
             3 (total) - 1 (index) - 1 === 1).
         */
-        grid-template-columns: ${({currentIndex, totalImages}) => `
+        grid-template-columns: ${({ currentIndex, totalImages }) => `
             ${'0px '.repeat(currentIndex)}
             100%
             ${'0px '.repeat(totalImages - currentIndex - 1)}
@@ -75,11 +76,11 @@ const Wrapper = styled.div<{
     }
 
     .carousel-control {
-        visibility: ${({totalImages}) => totalImages === 1 && 'hidden'};
+        visibility: ${({ totalImages }) => totalImages === 1 && 'hidden'};
     }
 
     .carousel-dots {
-        display: ${({totalImages}) => totalImages === 1 ? 'none' : 'flex'};
+        display: ${({ totalImages }) => totalImages === 1 ? 'none' : 'flex'};
 
         width: 100%;
         flex-direction: row;
@@ -163,7 +164,6 @@ export const Carousel: React.FC<CarouselProps> = ({
                     />
                 )}
             </div>
-
 
             <div className='carousel-dots'>
                 {images.map((_, index) => 

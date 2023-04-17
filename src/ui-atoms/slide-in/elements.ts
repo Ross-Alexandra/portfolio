@@ -1,6 +1,7 @@
-import { keyframes } from "@emotion/react";
-import styled from "@emotion/styled";
-import { IDirection } from "./interface";
+import { keyframes } from '@emotion/react';
+import styled from '@emotion/styled';
+
+import { IDirection } from './interface';
 
 interface AnimationAwareProps extends React.HTMLProps<HTMLElement> {
     slidePosition: IDirection;
@@ -29,8 +30,8 @@ export const AnimationDiv = styled.div<AnimationAwareProps>`
     height: 100%;
     left: 0px;
 
-    animation-name: ${({slidePosition}: AnimationAwareProps) => slideInKeyframes(slidePosition)};
+    animation-name: ${({ slidePosition }: AnimationAwareProps) => slideInKeyframes(slidePosition)};
     animation-duration: 750ms;
-    animation-delay: ${({delay}: AnimationAwareProps) => delay ?? 0}ms;
+    animation-delay: ${({ delay }: AnimationAwareProps) => delay ?? 0}ms;
     animation-fill-mode: both;
 `;

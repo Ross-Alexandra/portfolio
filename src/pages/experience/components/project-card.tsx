@@ -1,7 +1,14 @@
 import React from 'react';
-import { ExperienceCard } from './experience-card';
-import { FeaturesIcon, LessonsIcon, PortfolioBanner, TechnologyIcon } from '../../../assets';
+
 import { Project } from '../../../app-data/projects';
+import {
+    FeaturesIcon,
+    LessonsIcon,
+    PortfolioBanner,
+    TechnologyIcon,
+} from '../../../assets';
+
+import { ExperienceCard } from './experience-card';
 
 type ProjectCardProps = Omit<React.HTMLProps<HTMLDivElement>, 'as'> & Project;
 
@@ -35,7 +42,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             sectionTitle={type}
             sectionSubtitle={duration}
             columnNames={['Features', 'Technology', 'Lessons Learned']}
-            columnImages={[<FeaturesIcon width={50} height={50} />, <TechnologyIcon width={50} height={50} />, <LessonsIcon width={50} height={50} />]}
+            columnImages={[
+                <FeaturesIcon key='features-icon' width={50} height={50} />,
+                <TechnologyIcon key='technology-icon' width={50} height={50} />,
+                <LessonsIcon key='lessons-icon' width={50} height={50} />,
+            ]}
             columnData={[features, technology, lessons]}
             buttonLinks={buttonLinks}
         />

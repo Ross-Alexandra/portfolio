@@ -1,4 +1,30 @@
-import { ConnectedCupBanner, NHL22Banner, PickBanBanner, ReplayAnalyzerSlide1, ReplayAnalyzerSlide2, ReplayAnalyzerSlide3, ReplayAnalyzerSlide4, RewardYourselfSlide1, RewardYourselfSlide2, RewardYourselfSlide3, RewardYourselfSlide4, RewardYourselfSlide5, RewardYourselfSlide6, RewardYourselfSlide7, StratBook, StratbookSlide1, StratbookSlide2, StratbookSlide3, StratbookSlide4, StratbookSlide5, StratbookSlide6, StratbookSlide7, StratbookSlide8, ZotacCupBanner, ePLBanner } from "../assets";
+import {
+    ConnectedCupBanner,
+    NHL22Banner,
+    PickBanBanner,
+    ReplayAnalyzerSlide1,
+    ReplayAnalyzerSlide2,
+    ReplayAnalyzerSlide3,
+    ReplayAnalyzerSlide4,
+    RewardYourselfSlide1,
+    RewardYourselfSlide2,
+    RewardYourselfSlide3,
+    RewardYourselfSlide4,
+    RewardYourselfSlide5,
+    RewardYourselfSlide6,
+    RewardYourselfSlide7,
+    StratBook,
+    StratbookSlide1,
+    StratbookSlide2,
+    StratbookSlide3,
+    StratbookSlide4,
+    StratbookSlide5,
+    StratbookSlide6,
+    StratbookSlide7,
+    StratbookSlide8,
+    ZotacCupBanner,
+    ePLBanner,
+} from '../assets';
 
 interface PrimaryTile {
     title: string;
@@ -29,27 +55,27 @@ export const PortfolioPages: PortfolioPageInfo[] = [{
     primaryTiles: [{
         title: 'NHL 2022',
         image: NHL22Banner,
-        externalLink: 'https://battlefy.com/nhl-2022'
+        externalLink: 'https://battlefy.com/nhl-2022',
     }, {
         title: 'Zotac Cup',
         image: ZotacCupBanner,
-        externalLink: 'https://battlefy.com/zotac-cup'
+        externalLink: 'https://battlefy.com/zotac-cup',
     }, {
         title: 'Connected Club Cup',
         image: ConnectedCupBanner,
-        externalLink: 'https://battlefy.com/connectedclubcup/home'
+        externalLink: 'https://battlefy.com/connectedclubcup/home',
     }, {
         title: 'ePremier League',
         image: ePLBanner,
-        externalLink: 'https://e.premierleague.com/'
+        externalLink: 'https://e.premierleague.com/',
     }],
     featureTitle: 'Pick Ban System',
     featureDescription: "I also had the opportunity to work on numerous internal projects, the biggest of which was the platform's Pick Ban system. This system allows tournament organizers to setup a Pick Ban draft for their Valorant tournaments.",
     featureImages: [PickBanBanner],
     buttons: [{
         link: '/experience#battlefy',
-        text: 'My Time at Battlefy'
-    }]
+        text: 'My Time at Battlefy',
+    }],
 }, {
     title: 'StratBook',
     intro: 'StratBook is a web application that allows users to create and share their own strategies for Rainbow Six Siege. Users can create their own strategies, then export them to an image for easy sharing.',
@@ -58,10 +84,10 @@ export const PortfolioPages: PortfolioPageInfo[] = [{
     featureImages: [StratbookSlide1, StratbookSlide2, StratbookSlide3, StratbookSlide4, StratbookSlide5, StratbookSlide6, StratbookSlide7, StratbookSlide8],
     buttons: [{
         link: 'https://stratbook.gg',
-        text: 'Visit StratBook.gg'
+        text: 'Visit StratBook.gg',
     }, {
         link: '/experience#stratbook',
-        text: 'Learn About StratBook'
+        text: 'Learn About StratBook',
     }],
 }, {
     title: 'Reward Yourself',
@@ -71,7 +97,7 @@ export const PortfolioPages: PortfolioPageInfo[] = [{
     featureImages: [RewardYourselfSlide1, RewardYourselfSlide2, RewardYourselfSlide3, RewardYourselfSlide4, RewardYourselfSlide5, RewardYourselfSlide6, RewardYourselfSlide7],
     buttons: [{
         link: '/experience#reward-yourself',
-        text: 'Learn About Reward Yourself'
+        text: 'Learn About Reward Yourself',
     }],
 }, {
     title: 'Replay Analyzer',
@@ -81,9 +107,9 @@ export const PortfolioPages: PortfolioPageInfo[] = [{
     featureImages: [ReplayAnalyzerSlide1, ReplayAnalyzerSlide2, ReplayAnalyzerSlide3, ReplayAnalyzerSlide4],
     buttons: [{
         link: 'https://github.com/Ross-Alexandra/replay-analyzer/',
-        text: 'View on GitHub'
+        text: 'View on GitHub',
     }, {
         link: '/experience#replay-analyzer',
-        text: 'Learn About Replay Analyzer'
+        text: 'Learn About Replay Analyzer',
     }],
 }];

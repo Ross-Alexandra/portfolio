@@ -1,15 +1,12 @@
-import { IDirection } from "./interface";
-import {
-    BaseDiv,
-    AnimationDiv
-} from './elements';
+import { BaseDiv, AnimationDiv } from './elements';
+import { IDirection } from './interface';
 
 export interface SlideInProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
     direction: IDirection;
     delay?: number;
 }
 
-export function SlideIn({direction, delay, children, ...props}: SlideInProps) {
+export function SlideIn({ direction, delay, children, ...props }: SlideInProps) {
     return (
         <BaseDiv {...props}>
             <div className='hidden-children'>
@@ -19,5 +16,5 @@ export function SlideIn({direction, delay, children, ...props}: SlideInProps) {
                 {children}
             </AnimationDiv>
         </BaseDiv>
-    )
+    );
 }

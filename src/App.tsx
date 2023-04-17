@@ -1,14 +1,26 @@
 // Initialize firebase stuff.
 import './services/firebase';
 
-import { Home } from "./pages/home";
-import { Experience } from './pages/experience';
-import { Contact } from './pages/contact';
-import { Routes, Route, useLocation, Link } from 'react-router-dom';
 import styled from '@emotion/styled';
-import { headerHeight, maxPhoneBreakpoint, portfolioBackground, systemFont, text } from './theme';
+import {
+    Routes,
+    Route,
+    useLocation,
+    Link,
+} from 'react-router-dom';
+
 import { GithubLogo, LinkedInLogo, PortfolioLogo } from './assets';
 import { primaryButtonCSS } from './elements';
+import { Contact } from './pages/contact';
+import { Experience } from './pages/experience';
+import { Home } from './pages/home';
+import {
+    headerHeight,
+    maxPhoneBreakpoint,
+    portfolioBackground,
+    systemFont,
+    text,
+} from './theme';
 
 const Wrapper = styled.div`
     position: relative;
@@ -181,25 +193,25 @@ function NavigationBar() {
             <div className='links'>
                 <Link
                     to="/"
-                    className={`link ${location.pathname === "/" ? 'selected' : ''}`}
+                    className={`link ${location.pathname === '/' ? 'selected' : ''}`}
                 >
                     Home
                 </Link>
                 <Link
                     to="/experience"
-                    className={`link ${location.pathname === "/experience" ? 'selected' : ''}`}
+                    className={`link ${location.pathname === '/experience' ? 'selected' : ''}`}
                 >
                     Experience
                 </Link>
                 <Link
                     to="/contact"
-                    className={`link ${location.pathname === "/contact" ? 'selected' : ''}`}
+                    className={`link ${location.pathname === '/contact' ? 'selected' : ''}`}
                 >
                     Contact
                 </Link>
             </div>
         </nav>
-    )
+    );
 }
 
 export function Footer() {

@@ -1,7 +1,14 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import { layerColor, maxDesktopBreakpoint, maxPhoneBreakpoint, maxTabletBreakpoint, text } from '../../../theme';
+
 import { primaryButtonCSS } from '../../../elements';
+import {
+    layerColor,
+    maxDesktopBreakpoint,
+    maxPhoneBreakpoint,
+    maxTabletBreakpoint,
+    text,
+} from '../../../theme';
 
 const Wrapper = styled.div`
     display: grid;
@@ -209,12 +216,12 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({
                 <h3>{sectionTitle}</h3>
                 <h5>{sectionSubtitle}</h5>
                 <div className="description">
-                    {columns.map(({name, image, data}) => 
+                    {columns.map(({ name, image, data }) => 
                         <div className="description-content" key={name}>
                             {image}
                             <h4>{name}</h4>
                             <ul>
-                                {data.map((item) =>
+                                {data.map(item =>
                                     <li key={item}>{item}</li>
                                 )}
                             </ul>

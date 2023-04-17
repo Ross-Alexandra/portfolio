@@ -1,15 +1,23 @@
-import {HeadshotBGImage, HeadshotImage} from '../../assets';
-import { SlideIn } from "../../ui-atoms/slide-in";
-import { RollingText } from "../../ui-atoms/rolling-text";
-import styled from "@emotion/styled";
-import { defaultFont, fancyFont, headerHeight, maxDesktopBreakpoint, maxPhoneBreakpoint, maxTabletBreakpoint } from "../../theme";
+import styled from '@emotion/styled';
+
+import { HeadshotBGImage, HeadshotImage } from '../../assets';
+import {
+    defaultFont,
+    fancyFont,
+    headerHeight,
+    maxDesktopBreakpoint,
+    maxPhoneBreakpoint,
+    maxTabletBreakpoint,
+} from '../../theme';
+import { RollingText } from '../../ui-atoms/rolling-text';
+import { SlideIn } from '../../ui-atoms/slide-in';
 
 const heroText = [
     'Ross Alexandra',
     'A Developer',
     'A Maker',
     'A Coach',
-    'A Nerd'
+    'A Nerd',
 ];
 
 const Wrapper = styled.div`
@@ -128,12 +136,12 @@ export function HeroContent() {
                 <img src={HeadshotImage} alt="Portrait"/>
             </div>
             <SlideIn direction="bottom">
-                <h2 className='hello-text'>Hi, I'm</h2>
+                <h2 className='hello-text'>Hi, I&apos;m</h2>
             </SlideIn>
 
             <SlideIn className='rolling-text' direction="top" delay={750}>
                 <RollingText textDuration={2000} initialDelay={250}>
-                    {heroText.map((text) => 
+                    {heroText.map(text => 
                         <h2 key={text}>{text}</h2>
                     )}
                 </RollingText>

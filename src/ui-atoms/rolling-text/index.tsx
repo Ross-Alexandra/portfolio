@@ -1,12 +1,19 @@
-import React, { useCallback, useEffect, useLayoutEffect, useMemo, useState } from "react";
-import { RollingTextContainer, NextText, DisplayedText } from "./elements";
+import React, {
+    useCallback,
+    useEffect,
+    useLayoutEffect,
+    useMemo,
+    useState,
+} from 'react';
+
+import { RollingTextContainer, NextText, DisplayedText } from './elements';
 
 export interface RollingTextProps extends React.HTMLProps<HTMLDivElement> {
     textDuration: number;
     initialDelay: number;
-};
+}
 
-export function RollingText({textDuration, initialDelay, children, className}: RollingTextProps) {
+export function RollingText({ textDuration, initialDelay, children, className }: RollingTextProps) {
     const [textIndex, setTextIndex] = useState(0);
     const [nextIndex, setNextIndex] = useState(1);
     const [showingNext, setShowingNext] = useState(false);

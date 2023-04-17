@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const RollingTextContainer = styled.div`
     position: relative;
@@ -21,11 +21,11 @@ export const NextText = styled.div<ShowingAwareProps>`
     position: absolute;
     top: 0px;
     bottom: 0px;
-    left: ${({showNext}: ShowingAwareProps) => showNext ? '0%' : '-100%'};
+    left: ${({ showNext }: ShowingAwareProps) => showNext ? '0%' : '-100%'};
 
-    ${({resetting}: ShowingAwareProps) => !resetting ? `
+    ${({ resetting }: ShowingAwareProps) => !resetting ? `
         transition: left 500ms;
-    ` : ``}
+    ` : ''}
 `;
 
 export const DisplayedText = styled.div<ShowingAwareProps>`
@@ -34,9 +34,9 @@ export const DisplayedText = styled.div<ShowingAwareProps>`
     position: absolute;
     top: 0px;
     bottom: 0px;
-    left: ${({showNext}: ShowingAwareProps) => showNext ? '100%' : '0%'};
+    left: ${({ showNext }: ShowingAwareProps) => showNext ? '100%' : '0%'};
 
-    ${({resetting}: ShowingAwareProps) => !resetting ? `
+    ${({ resetting }: ShowingAwareProps) => !resetting ? `
         transition: left 500ms;
-    ` : ``}
+    ` : ''}
 `;

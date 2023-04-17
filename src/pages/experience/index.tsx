@@ -1,12 +1,23 @@
-import styled from "@emotion/styled";
-import { fancyFont, layerColor, maxDesktopBreakpoint, maxLaptopBreakpoint, maxPhoneBreakpoint, maxTabletBreakpoint, portfolioBackground, text } from "../../theme";
-import { GraduationPhoto, ProjectsImage, TutelaImage } from "../../assets";
-import { SlideIn } from "../../ui-atoms/slide-in";
-import { primaryButtonCSS } from "../../elements";
-import { jobs } from "../../app-data/jobs";
-import { JobCard } from "./components";
-import { projects } from "../../app-data/projects";
-import { ProjectCard } from "./components/project-card";
+import styled from '@emotion/styled';
+
+import { jobs } from '../../app-data/jobs';
+import { projects } from '../../app-data/projects';
+import { GraduationPhoto, ProjectsImage, TutelaImage } from '../../assets';
+import { primaryButtonCSS } from '../../elements';
+import {
+    fancyFont,
+    layerColor,
+    maxDesktopBreakpoint,
+    maxLaptopBreakpoint,
+    maxPhoneBreakpoint,
+    maxTabletBreakpoint,
+    portfolioBackground,
+    text,
+} from '../../theme';
+import { SlideIn } from '../../ui-atoms/slide-in';
+
+import { JobCard } from './components';
+import { ProjectCard } from './components/project-card';
 
 const Wrapper = styled.div`
     display: flex;
@@ -240,7 +251,7 @@ export function Experience() {
             <div id="interests">
                 <h2>Creating Software People <i>Want</i> To Use</h2>
                 <p>
-                    I believe that great software isn't just about the code or the technology, it's about the
+                    I believe that great software isn&apos;t just about the code or the technology, it&apos;s about the
                     user experience. Software is created to solve a problem or fulfill a need for the end user, so
                     it is paramount to approach software development with a user-centric mindset.Focusing on the
                     user experience from the very beginning ensures that the software you create is

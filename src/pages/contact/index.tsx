@@ -1,5 +1,5 @@
-import { getFunctions, httpsCallable } from "firebase/functions";
-import React, { useCallback, useEffect, useState } from "react";
+import { getFunctions, httpsCallable } from 'firebase/functions';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import {
     ContactMeWrapper,
@@ -11,7 +11,7 @@ import {
     EmailText,
     ErrorText,
     SubmitButton,
-    ContactBackdrop
+    ContactBackdrop,
 } from './elements';
 
 async function sendEmail(email: string, subject: string, message: string) {
@@ -20,10 +20,10 @@ async function sendEmail(email: string, subject: string, message: string) {
     
     try {
         console.log('Sending Email');
-        const {data} = await request({
+        const { data } = await request({
             email,
             subject,
-            message
+            message,
         });
         console.log('Retrieved data =>', data);
     } catch (err) {
@@ -33,9 +33,9 @@ async function sendEmail(email: string, subject: string, message: string) {
 
 export function Contact() {
     const [emailSent, setEmailSent] = useState(false);
-    const [emailError, setEmailError] = useState("");
-    const [subjectError, setSubjectError] = useState("");
-    const [messageError, setMessageError] = useState("");
+    const [emailError, setEmailError] = useState('');
+    const [subjectError, setSubjectError] = useState('');
+    const [messageError, setMessageError] = useState('');
 
     useEffect(() => {
         if (emailSent) setTimeout(() => setEmailSent(false), 2000);
@@ -102,11 +102,11 @@ export function Contact() {
                         form='email-form'
                         placeholder="Your Message"
                         error={messageError}
-                     />
+                    />
                     {messageError && <ErrorText>{messageError}</ErrorText>}
                     <SubmitButton type='submit' value={emailSent ? 'Sent!' : 'Submit!'} />
                 </EmailForm>
             </ContactMeContent>
         </ContactMeWrapper>
-    )
+    );
 }
