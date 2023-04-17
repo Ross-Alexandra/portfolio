@@ -30,6 +30,8 @@ const Wrapper = styled.div<{ footerHeight: number }>`
     padding: 20px;
 
     background-image: linear-gradient(${portfolioBackground}80, ${portfolioBackground}80), url(${ContactBackdrop});
+    background-repeat: no-repeat;
+    background-size: cover;
 
     h1 {
         grid-column: 1 / -1;

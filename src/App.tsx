@@ -22,6 +22,7 @@ import { Experience } from './pages/experience';
 import { Home } from './pages/home';
 import {
     headerHeight,
+    layerColor,
     maxPhoneBreakpoint,
     portfolioBackground,
     systemFont,
@@ -43,6 +44,10 @@ const Wrapper = styled.div`
         height: ${headerHeight}px;
         width: 100%;
         z-index: 100;
+
+        &.with-border {
+            border-bottom: 1px solid ${layerColor};
+        }
 
         background-color: ${portfolioBackground};
     
@@ -214,7 +219,7 @@ function NavigationBar() {
     const location = useLocation();
 
     return (
-        <nav>
+        <nav className={`${location.pathname === '/' ? '' : 'with-border'}`}>
             <PortfolioLogo />
             <div className='links'>
                 <Link
