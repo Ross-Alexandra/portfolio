@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 import { HeadshotAlternate, HeadshotBGImage, HeadshotImage } from '../../../assets';
+import { primaryButtonCSS } from '../../../elements';
 import {
     defaultFont,
     fancyFont,
@@ -11,7 +12,6 @@ import {
 } from '../../../theme';
 import { RollingText } from '../../../ui-atoms/rolling-text';
 import { SlideIn } from '../../../ui-atoms/slide-in';
-import { primaryButtonCSS } from '../../../elements';
 
 const heroText = [
     'Ross Alexandra',

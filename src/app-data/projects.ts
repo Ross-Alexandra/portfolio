@@ -210,7 +210,7 @@ export const projects: Project[] = [
 ];
 
 export const CuratedProjects: Project[] = [
-    projects.find((page) => page.title === 'Stratbook'),
-    projects.find((page) => page.title === 'Reward Yourself'),
-    projects.find((page) => page.title === 'Replay Analyzer'),
+    projects.find(page => page.title === 'Stratbook'),
+    projects.find(page => page.title === 'Reward Yourself'),
+    projects.find(page => page.title === 'Replay Analyzer'),
 ].filter(Boolean) as Project[];

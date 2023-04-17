@@ -126,6 +126,6 @@ export const jobs: Job[] = [{
 }];
 
 export const CuratedJobs: Job[] = [
-    jobs.find((job) => job.company === 'Battlefy'),
-    jobs.find((job) => job.company === 'Tutela'),
+    jobs.find(job => job.company === 'Battlefy'),
+    jobs.find(job => job.company === 'Tutela'),
 ].filter(Boolean) as Job[];

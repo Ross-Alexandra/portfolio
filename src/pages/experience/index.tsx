@@ -1,6 +1,7 @@
-import React from 'react';
 import styled from '@emotion/styled';
 import moment from 'moment';
+import React from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import { CuratedJobs, jobs } from '../../app-data/jobs';
 import { CuratedProjects, projects } from '../../app-data/projects';
@@ -20,7 +21,6 @@ import { SlideIn } from '../../ui-atoms/slide-in';
 
 import { JobCard } from './components';
 import { ProjectCard } from './components/project-card';
-import { useSearchParams } from 'react-router-dom';
 
 const Wrapper = styled.div`
     display: flex;
@@ -285,15 +285,15 @@ export function Experience() {
     const curatedIsTrue = localStorageCurated === 'true' || !localStorageCurated;
 
     const defaultCurated = curatedQueryParamIsDefined ? curatedQueryParamIsTrue : curatedIsTrue;
-    const [curated, _setCurated] = React.useState<Boolean>(defaultCurated);
+    const [curated, _setCurated] = React.useState<boolean>(defaultCurated);
 
-    const setCurated = React.useCallback((value: Boolean) => {
+    const setCurated = React.useCallback((value: boolean) => {
         localStorage.setItem(EXPERIENCE_STORAGE_KEY, value.toString());
         _setCurated(value);
         setSearchParams({});
 
         if (curated === undefined) {
-            document.getElementById('work-experience')?.scrollTo({behavior: 'smooth', top: 0});
+            document.getElementById('work-experience')?.scrollTo({ behavior: 'smooth', top: 0 });
         }
     }, [curated, _setCurated, setSearchParams]);
 
