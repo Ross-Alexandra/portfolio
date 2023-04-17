@@ -82,7 +82,7 @@ export const projects: Project[] = [
             "Learned how to use local storage to store data on a user's device",
             'Learned how to use custom data models to store data in a way that is easy to use',
         ],
-        portfolioLink: '/#recipe-list',
+        portfolioLink: '/#and-more',
     }, {
         type: 'web',
         title: 'Volume Traffic Light',
@@ -101,7 +101,7 @@ export const projects: Project[] = [
             "Learned how to use the Web Audio API to get audio data from a computer's microphone",
             "Gained experience soliciting requirements, and creating a project from a client's needs",
         ],
-        portfolioLink: '/#volume-traffic-light',
+        portfolioLink: '/#and-more',
         githubLink: 'https://github.com/Ross-Alexandra/volume-traffic-light/',
         externalLink: 'https://volumetrafficlight.com/',
     }, {
@@ -141,7 +141,7 @@ export const projects: Project[] = [
             'Learned how to use Electron to create a desktop app',
             'Learned how to use Python to interact with the Windows API',
         ],
-        portfolioLink: '/#comms',
+        portfolioLink: '/#and-more',
         githubLink: 'https://github.com/Ross-Alexandra/comms',
     }, {
         type: 'other',
@@ -159,7 +159,7 @@ export const projects: Project[] = [
             'Learned how to use npx to create a tool which can be used from the command line',
             'Learned how to use npm to create a library which can be used in other projects',
         ],
-        portfolioLink: '/#fullstack-spritesheets',
+        portfolioLink: '/#and-more',
         githubLink: 'https://github.com/Ross-Alexandra/fullstack-spritesheets',
         externalLink: 'https://www.npmjs.com/package/fullstack-spritesheets',
     }, {
@@ -182,7 +182,7 @@ export const projects: Project[] = [
             'Learned how to deploy a microservices architecture on a bare-metal server',
             'Learned how to setup CI/CD pipelines using Jenkins',
         ],
-        portfolioLink: '/#scrim-search',
+        portfolioLink: '/#and-more',
         githubLink: 'https://github.com/Ross-Alexandra/ScrimFinder',
     },
     {
@@ -204,7 +204,7 @@ export const projects: Project[] = [
             'Learned how to use PostgreSQL to store data',
             'Learned how to deploy a Python app on a bare-metal server using Docker & Jenkins',
         ],
-        portfolioLink: '/#stat-tracker',
+        portfolioLink: '/#and-more',
         githubLink: 'https://github.com/Ross-Alexandra/siege-stats',
     },
 ];
