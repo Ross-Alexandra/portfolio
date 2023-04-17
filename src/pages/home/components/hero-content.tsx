@@ -9,6 +9,7 @@ import {
     maxDesktopBreakpoint,
     maxPhoneBreakpoint,
     maxTabletBreakpoint,
+    text,
 } from '../../../theme';
 import { RollingText } from '../../../ui-atoms/rolling-text';
 import { SlideIn } from '../../../ui-atoms/slide-in';
@@ -39,9 +40,28 @@ const Wrapper = styled.div`
         ${primaryButtonCSS}
     }
 
-    .button-slide-in > div {
-        display: grid;
-        place-items: center;
+    .button-slide-in {
+        width: max-content;
+
+        div {
+            display: grid;
+            place-items: center;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px 15px;
+        
+            a {
+                position: relative;
+                width: 100%;
+            }
+
+            span {
+                width: 100%;
+
+                text-align: center;
+                font-size: 12px;
+                color: ${text}40;
+            }
+        }
     }
 
     .headshot {
@@ -186,6 +206,9 @@ export function HeroContent() {
 
             <SlideIn className='button-slide-in' direction='bottom' noRepeatId='view-work-button' delay={1500}>
                 <a href='/experience'>View My Work</a>
+                <a href='/Resume.pdf' target='_blank' rel='noreferrer'>View My Resume</a>
+                <span />
+                <span>Updated: April 17th, 2023</span>
             </SlideIn>
         </Wrapper>
     );
