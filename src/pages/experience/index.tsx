@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import moment from 'moment';
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 
@@ -133,32 +132,11 @@ const Wrapper = styled.div`
         }
     }
 
-    @keyframes fade-in {
-        0% {
-            opacity: 0;
-        }
-
-        100% {
-            opacity: 1;
-        }
-    }
-
     #interests {
         display: flex;
         flex-direction: column;
         gap: 20px;
         padding: 30px 55% 30px 30px;
-
-        animation: fade-in 1500ms ease-in-out;
-        animation-delay: 1500ms;
-        animation-fill-mode: forwards;
-
-        opacity: 0;
-
-        &.no-animation {
-            animation-duration: 0ms;
-            animation-delay: 0ms;
-        }
 
         p, h4 {
             padding-left: 30px;
@@ -199,9 +177,11 @@ const Wrapper = styled.div`
         }
     }
 
-    .curated-option {
+    .curated-option-slide-in {
         align-self: center;
-        
+    }
+
+    .curated-option {        
         display: flex;
         flex-direction: column;
 
@@ -273,11 +253,6 @@ const Wrapper = styled.div`
 const EXPERIENCE_STORAGE_KEY = 'curated-experience';
 
 export function Experience() {
-    // If the animation has been shown in the last 10 minutes, don't show it again
-    const fadeInStorageTime = localStorage.getItem('abstract-fadein');
-    const lastAnimation = fadeInStorageTime ? moment(fadeInStorageTime) : moment(0);
-    const hasFadedInRecently = !lastAnimation.add(10, 'minutes').isBefore(moment());
-
     const [searchParams, setSearchParams] = useSearchParams();
     const curatedQueryParam = searchParams.get('curated');
     const curatedQueryParamIsDefined = curatedQueryParam !== null;
@@ -296,9 +271,7 @@ export function Experience() {
         _setCurated(value);
         setSearchParams({});
 
-        if (curated === undefined) {
-            document.getElementById('work-experience')?.scrollTo({ behavior: 'smooth', top: 0 });
-        }
+        document.getElementById('work-experience')?.scrollIntoView({ behavior: 'smooth' });
     }, [curated, _setCurated, setSearchParams]);
 
     const jobsToShow = curated ? CuratedJobs : jobs;
@@ -306,6 +279,23 @@ export function Experience() {
     
     return (
         <Wrapper>
+            <div id="interests">
+                <h2>Creating Software People <i>Want</i> To Use</h2>
+                <p>
+                    I believe that great software isn&apos;t just about the code or the technology, it&apos;s about the
+                    user experience. Software is created to solve a problem or fulfill a need for the end user, so
+                    it is paramount to approach software development with a user-centric mindset. Focusing on the
+                    user experience from the very beginning ensures that the software you create is
+                    not only functional, but also intuitive, efficient, and enjoyable to use.
+                </p>
+                <h4>The only way to truly keep a user is to ensure that they never look for an alternative.</h4>
+                <p>
+                    That&apos;s why I&apos;m always looking for ways to improve the user experience of the software
+                    I&apos;m working on. Whether it&apos;s through better design, more intuitive navigation, or
+                    more efficient workflows.
+                </p>
+            </div>
+
             <h2 className='top-title'>At a Glance</h2>
 
             <div id='at-a-glance'>
@@ -347,56 +337,35 @@ export function Experience() {
                 </SlideIn>
             </div>
 
-            <div 
-                id="interests"
-                className={`${hasFadedInRecently ? 'no-animation' : ''}`}
-                onAnimationEnd={() => {
-                    localStorage.setItem('abstract-fadein', moment().toISOString());
-                }}
-            >
-                <h2>Creating Software People <i>Want</i> To Use</h2>
-                <p>
-                    I believe that great software isn&apos;t just about the code or the technology, it&apos;s about the
-                    user experience. Software is created to solve a problem or fulfill a need for the end user, so
-                    it is paramount to approach software development with a user-centric mindset.Focusing on the
-                    user experience from the very beginning ensures that the software you create is
-                    not only functional, but also intuitive, efficient, and enjoyable to use.
-                </p>
-                <h4>The only way to truly keep a user is to ensure that they never look for an alternative.</h4>
-                <p>
-                    That&apos;s why I&apos;m always looking for ways to improve the user experience of the software
-                    I&apos;m working on. Whether it&apos;s through better design, more intuitive navigation, or
-                    more efficient workflows.
-                </p>
-            </div>
+            <SlideIn className="curated-option-slide-in" noRepeatId='option-selector' direction="bottom" delay={1500}>
+                <div className="curated-option">
+                    {curatedQueryParamIsDefined && (
+                        <div className="banner">
+                            <p>
+                                You&apos;re currently viewing {curatedQueryParamIsTrue ? 'curated' : 'all'} experience.
+                                You can change this at any time by clicking a button below.
+                            </p>
+                        </div>
+                    )}
 
-            <div className="curated-option">
-                {curatedQueryParamIsDefined && (
-                    <div className="banner">
-                        <p>
-                            You&apos;re currently viewing {curatedQueryParamIsTrue ? 'curated' : 'all'} experience.
-                            You can change this at any time by clicking a button below.
-                        </p>
+                    <h2>What do you want to see?</h2>
+
+                    <div className='curated-option-buttons'>
+                        <button
+                            className={`${curated === true ? 'selected' : ''}`}
+                            onClick={() => setCurated(true)}
+                        >
+                            Recent Experience
+                        </button>
+                        <button
+                            className={`${curated === false ? 'selected' : ''}`}
+                            onClick={() => setCurated(false)}
+                        >
+                            All Experience
+                        </button>
                     </div>
-                )}
-
-                <h2>What do you want to see?</h2>
-
-                <div className='curated-option-buttons'>
-                    <button
-                        className={`${curated === true ? 'selected' : ''}`}
-                        onClick={() => setCurated(true)}
-                    >
-                        Recent Experience
-                    </button>
-                    <button
-                        className={`${curated === false ? 'selected' : ''}`}
-                        onClick={() => setCurated(false)}
-                    >
-                        All Experience
-                    </button>
                 </div>
-            </div>
+            </SlideIn>
 
             <div id="work-experience">
                 {curated !== undefined && (

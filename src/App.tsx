@@ -1,8 +1,8 @@
 // Initialize firebase stuff.
 import './services/firebase';
 
-import React from 'react';
 import styled from '@emotion/styled';
+import React from 'react';
 import {
     Routes,
     Route,
@@ -10,7 +10,12 @@ import {
     Link,
 } from 'react-router-dom';
 
-import { GithubLogo, LinkedInLogo, PortfolioLogo, UpChevron } from './assets';
+import {
+    GithubLogo,
+    LinkedInLogo,
+    PortfolioLogo,
+    UpChevron,
+} from './assets';
 import { primaryButtonCSS } from './elements';
 import { Contact } from './pages/contact';
 import { Experience } from './pages/experience';
