@@ -43,7 +43,7 @@ export const jobs: Job[] = [{
     company: 'Tutela',
     logo: TutelaBanner,
     title: 'Jr. Java Developer',
-    duration: 'Jan 2020 - Dec 2020 (internship)',
+    duration: 'Jan 2020 - Dec 2020 (extended co-op)',
     responsibilities: [
         'Creating BigQuery pipelines to streamline data processing',
         'Collaborate with senior data scientists to identify & solve data issues',
@@ -61,7 +61,7 @@ export const jobs: Job[] = [{
     company: 'Audette',
     logo: AudetteBanner,
     title: 'Jr. Full Stack Developer',
-    duration: 'May 2019 - Sep 2019 (internship)',
+    duration: 'May 2019 - Sep 2019 (co-op)',
     responsibilities: [
         "Maintaining & Creating new features for Audette's web application",
         'Creating a pipeline to automate the process of bootstrapping new physical devices',
@@ -78,7 +78,7 @@ export const jobs: Job[] = [{
     company: 'Bambora',
     logo: BamboraBanner,
     title: 'Software Developer',
-    duration: 'Sep 2018 - Dec 2018 (internship)',
+    duration: 'Sep 2018 - Dec 2018 (co-op)',
     responsibilities: [
         'Design & Development of a greenfield payment processing system',
         'Created a RESTful API which could generate & parse comprehensive datagrams for payment processing',
@@ -95,7 +95,7 @@ export const jobs: Job[] = [{
     company: 'UVIC',
     logo: UvicBanner,
     title: 'Software Development Intern',
-    duration: 'Jan 2018 - Apr 2018 (internship)',
+    duration: 'Jan 2018 - Apr 2018 (co-op)',
     responsibilities: [
         'Creating visualizations of weather data for the Victoria area',
         "Parsing & processing data from UVIC's archival SQL database",
@@ -112,7 +112,7 @@ export const jobs: Job[] = [{
     company: 'Cradlepoint',
     logo: CradlepointBanner,
     title: 'Software Development Intern',
-    duration: 'Jun 2017 - Sep 2017 (internship)',
+    duration: 'Jun 2017 - Sep 2017 (co-op)',
     responsibilities: [
         'Develop a machine learning model to determine platform health from telemetry data',
     ],
