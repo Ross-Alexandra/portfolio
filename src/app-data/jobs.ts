@@ -124,3 +124,8 @@ export const jobs: Job[] = [{
         'It is important to work with the data you have, rather than trying to find the perfect data set',
     ],
 }];
+
+export const CuratedJobs: Job[] = [
+    jobs.find((job) => job.company === 'Battlefy'),
+    jobs.find((job) => job.company === 'Tutela'),
+].filter(Boolean) as Job[];

@@ -1,8 +1,9 @@
+import React from 'react';
 import styled from '@emotion/styled';
 import moment from 'moment';
 
-import { jobs } from '../../app-data/jobs';
-import { projects } from '../../app-data/projects';
+import { CuratedJobs, jobs } from '../../app-data/jobs';
+import { CuratedProjects, projects } from '../../app-data/projects';
 import { GraduationPhoto, ProjectsImage, TutelaImage } from '../../assets';
 import { primaryButtonCSS } from '../../elements';
 import {
@@ -19,11 +20,12 @@ import { SlideIn } from '../../ui-atoms/slide-in';
 
 import { JobCard } from './components';
 import { ProjectCard } from './components/project-card';
+import { useSearchParams } from 'react-router-dom';
 
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 80px;
+    gap: 20px;
 
     @media (max-width: ${maxTabletBreakpoint}px) {
         gap: 20px;
@@ -197,11 +199,65 @@ const Wrapper = styled.div`
         }
     }
 
+    .curated-option {
+        align-self: center;
+        
+        display: flex;
+        flex-direction: column;
+
+        gap: 10px;
+
+        background-color: ${layerColor};
+        border: 1px solid ${text}80;
+
+        padding: 20px;
+        border-radius: 10px;
+
+        .banner {
+            width: 100%;
+
+            background-color: rgba(255, 0, 0, 0.15);
+            border: 1px solid ${text}80;
+            border-radius: 10px;
+
+            padding: 20px;
+        }
+
+        button {
+            ${primaryButtonCSS}
+            border: 1px solid transparent;
+
+            &.selected {
+                filter: grayscale(100%);
+                cursor: default;
+
+                border: 1px solid ${text}80;
+            }
+        }
+
+        .curated-option-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            width: 100%;
+
+            @media (max-width: ${maxPhoneBreakpoint}px) {
+                flex-direction: column;
+            }
+        }
+    }
+
     #work-experience,
     #projects {
         display: flex;
         flex-direction: column;
         padding: 0px 30px;
+        margin-bottom: 30px;
+
         gap: 20px;
 
         @media (max-width: ${maxPhoneBreakpoint}px) {
@@ -210,13 +266,40 @@ const Wrapper = styled.div`
     }
 `;
 
+const EXPERIENCE_STORAGE_KEY = 'curated-experience';
+
 export function Experience() {
+    // If the animation has been shown in the last 10 minutes, don't show it again
     const fadeInStorageTime = localStorage.getItem('abstract-fadein');
     const lastAnimation = fadeInStorageTime ? moment(fadeInStorageTime) : moment(0);
-
-    // If the animation has been shown in the last 10 minutes, don't show it again
     const hasFadedInRecently = !lastAnimation.add(10, 'minutes').isBefore(moment());
 
+    const [searchParams, setSearchParams] = useSearchParams();
+    const curatedQueryParam = searchParams.get('curated');
+    const curatedQueryParamIsDefined = curatedQueryParam !== null;
+    const curatedQueryParamIsTrue = curatedQueryParam === 'true';
+
+    // If the user hasn't selected curated or all, don't
+    // anything but the selector. 
+    const localStorageCurated = localStorage.getItem(EXPERIENCE_STORAGE_KEY);
+    const curatedIsTrue = localStorageCurated === 'true' || !localStorageCurated;
+
+    const defaultCurated = curatedQueryParamIsDefined ? curatedQueryParamIsTrue : curatedIsTrue;
+    const [curated, _setCurated] = React.useState<Boolean>(defaultCurated);
+
+    const setCurated = React.useCallback((value: Boolean) => {
+        localStorage.setItem(EXPERIENCE_STORAGE_KEY, value.toString());
+        _setCurated(value);
+        setSearchParams({});
+
+        if (curated === undefined) {
+            document.getElementById('work-experience')?.scrollTo({behavior: 'smooth', top: 0});
+        }
+    }, [curated, _setCurated, setSearchParams]);
+
+    const jobsToShow = curated ? CuratedJobs : jobs;
+    const projectsToShow = curated ? CuratedProjects : projects;
+    
     return (
         <Wrapper>
             <h2 className='top-title'>At a Glance</h2>
@@ -283,20 +366,56 @@ export function Experience() {
                 </p>
             </div>
 
-            <div id="work-experience">
-                <h2>Work Experience</h2>
+            <div className="curated-option">
+                {curatedQueryParamIsDefined && (
+                    <div className="banner">
+                        <p>
+                            You&apos;re currently viewing {curatedQueryParamIsTrue ? 'curated' : 'all'} experience.
+                            You can change this at any time by clicking a button below.
+                        </p>
+                    </div>
+                )}
 
-                {jobs.map((job, index) => (
-                    <JobCard key={index} {...job} />
-                ))}
+                <h2>What do you want to see?</h2>
+
+                <div className='curated-option-buttons'>
+                    <button
+                        className={`${curated === true ? 'selected' : ''}`}
+                        onClick={() => setCurated(true)}
+                    >
+                        Recent Experience
+                    </button>
+                    <button
+                        className={`${curated === false ? 'selected' : ''}`}
+                        onClick={() => setCurated(false)}
+                    >
+                        All Experience
+                    </button>
+                </div>
+            </div>
+
+            <div id="work-experience">
+                {curated !== undefined && (
+                    <>
+                        <h2>Work Experience</h2>
+
+                        {jobsToShow.map((job, index) => (
+                            <JobCard key={index} {...job} />
+                        ))}
+                    </>
+                )}
             </div>
 
             <div id="projects">
-                <h2>Projects</h2>
+                {curated !== undefined && (
+                    <>
+                        <h2>Projects</h2>
 
-                {projects.map((project, index) => (
-                    <ProjectCard key={index} {...project} />
-                ))}
+                        {projectsToShow.map((project, index) => (
+                            <ProjectCard key={index} {...project} />
+                        ))}
+                    </>
+                )}
             </div>
         </Wrapper>
     );

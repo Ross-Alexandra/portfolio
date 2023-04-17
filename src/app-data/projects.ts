@@ -208,3 +208,9 @@ export const projects: Project[] = [
         githubLink: 'https://github.com/Ross-Alexandra/siege-stats',
     },
 ];
+
+export const CuratedProjects: Project[] = [
+    projects.find((page) => page.title === 'Stratbook'),
+    projects.find((page) => page.title === 'Reward Yourself'),
+    projects.find((page) => page.title === 'Replay Analyzer'),
+].filter(Boolean) as Project[];

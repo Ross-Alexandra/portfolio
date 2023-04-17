@@ -39,6 +39,7 @@ const Wrapper = styled.div`
         font-weight: 700;
 
         width: 100%;
+        text-transform: capitalize;
     }
 
     h4 {
