@@ -213,6 +213,10 @@ const Wrapper = styled.div`
         padding: 20px;
         border-radius: 10px;
 
+        @media (max-width: ${maxPhoneBreakpoint}px) {
+            margin: 0px 15px;
+        }
+
         .banner {
             width: 100%;
 
@@ -246,7 +250,7 @@ const Wrapper = styled.div`
             width: 100%;
 
             @media (max-width: ${maxPhoneBreakpoint}px) {
-                flex-direction: column;
+                grid-template-columns: 1fr;
             }
         }
     }
