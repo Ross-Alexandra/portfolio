@@ -272,7 +272,7 @@ export function Experience() {
         setSearchParams({});
 
         document.getElementById('work-experience')?.scrollIntoView({ behavior: 'smooth' });
-    }, [curated, _setCurated, setSearchParams]);
+    }, [_setCurated, setSearchParams]);
 
     const jobsToShow = curated ? CuratedJobs : jobs;
     const projectsToShow = curated ? CuratedProjects : projects;

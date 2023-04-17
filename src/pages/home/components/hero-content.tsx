@@ -32,7 +32,10 @@ const Wrapper = styled.div`
     padding: 0px 15px 0px 15px;
 
     @media (max-width: ${maxPhoneBreakpoint}px) {
-        padding: 100px 5px 0px 5px;
+        padding: 0px 5px 0px 5px;
+        gap: 15px;
+
+        justify-content: center;
     }
 
     a {
@@ -49,6 +52,10 @@ const Wrapper = styled.div`
             grid-template-columns: 1fr 1fr;
             gap: 5px 15px;
         
+            @media (max-width: ${maxPhoneBreakpoint}px) {
+                grid-template-columns: 1fr;
+            }
+
             a {
                 position: relative;
                 width: 100%;
