@@ -1,112 +1,191 @@
-import { getFunctions, httpsCallable } from 'firebase/functions';
-import React, { useCallback, useEffect, useState } from 'react';
+import { Global, css } from '@emotion/react';
+import styled from '@emotion/styled';
+import React from 'react';
 
 import {
-    ContactMeWrapper,
-    ContactMeContent,
-    ContactTitle,
-    EmailForm,
-    EmailFrom,
-    EmailSubject,
-    EmailText,
-    ErrorText,
-    SubmitButton,
+    CheckIcon,
+    ClockIcon,
     ContactBackdrop,
-} from './elements';
+    CopyIcon,
+    EmailIcon,
+    LinkedInLogo,
+} from '../../assets';
+import { primaryButtonCSS } from '../../elements';
+import {
+    headerHeight,
+    layerColor,
+    maxTabletBreakpoint,
+    portfolioBackground,
+    text,
+} from '../../theme';
 
-async function sendEmail(email: string, subject: string, message: string) {
-    const functions = getFunctions();
-    const request = httpsCallable(functions, 'sendEmail');
+const Wrapper = styled.div<{ footerHeight: number }>`
+    min-height: calc(100svh - ${headerHeight}px - ${({ footerHeight }) => footerHeight ?? 0}px);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content minmax(0px, 1fr);
+    place-items: center;
     
-    try {
-        console.log('Sending Email');
-        const { data } = await request({
-            email,
-            subject,
-            message,
-        });
-        console.log('Retrieved data =>', data);
-    } catch (err) {
-        console.log('caught error =>', err);
+    grid-gap: 20px;
+    padding: 20px;
+
+    background-image: linear-gradient(${portfolioBackground}80, ${portfolioBackground}80), url(${ContactBackdrop});
+
+    h1 {
+        grid-column: 1 / -1;
+        text-align: center;
     }
-}
 
-export function Contact() {
-    const [emailSent, setEmailSent] = useState(false);
-    const [emailError, setEmailError] = useState('');
-    const [subjectError, setSubjectError] = useState('');
-    const [messageError, setMessageError] = useState('');
+    .contact-info {
+        display: grid;
+        grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr);
+        grid-gap: 20px;
 
-    useEffect(() => {
-        if (emailSent) setTimeout(() => setEmailSent(false), 2000);
-    }, [emailSent]);
+        height: 100%;
 
-    const onContactSend = useCallback((e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        const target: HTMLFormElement = e.target as HTMLFormElement;
-        const emailInput = target.elements[0] as HTMLInputElement;
-        const subjectInput = target.elements[1] as HTMLInputElement;
-        const messageInput = target.elements[2] as HTMLInputElement;
+        @media (max-width: ${maxTabletBreakpoint}px) {
+            grid-template-columns: minmax(0px, 1fr);
+        }
 
-        const email = emailInput.value;
-        const subject = subjectInput.value;
-        const message = messageInput.value;
+        .contact-info__item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
 
-        // TODO: If any additional validation is added
-        // create an actual validator here.
-        let errored;
-        if (!email) {
-            setEmailError('Email must be present.');
-            errored = true;
-        } else setEmailError('');
+            background-image: 
+                linear-gradient(${layerColor}, ${layerColor}),
+                linear-gradient(${portfolioBackground}, ${portfolioBackground});
 
-        if (!subject) {
-            setSubjectError('Subject must be present.');
-            errored = true;
-        } else setSubjectError('');
+            @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+                backdrop-filter: blur(15px) brightness(0.8);
+                background-image: unset;
+            }
 
-        if (!message) {
-            setMessageError('Message must be present.');
-            errored = true;
-        } else setMessageError('');
+            background-color: ${layerColor};
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid ${text}80;
 
-        if (errored) return;
+            a {
+                text-decoration: none;
+                ${primaryButtonCSS}
+            }
+        }
 
-        sendEmail(email, subject, message);
+        .email {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
 
-        emailInput.value = '';
-        subjectInput.value = '';
-        messageInput.value = '';
-        setEmailSent(true);
-    }, [setEmailError, setSubjectError, setMessageError]);
+            gap: 10px;
+
+            .copy-icon {
+                cursor: pointer;
+            }
+        }
+    }
+`;
+
+type ContactProps = Omit<React.HTMLProps<HTMLDivElement>, 'as'>
+
+export const Contact: React.FC<ContactProps> = ({
+    ...props
+}) => {
+    const [footerHeight, setFooterHeight] = React.useState(document.getElementsByTagName('footer')?.[0]?.clientHeight);
+
+    React.useEffect(() => {
+        function resizeFooter() {
+            const footerHeight = document.getElementsByTagName('footer')?.[0].clientHeight;
+
+            console.log('footerHeight', footerHeight);
+            setFooterHeight(footerHeight);
+        }
+
+        window.addEventListener('resize', resizeFooter);
+        window.addEventListener('load', resizeFooter);
+
+        return () => {
+            window.removeEventListener('resize', resizeFooter);
+            window.removeEventListener('load', resizeFooter);
+        };
+    }, [setFooterHeight]);
+
+    const [copied, setCopied] = React.useState(false);
+    React.useEffect(() => {
+        if (copied) {
+            const timeout = setTimeout(() => {
+                setCopied(false);
+            }, 2000);
+
+            return () => clearTimeout(timeout);
+        }
+    }, [copied]);
 
     return (
-        <ContactMeWrapper>
-            <ContactBackdrop />
-            <ContactMeContent>
-                <ContactTitle>Get In Touch!</ContactTitle>
-                <EmailForm id='email-form' onSubmit={onContactSend}>
-                    <EmailFrom
-                        type='email'
-                        placeholder="Your email"
-                        error={emailError}
-                    />
-                    {emailError && <ErrorText>{emailError}</ErrorText>}
-                    <EmailSubject 
-                        type='text'
-                        placeholder="Message Subject"
-                        error={subjectError}
-                    />
-                    {subjectError && <ErrorText>{subjectError}</ErrorText>}
-                    <EmailText 
-                        form='email-form'
-                        placeholder="Your Message"
-                        error={messageError}
-                    />
-                    {messageError && <ErrorText>{messageError}</ErrorText>}
-                    <SubmitButton type='submit' value={emailSent ? 'Sent!' : 'Submit!'} />
-                </EmailForm>
-            </ContactMeContent>
-        </ContactMeWrapper>
+        <Wrapper
+            footerHeight={footerHeight}
+            {...props}
+        >
+            <Global 
+                styles={css`
+                    /*
+                        Override styling which would add padding
+                        to the bottom of the page.
+                    */
+                    footer {
+                        margin-top: 0px !important;
+                    }
+
+                    .scroll-to-top-button {
+                        display: none;
+                    }
+                `}
+            />
+
+            <h1>Contact Me!</h1>
+            <div className='contact-info'>
+                <div className='contact-info__item'>
+                    <h3>Get in Touch</h3>
+                    <p>Send me an email any time, and I&apos;ll get back to you soon</p>
+                </div>
+                <div className='contact-info__item'>
+                    <ClockIcon width={50} height={50} />
+                    <h3>Available</h3>
+                    <p>Monday - Friday: 8:30am - 5:00pm</p>
+                    <p>Pacific Time (Vancouver, BC, Canada)</p>
+                </div>
+                <div className='contact-info__item'>
+                    <EmailIcon width={50} height={50} />
+                    <div className='email'>
+                        <p>Ross-Alexandra@outlook.com</p>
+                        {copied ? (
+                            <CheckIcon width={20} height={20} />
+                        ) : (
+                            <CopyIcon
+                                width={20}
+                                height={20}
+                                className='copy-icon'
+                                onClick={() => {
+                                    setCopied(true);
+                                    navigator.clipboard.writeText('Ross-Alexandra@outlook.com');
+                                }}
+                            />
+                        )}
+                    </div>
+                </div>
+                <div className='contact-info__item'>
+                    <LinkedInLogo fill={text} width={50} height={50} />
+                    <a
+                        href='https://www.linkedin.com/in/ross-alexandra-5201ab149/'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                    >
+                        Connect With Me
+                    </a>
+                </div>
+            </div>
+        </Wrapper>
     );
-}
+};
