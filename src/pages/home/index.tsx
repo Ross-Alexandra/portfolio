@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 import { PortfolioAndMore } from '../../app-data/portfolio-and-more';
 import { PortfolioPages } from '../../app-data/portfolio-items';
+import { maxLaptopBreakpoint, maxPhoneBreakpoint } from '../../theme';
 
 import { PortfolioPage } from './components';
 import { AndMore } from './components/and-more';
@@ -10,6 +11,9 @@ import { HeroContent } from './components/hero-content';
 const Wrapper = styled.div`
     #and-more {
         padding: 15px;
+        
+        display: flex;
+        flex-direction: column;
         
         h2 {
             font-size: 32px;
@@ -24,6 +28,17 @@ const Wrapper = styled.div`
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 1rem;
+
+        max-width: 1920px;
+        margin: 0px auto;
+
+        @media (max-width: ${maxLaptopBreakpoint}px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: ${maxPhoneBreakpoint}px) {
+            grid-template-columns: 1fr;
+        }
     }
 `;
 
