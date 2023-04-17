@@ -135,11 +135,11 @@ export function HeroContent() {
             <div className='headshot'>
                 <img src={HeadshotImage} alt="Portrait"/>
             </div>
-            <SlideIn direction="bottom">
+            <SlideIn noRepeatId='hello' direction="bottom">
                 <h2 className='hello-text'>Hi, I&apos;m</h2>
             </SlideIn>
 
-            <SlideIn className='rolling-text' direction="top" delay={750}>
+            <SlideIn className='rolling-text' noRepeatId='roller' direction="top" delay={750}>
                 <RollingText textDuration={2000} initialDelay={250}>
                     {heroText.map(text => 
                         <h2 key={text}>{text}</h2>
@@ -147,7 +147,7 @@ export function HeroContent() {
                 </RollingText>
             </SlideIn>
 
-            <SlideIn direction="bottom" delay={1500}>
+            <SlideIn direction="bottom" noRepeatId='quote' delay={1500}>
                 <div className='quote-box'>
                     <p className='quote'>Pushing the limit of what you think is possible is the best way to make the impossible possible.</p>
                     <br/>

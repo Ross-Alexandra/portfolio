@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import moment from 'moment';
 
 import { jobs } from '../../app-data/jobs';
 import { projects } from '../../app-data/projects';
@@ -152,6 +153,11 @@ const Wrapper = styled.div`
 
         opacity: 0;
 
+        &.no-animation {
+            animation-duration: 0ms;
+            animation-delay: 0ms;
+        }
+
         p, h4 {
             padding-left: 30px;
             line-height: 1.3;
@@ -205,12 +211,18 @@ const Wrapper = styled.div`
 `;
 
 export function Experience() {
+    const fadeInStorageTime = localStorage.getItem('abstract-fadein');
+    const lastAnimation = fadeInStorageTime ? moment(fadeInStorageTime) : moment(0);
+
+    // If the animation has been shown in the last 10 minutes, don't show it again
+    const hasFadedInRecently = !lastAnimation.add(10, 'minutes').isBefore(moment());
+
     return (
         <Wrapper>
             <h2 className='top-title'>At a Glance</h2>
 
             <div id='at-a-glance'>
-                <SlideIn direction="bottom">
+                <SlideIn noRepeatId='education-card' direction="bottom">
                     <div className="card education">
                         <h3>Education</h3>
                         <ul>
@@ -222,7 +234,7 @@ export function Experience() {
                     </div>
                 </SlideIn>
 
-                <SlideIn direction="bottom" delay={500}>
+                <SlideIn noRepeatId='work-experience-card' direction="bottom" delay={500}>
                     <div className="card work-experience">
                         <h3>Work Experience</h3>
                         <ul>
@@ -234,7 +246,7 @@ export function Experience() {
                     </div>
                 </SlideIn>
 
-                <SlideIn direction="bottom" delay={1000}>
+                <SlideIn noRepeatId='projects-card' direction="bottom" delay={1000}>
                     <div className="card projects">
                         <h3>Independent Projects</h3>
                         <ul>
@@ -248,7 +260,13 @@ export function Experience() {
                 </SlideIn>
             </div>
 
-            <div id="interests">
+            <div 
+                id="interests"
+                className={`${hasFadedInRecently ? 'no-animation' : ''}`}
+                onAnimationEnd={() => {
+                    localStorage.setItem('abstract-fadein', moment().toISOString());
+                }}
+            >
                 <h2>Creating Software People <i>Want</i> To Use</h2>
                 <p>
                     I believe that great software isn&apos;t just about the code or the technology, it&apos;s about the

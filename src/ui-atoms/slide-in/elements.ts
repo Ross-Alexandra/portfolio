@@ -34,4 +34,9 @@ export const AnimationDiv = styled.div<AnimationAwareProps>`
     animation-duration: 750ms;
     animation-delay: ${({ delay }: AnimationAwareProps) => delay ?? 0}ms;
     animation-fill-mode: both;
+
+    &.no-animation {
+        animation-duration: 0ms;
+        animation-delay: 0ms;
+    }
 `;
