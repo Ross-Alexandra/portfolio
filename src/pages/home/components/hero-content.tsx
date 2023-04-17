@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { HeadshotBGImage, HeadshotImage } from '../../../assets';
+import { HeadshotAlternate, HeadshotBGImage, HeadshotImage } from '../../../assets';
 import {
     defaultFont,
     fancyFont,
@@ -11,6 +11,7 @@ import {
 } from '../../../theme';
 import { RollingText } from '../../../ui-atoms/rolling-text';
 import { SlideIn } from '../../../ui-atoms/slide-in';
+import { primaryButtonCSS } from '../../../elements';
 
 const heroText = [
     'Ross Alexandra',
@@ -25,14 +26,22 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
 
-    gap: 15px;
-
     width: 100%;
     height: calc(100svh - ${headerHeight}px);
-    padding: 125px 15px 0px 15px;
+    padding: 0px 15px 0px 15px;
 
     @media (max-width: ${maxPhoneBreakpoint}px) {
         padding: 100px 5px 0px 5px;
+    }
+
+    a {
+        text-decoration: none;
+        ${primaryButtonCSS}
+    }
+
+    .button-slide-in > div {
+        display: grid;
+        place-items: center;
     }
 
     .headshot {
@@ -65,6 +74,24 @@ const Wrapper = styled.div`
         transform: rotateY(180deg);
 
         box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    }
+
+    .fade-over {
+        position: absolute;
+
+        opacity: 0;
+
+        transition-property: opacity;
+        transition-delay: 0s;
+        transition-duration: 500ms;
+
+        object-fit: cover;
+
+        :hover {
+            opacity: 1;
+            transition-duration: 2s;
+            transition-delay: 1s;
+        }
     }
 
     h2 {
@@ -134,7 +161,9 @@ export function HeroContent() {
         <Wrapper>
             <div className='headshot'>
                 <img src={HeadshotImage} alt="Portrait"/>
+                <img src={HeadshotAlternate} className='fade-over' alt='Portrait' />
             </div>
+
             <SlideIn noRepeatId='hello' direction="bottom">
                 <h2 className='hello-text'>Hi, I&apos;m</h2>
             </SlideIn>
@@ -153,6 +182,10 @@ export function HeroContent() {
                     <br/>
                     <p className='author'>~ Someone, Probably</p>
                 </div>
+            </SlideIn>
+
+            <SlideIn className='button-slide-in' direction='bottom' noRepeatId='view-work-button' delay={1500}>
+                <a href='/experience'>View My Work</a>
             </SlideIn>
         </Wrapper>
     );
