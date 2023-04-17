@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import React from 'react';
+import { HashLink } from 'react-router-hash-link';
 
 import { primaryButtonCSS } from '../../../elements';
 import {
@@ -179,7 +180,11 @@ type ExperienceCardProps = Omit<React.HTMLProps<HTMLDivElement>, 'as'> & {
     columnNames: string[];
     columnImages: React.ReactNode[];
     columnData: string[][];
-    buttonLinks: {[buttonLink: string]: string};
+    buttons: {
+        link: string;
+        text: string;
+        external?: boolean;
+    }[];
 };
 
 export const ExperienceCard: React.FC<ExperienceCardProps> = ({
@@ -190,7 +195,7 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({
     columnNames,
     columnImages,
     columnData,
-    buttonLinks,
+    buttons,
     ...props
 }) => {
     const columns = columnNames.map((name, index) => {
@@ -232,10 +237,15 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({
             </div>
 
             <div className="links">
-                {Object.entries(buttonLinks).map(([link, text]) => 
-                    <a href={link} key={link}>
+                {buttons.map(({ link, text, external }) => 
+                    <HashLink 
+                        key={link}
+                        to={link}
+                        target={external ? '_blank' : ''}
+                        rel={external ? 'noopener noreferrer' : ''}
+                    >
                         {text}
-                    </a>
+                    </HashLink>
                 )}
             </div>
         </Wrapper>

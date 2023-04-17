@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import React from 'react';
+import { HashLink } from 'react-router-hash-link';
 
 import { PortfolioPageInfo } from '../../../app-data/portfolio-items';
 import { ExternalLink } from '../../../assets';
@@ -272,15 +273,15 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({
 
                     <div className='buttons'>
                         {buttons.map((button, index) =>
-                            <a
+                            <HashLink
                                 key={index}
                                 className='button'
-                                href={button.link}  
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                to={button.link}  
+                                target={button.external ? '_blank' : ''}
+                                rel={button.external ? 'noopener noreferrer' : ''}
                             >
                                 {button.text}
-                            </a>
+                            </HashLink>
                         )}
                     </div>
                 </div>

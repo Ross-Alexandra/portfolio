@@ -35,6 +35,7 @@ interface PrimaryTile {
 interface Button {
     text: string;
     link: string;
+    external: boolean;
 }
 
 export interface PortfolioPageInfo {
@@ -75,6 +76,7 @@ export const PortfolioPages: PortfolioPageInfo[] = [{
     buttons: [{
         link: '/experience#battlefy',
         text: 'My Time at Battlefy',
+        external: false,
     }],
 }, {
     title: 'StratBook',
@@ -85,9 +87,11 @@ export const PortfolioPages: PortfolioPageInfo[] = [{
     buttons: [{
         link: 'https://stratbook.gg',
         text: 'Visit StratBook.gg',
+        external: true,
     }, {
         link: '/experience#stratbook',
         text: 'Learn About StratBook',
+        external: false,
     }],
 }, {
     title: 'Reward Yourself',
@@ -98,6 +102,7 @@ export const PortfolioPages: PortfolioPageInfo[] = [{
     buttons: [{
         link: '/experience#reward-yourself',
         text: 'Learn About Reward Yourself',
+        external: false,
     }],
 }, {
     title: 'Replay Analyzer',
@@ -108,8 +113,10 @@ export const PortfolioPages: PortfolioPageInfo[] = [{
     buttons: [{
         link: 'https://github.com/Ross-Alexandra/replay-analyzer/',
         text: 'View on GitHub',
+        external: true,
     }, {
         link: '/experience#replay-analyzer',
         text: 'Learn About Replay Analyzer',
+        external: false,
     }],
 }];

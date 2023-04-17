@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 import { CuratedJobs, jobs } from '../../app-data/jobs';
 import { CuratedProjects, projects } from '../../app-data/projects';
@@ -319,7 +320,7 @@ export function Experience() {
                             <li>2.5 Years in Full-Stack Roles</li>
                             <li>1.5 Year in Backend-focused Roles</li>
                         </ul>
-                        <a href='#work-experience'>More Details</a>
+                        <HashLink to='#work-experience'>More Details</HashLink>
                     </div>
                 </SlideIn>
 
@@ -332,7 +333,7 @@ export function Experience() {
                             <li>3 Desktop Applications</li>
                             <li>Various Additional Backend Infrastructure &amp; Utility Projects</li>
                         </ul>
-                        <a href="#projects">More Details</a>
+                        <HashLink to="#projects">More Details</HashLink>
                     </div>
                 </SlideIn>
             </div>

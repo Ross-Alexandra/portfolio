@@ -24,16 +24,23 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     githubLink,
     externalLink,
 }) => {
-    const buttonLinks: Record<string, string> = {};
-    if (portfolioLink) {
-        buttonLinks[portfolioLink] = 'See in Portfolio';
-    }
-    if (githubLink) {
-        buttonLinks[githubLink] = 'See on GitHub';
-    }
-    if (externalLink) {
-        buttonLinks[externalLink] = 'See External';
-    }
+    const buttons = [
+        portfolioLink && {
+            text: 'See in Portfolio',
+            link: portfolioLink,
+            external: false,
+        },
+        githubLink && {
+            text: 'See on GitHub',
+            link: githubLink,
+            external: true,
+        },
+        externalLink && {
+            text: 'Visit',
+            link: externalLink,
+            external: true,
+        },
+    ].filter(Boolean) as { text: string; link: string; external: boolean }[];
 
     return (
         <ExperienceCard
@@ -48,7 +55,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 <LessonsIcon key='lessons-icon' width={50} height={50} />,
             ]}
             columnData={[features, technology, lessons]}
-            buttonLinks={buttonLinks}
+            buttons={buttons}
         />
     );
 };

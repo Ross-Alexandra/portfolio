@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { HashLink } from 'react-router-hash-link';
 
 import { HeadshotAlternate, HeadshotBGImage, HeadshotImage } from '../../../assets';
 import { primaryButtonCSS } from '../../../elements';
@@ -212,8 +213,8 @@ export function HeroContent() {
             </SlideIn>
 
             <SlideIn className='button-slide-in' direction='bottom' noRepeatId='view-work-button' delay={1500}>
-                <a href='/experience'>View My Work</a>
-                <a href='/Resume.pdf' target='_blank' rel='noreferrer'>View My Resume</a>
+                <HashLink to='/experience'>View My Work</HashLink>
+                <HashLink to='/Resume.pdf' target='_blank' rel='noreferrer'>View My Resume</HashLink>
                 <span />
                 <span>Updated: April 17th, 2023</span>
             </SlideIn>

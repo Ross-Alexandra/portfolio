@@ -10,6 +10,7 @@ import {
 interface Link {
     text: string;
     link: string;
+    external: boolean;
 }
 
 export interface PortfolioAndMoreInfo {
@@ -26,6 +27,7 @@ export const PortfolioAndMore: PortfolioAndMoreInfo[] = [{
     externalLinks: [{
         text: 'Contact for Demo',
         link: '/contact',
+        external: false,
     }],
 }, {
     title: 'Volume Traffic Light',
@@ -34,9 +36,11 @@ export const PortfolioAndMore: PortfolioAndMoreInfo[] = [{
     externalLinks: [{
         text: 'Github',
         link: 'https://github.com/Ross-Alexandra/volume-traffic-light',
+        external: true,
     }, {
         text: 'See Live',
         link: 'https://volumetrafficlight.com',
+        external: true,
     }],
 }, {
     title: 'Comms',
@@ -45,6 +49,7 @@ export const PortfolioAndMore: PortfolioAndMoreInfo[] = [{
     externalLinks: [{
         text: 'Github',
         link: 'https://github.com/Ross-Alexandra/comms',
+        external: true,
     }],
 }, {
     title: 'Full Stack Spritesheets',
@@ -53,9 +58,11 @@ export const PortfolioAndMore: PortfolioAndMoreInfo[] = [{
     externalLinks: [{
         text: 'Github',
         link: 'https://github.com/Ross-Alexandra/fullstack-spritesheets',
+        external: true,
     }, {
         text: 'NPM',
         link: 'https://www.npmjs.com/package/fullstack-spritesheets',
+        external: true,
     }],
 }, {
     title: 'Scrim Search',
@@ -64,6 +71,7 @@ export const PortfolioAndMore: PortfolioAndMoreInfo[] = [{
     externalLinks: [{
         text: 'Github',
         link: 'github.com/Ross-Alexandra/ScrimFinder',
+        external: true,
     }],
 }, {
     title: 'Stat Tracker',
@@ -72,6 +80,7 @@ export const PortfolioAndMore: PortfolioAndMoreInfo[] = [{
     externalLinks: [{
         text: 'Github',
         link: 'https://github.com/Ross-Alexandra/siege-stats',
+        external: true,
     }],
 }, {
     title: 'More coming soon...',
@@ -80,5 +89,6 @@ export const PortfolioAndMore: PortfolioAndMoreInfo[] = [{
     externalLinks: [{
         text: 'Contact',
         link: '/contact',
+        external: false,
     }],
 }];

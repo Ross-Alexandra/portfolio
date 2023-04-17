@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import React from 'react';
+import { HashLink } from 'react-router-hash-link';
 
 import { PortfolioAndMoreInfo } from '../../../app-data/portfolio-and-more';
 import { primaryButtonCSS } from '../../../elements';
@@ -60,9 +61,14 @@ export const AndMore: React.FC<AndMoreProps> = ({
             <p>{description}</p>
             <div className='links'>
                 {externalLinks?.map((link, index) =>
-                    <a key={index} href={link.link}>
+                    <HashLink
+                        key={index}
+                        to={link.link}
+                        target={link.external ? '_blank' : '_self'}
+                        rel={link.external ? 'noopener noreferrer' : ''}
+                    >
                         {link.text}
-                    </a>
+                    </HashLink>
                 )}
             </div>
         </Wrapper>

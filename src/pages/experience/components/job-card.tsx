@@ -17,7 +17,13 @@ export const JobCard: React.FC<JobCardProps> = ({
     lessons,
     portfolioLink,
 }) => {
-    const buttonLinks = portfolioLink ? { [portfolioLink]: 'See in Portfolio' } : {};
+    const buttons = [
+        portfolioLink && {
+            text: 'See in Portfolio',
+            link: portfolioLink,
+            external: false,
+        },
+    ].filter(Boolean) as { text: string; link: string; external: boolean }[];
 
     return (
         <ExperienceCard
@@ -32,7 +38,7 @@ export const JobCard: React.FC<JobCardProps> = ({
                 <LessonsIcon key='lessons-icon' width={50} height={50} />,
             ]}
             columnData={[responsibilities, achievements, lessons]}
-            buttonLinks={buttonLinks}
+            buttons={buttons}
         />
     );
 };
