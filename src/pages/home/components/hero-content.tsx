@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { HeadshotBGImage, HeadshotImage } from '../../assets';
+import { HeadshotBGImage, HeadshotImage } from '../../../assets';
 import {
     defaultFont,
     fancyFont,
@@ -8,9 +8,9 @@ import {
     maxDesktopBreakpoint,
     maxPhoneBreakpoint,
     maxTabletBreakpoint,
-} from '../../theme';
-import { RollingText } from '../../ui-atoms/rolling-text';
-import { SlideIn } from '../../ui-atoms/slide-in';
+} from '../../../theme';
+import { RollingText } from '../../../ui-atoms/rolling-text';
+import { SlideIn } from '../../../ui-atoms/slide-in';
 
 const heroText = [
     'Ross Alexandra',

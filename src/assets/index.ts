@@ -52,5 +52,6 @@ export { default as StratbookSlide5 } from './images/stratbook-5.png';
 export { default as StratbookSlide6 } from './images/stratbook-6.png';
 export { default as StratbookSlide7 } from './images/stratbook-7.png';
 export { default as StratbookSlide8 } from './images/stratbook-8.png';
+export { default as QuestionMark } from './images/question-mark.png';
 
 export * from './icons';
