@@ -1,6 +1,7 @@
 // Initialize firebase stuff.
 import './services/firebase';
 
+import React from 'react';
 import styled from '@emotion/styled';
 import {
     Routes,
@@ -9,7 +10,7 @@ import {
     Link,
 } from 'react-router-dom';
 
-import { GithubLogo, LinkedInLogo, PortfolioLogo } from './assets';
+import { GithubLogo, LinkedInLogo, PortfolioLogo, UpChevron } from './assets';
 import { primaryButtonCSS } from './elements';
 import { Contact } from './pages/contact';
 import { Experience } from './pages/experience';
@@ -124,6 +125,26 @@ const Wrapper = styled.div`
         }
     }
 
+    .scroll-to-top-button {
+        position: sticky;
+        bottom: 20px;
+        z-index: 100;
+
+        margin: 0px 20px 0px calc(100vw - 55px);
+        cursor: pointer;
+
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 250ms, opacity 250ms linear;
+
+        &.visible {
+            visibility: visible;
+            opacity: 1;
+
+            transition: visibility 0ms, opacity 250ms linear;
+        }
+    }
+
     footer {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -233,6 +254,36 @@ export function Footer() {
     );
 }
 
+function ScrollToTopButton() {
+    const [scrollHeight, setScrollHeight] = React.useState(0);
+
+    React.useEffect(() => {
+        const handleScroll = () => {
+            setScrollHeight(window.scrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [setScrollHeight]);
+
+    // The nav bar is {headerHeight} pixels tall, so we don't want
+    // to show the button until the user has scrolled far enough
+    // to hide the nav bar.
+    const isVisible = scrollHeight > window.innerHeight - headerHeight;
+
+    return (
+        <UpChevron 
+            width={25}
+            height={25}
+            className={`scroll-to-top-button ${isVisible ? 'visible' : ''}`}
+            onClick={() => window.scrollTo(0, 0)}
+        />
+    );
+}
+
 export function App() {
     return (
         <Wrapper>
@@ -243,6 +294,8 @@ export function App() {
                 <Route path="/experience" element={<Experience />} />
                 <Route path="/contact" element={<Contact />} />
             </Routes>
+
+            <ScrollToTopButton />
 
             <Footer />
         </Wrapper>
