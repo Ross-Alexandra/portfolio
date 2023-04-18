@@ -259,36 +259,20 @@ export function CheckIcon({ fill = text, ...props }) {
 
 export function ScrollArrow({ fill=text, ...props }) {
     return (
-        <svg {...props} viewBox="0 0 50.757214 171.98015">
-            <g transform="translate(-57.49829,-28.854768)">
-                <path
-                    stroke={fill}
-                    fill={'none'}
-                    strokeWidth="3"
-                    strokeLinecap="butt"
-                    strokeLinejoin="miter"
-                    strokeOpacity="1"
-                    d="m 107.44235,28.865107 c 0,0 2.21893,28.305072 -1.35534,41.76907 C 100.66376,91.063118 97.536944,127.96387 76.439084,126.68576 61.013932,125.7513 53.580452,97.504413 59.868373,83.38809 c 4.039254,-9.068087 18.819298,-14.929184 27.79603,-10.69078 16.672987,7.872227 20.149597,34.23952 17.472097,52.4821 -2.14514,14.61543 -20.404718,22.38233 -25.490181,36.25138 -4.539649,12.38051 -3.558351,39.39933 -3.558351,39.39933"
-                />
-                <path
-                    stroke={fill}
-                    fill={'none'}
-                    strokeWidth="3"
-                    strokeLinecap="butt"
-                    strokeLinejoin="miter"
-                    strokeOpacity="1"
-                    d="M 76.087968,200.83012 69.026564,189.58914 Z"
-                />
-                <path
-                    stroke={fill}
-                    fill={'none'}
-                    strokeWidth="3"
-                    strokeLinecap="butt"
-                    strokeLinejoin="miter"
-                    strokeOpacity="1"
-                    d="m 76.093879,200.82661 6.856537,-11.24374 z"
-                />
-            </g>
+        <svg
+            {...props}
+            clipRule="evenodd"
+            fillRule="evenodd"
+            strokeLinejoin="round"
+            strokeMiterlimit="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="m9.001 13.022h-3.251c-.412 0-.75.335-.75.752 0 .188.071.375.206.518 1.685 1.775 4.692 4.945 6.069 6.396.189.2.452.312.725.312.274 0 .536-.112.725-.312 1.377-1.451 4.385-4.621 6.068-6.396.136-.143.207-.33.207-.518 0-.417-.337-.752-.75-.752h-3.251v-9.02c0-.531-.47-1.002-1-1.002h-3.998c-.53 0-1 .471-1 1.002z"
+                fillRule="nonzero"
+                fill={fill}
+            />
         </svg>
     );
 }

@@ -258,7 +258,7 @@ export function HeroContent() {
                 }}
             >
                 <p>See Portfolio</p>
-                <ScrollArrow height={65} />
+                <ScrollArrow height={25} />
             </div>
         </Wrapper>
     );
