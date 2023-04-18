@@ -9,6 +9,7 @@ import { GraduationPhoto, ProjectsImage, TutelaImage } from '../../assets';
 import { primaryButtonCSS } from '../../elements';
 import {
     fancyFont,
+    headerHeight,
     layerColor,
     maxDesktopBreakpoint,
     maxLaptopBreakpoint,
@@ -26,6 +27,15 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    /*
+        Ensure that we never hide elements we scroll
+        to with the header.
+    */
+    scroll-margin-top: ${headerHeight}px;
+    * {
+        scroll-margin-top: ${headerHeight}px;
+    }
 
     @media (max-width: ${maxTabletBreakpoint}px) {
         gap: 20px;
@@ -277,7 +287,7 @@ export function Experience() {
 
     const jobsToShow = curated ? CuratedJobs : jobs;
     const projectsToShow = curated ? CuratedProjects : projects;
-    
+
     return (
         <Wrapper>
             <div id="interests">
