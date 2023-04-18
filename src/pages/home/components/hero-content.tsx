@@ -203,6 +203,16 @@ const Wrapper = styled.div`
         opacity: 0.5;
 
         cursor: pointer;
+
+        /* 
+            This is to hide the scroll arrow on mobile devices
+            which have a height of 730px or less. This is because
+            the scroll arrow would conflict with the content
+            of the hero section.
+        */
+        @media (max-height: 730px) {
+            display: none;
+        }
     }
 `;
 
