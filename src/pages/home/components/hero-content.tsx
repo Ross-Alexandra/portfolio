@@ -1,7 +1,12 @@
 import styled from '@emotion/styled';
 import { HashLink } from 'react-router-hash-link';
 
-import { HeadshotAlternate, HeadshotBGImage, HeadshotImage } from '../../../assets';
+import {
+    HeadshotAlternate,
+    HeadshotBGImage,
+    HeadshotImage,
+    ScrollArrow,
+} from '../../../assets';
 import { primaryButtonCSS } from '../../../elements';
 import {
     defaultFont,
@@ -24,6 +29,8 @@ const heroText = [
 ];
 
 const Wrapper = styled.div`
+    position: relative;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -182,6 +189,21 @@ const Wrapper = styled.div`
             }
         }
     }
+
+    .scroll-arrow {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        opacity: 0.5;
+
+        cursor: pointer;
+    }
 `;
 
 export function HeroContent() {
@@ -218,6 +240,16 @@ export function HeroContent() {
                 <span />
                 <span>Updated: April 17th, 2023</span>
             </SlideIn>
+
+            <div 
+                className='scroll-arrow'
+                onClick={() => {
+                    document.getElementById('battlefy')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+            >
+                <p>See Portfolio</p>
+                <ScrollArrow height={65} />
+            </div>
         </Wrapper>
     );
 }
