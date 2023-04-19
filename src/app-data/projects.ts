@@ -16,6 +16,7 @@ export interface Project {
     technology: string[];
     lessons: string[];
     portfolioLink: string;
+    chips: [string, string, string, ...string[]];
     githubLink?: string;
     externalLink?: string;
 }
@@ -40,6 +41,7 @@ export const projects: Project[] = [
             'Learned how to interface with third-party programs with Electron',
             'Learned how to create a filtering system that allows users to filter by completely custom criteria',
         ],
+        chips: ['Typescript', 'React', 'Electron', 'NodeJS'],
         portfolioLink: '/#replay-analyzer',
         githubLink: 'https://github.com/Ross-Alexandra/replay-analyzer/',
     }, {
@@ -62,6 +64,7 @@ export const projects: Project[] = [
             'Learned how to use Ionic, and how to create a mobile app with React',
             'Learned advanced CSS techniques, and how to create a design system',
         ],
+        chips: ['Typescript', 'React', 'Ionic/Capacitor', 'Storybook'],
         portfolioLink: '/#reward-yourself',
     }, {
         type: 'mobile',
@@ -82,6 +85,7 @@ export const projects: Project[] = [
             "Learned how to use local storage to store data on a user's device",
             'Learned how to use custom data models to store data in a way that is easy to use',
         ],
+        chips: ['Typescript', 'React', 'Ionic/Capacitor'],
         portfolioLink: '/#and-more',
     }, {
         type: 'web',
@@ -102,6 +106,7 @@ export const projects: Project[] = [
             "Gained experience soliciting requirements, and creating a project from a client's needs",
         ],
         portfolioLink: '/#and-more',
+        chips: ['Typescript', 'React', 'Web Audio API', 'Firebase'],
         githubLink: 'https://github.com/Ross-Alexandra/volume-traffic-light/',
         externalLink: 'https://volumetrafficlight.com/',
     }, {
@@ -124,6 +129,7 @@ export const projects: Project[] = [
             'Learned how to use SVGs, and how to allow users to interact with them',
             'Learned how to use stenography to store data in images',
         ],
+        chips: ['JavaScript', 'React', 'SVG API', 'Canvas API', 'Stenography', 'Firebase', 'Jenkins CI/CD'],
         portfolioLink: '/#stratbook',
         externalLink: 'https://stratbook.gg',
     }, {
@@ -141,6 +147,7 @@ export const projects: Project[] = [
             'Learned how to use Electron to create a desktop app',
             'Learned how to use Python to interact with the Windows API',
         ],
+        chips: ['Typescript', 'React', 'Electron', 'Python', 'Win API'],
         portfolioLink: '/#and-more',
         githubLink: 'https://github.com/Ross-Alexandra/comms',
     }, {
@@ -159,6 +166,7 @@ export const projects: Project[] = [
             'Learned how to use npx to create a tool which can be used from the command line',
             'Learned how to use npm to create a library which can be used in other projects',
         ],
+        chips: ['TypeScript', 'Node.js', 'npm', 'npx'],
         portfolioLink: '/#and-more',
         githubLink: 'https://github.com/Ross-Alexandra/fullstack-spritesheets',
         externalLink: 'https://www.npmjs.com/package/fullstack-spritesheets',
@@ -182,6 +190,7 @@ export const projects: Project[] = [
             'Learned how to deploy a microservices architecture on a bare-metal server',
             'Learned how to setup CI/CD pipelines using Jenkins',
         ],
+        chips: ['Typescript', 'Python', 'React', 'Flask', 'PostgreSQL', 'Docker', 'Jenkins CI/CD', 'Discord API'],
         portfolioLink: '/#and-more',
         githubLink: 'https://github.com/Ross-Alexandra/ScrimFinder',
     },
@@ -204,6 +213,7 @@ export const projects: Project[] = [
             'Learned how to use PostgreSQL to store data',
             'Learned how to deploy a Python app on a bare-metal server using Docker & Jenkins',
         ],
+        chips: ['Python', 'PostgreSQL', 'Docker', 'Jenkins CI/CD', 'Discord API'],
         portfolioLink: '/#and-more',
         githubLink: 'https://github.com/Ross-Alexandra/siege-stats',
     },

@@ -10,10 +10,11 @@ import {
     maxTabletBreakpoint,
     text,
 } from '../../../theme';
+import { Chip } from '../../../ui-atoms/chip';
 
 const Wrapper = styled.div`
     display: grid;
-    grid-template-columns: 200px auto;
+    grid-template-columns: 250px auto;
 
     width: 100%;
     max-width: 2000px;
@@ -75,10 +76,27 @@ const Wrapper = styled.div`
         }
         
         img {
+            max-width: 250px;
             width: 100%;
             aspect-ratio: 1;
 
+            margin: 0px auto;
+
             border-radius: 10px;
+        }
+
+        .chips {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            flex-flow: row wrap;
+
+            align-items: center;
+            justify-content: space-between;
+
+            & > div {
+                width: max-content;
+            }
         }
     }
 
@@ -180,6 +198,7 @@ type ExperienceCardProps = Omit<React.HTMLProps<HTMLDivElement>, 'as'> & {
     columnNames: string[];
     columnImages: React.ReactNode[];
     columnData: string[][];
+    chips: [string, string, string, ...string[]];
     buttons: {
         link: string;
         text: string;
@@ -195,6 +214,7 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({
     columnNames,
     columnImages,
     columnData,
+    chips,
     buttons,
     ...props
 }) => {
@@ -213,8 +233,13 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({
         <Wrapper id={cardTitle.toLowerCase().replaceAll(' ', '-')} {...props}>
             <div className="company-info">
                 <h3>{cardTitle}</h3>
-                <div className="logo-container">
-                    <img src={image} alt="Battlefy Logo" />
+                <img src={image} alt="Battlefy Logo" />
+                <div className='chips'>
+                    {chips.map(chip =>
+                        <Chip key={chip}>
+                            {chip}
+                        </Chip>
+                    )}
                 </div>
             </div>
 
