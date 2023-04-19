@@ -248,7 +248,7 @@ export function HeroContent() {
                 <HashLink to='/experience'>View My Work</HashLink>
                 <HashLink to='/Resume.pdf' target='_blank' rel='noreferrer'>View My Resume</HashLink>
                 <span />
-                <span>Updated: April 17th, 2023</span>
+                <span>Updated: April 19th, 2023</span>
             </SlideIn>
 
             <div 
