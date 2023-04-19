@@ -16,6 +16,7 @@ export const JobCard: React.FC<JobCardProps> = ({
     achievements,
     lessons,
     portfolioLink,
+    chips,
 }) => {
     const buttons = [
         portfolioLink && {
@@ -38,6 +39,7 @@ export const JobCard: React.FC<JobCardProps> = ({
                 <LessonsIcon key='lessons-icon' width={50} height={50} />,
             ]}
             columnData={[responsibilities, achievements, lessons]}
+            chips={chips}
             buttons={buttons}
         />
     );

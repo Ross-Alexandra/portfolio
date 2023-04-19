@@ -15,6 +15,7 @@ export interface Job {
     responsibilities: string[];
     achievements: string[];
     lessons: string[];
+    chips: [string, string, string, ...string[]];
     portfolioLink?: string;
 }
 
@@ -38,6 +39,7 @@ export const jobs: Job[] = [{
         'New processes require champions to prevent people bypassing them',
         'Clear requirements, designs, and planning are necessary for successful products',
     ],
+    chips: ['TypeScript', 'JavaScript', 'React', 'NodeJS', 'Express', 'MongoDB', 'PostgreSQL', 'StoryBook', 'Firebase'],
     portfolioLink: '/#battlefy',
 }, {
     company: 'Tutela',
@@ -57,6 +59,7 @@ export const jobs: Job[] = [{
         'It is not always better to automate a process, especially if it would take more time to automate than to do manually',
         'It is okay to do exploratory work when requirements are unclear',
     ],
+    chips: ['Java', 'BigQuery', 'Python', 'Matplotlib', 'Java Data Streams'],
 }, {
     company: 'Audette',
     logo: AudetteBanner,
@@ -74,6 +77,7 @@ export const jobs: Job[] = [{
         'Internal and external collaboration is essential to the success of a project, especially when working with a small team',
         'UI & UX design is not exact science, and it is important to be flexible when working with designers',
     ],
+    chips: ['Javascript', 'Python', 'React', 'Django', 'GCP', 'Puppet'],
 }, {
     company: 'Bambora',
     logo: BamboraBanner,
@@ -91,6 +95,7 @@ export const jobs: Job[] = [{
         'Having extremely rigid requirements, and test environments can be a blessing and a curse',
         'System design is more about understanding the problem, than having more experience with the technology',
     ],
+    chips: ['Python', 'Django', 'PostgreSQL', 'Websockets', 'Locust'],
 }, {
     company: 'UVIC',
     logo: UvicBanner,
@@ -108,6 +113,7 @@ export const jobs: Job[] = [{
         'The importance of committing often, and having proper git hygiene',
         'Applying the correct technology to the problem at hand, rather than trying to shoehorn a solution',
     ],
+    chips: ['Python', 'PyGAD', 'MySQL', 'Matplotlib', 'MATLAB', 'Pandas'],
 }, {
     company: 'Cradlepoint',
     logo: CradlepointBanner,
@@ -123,6 +129,7 @@ export const jobs: Job[] = [{
         "Using libraries isn't cheating, and can save a lot of time",
         'It is important to work with the data you have, rather than trying to find the perfect data set',
     ],
+    chips: ['Python', 'Pytorch', 'Pytest'],
 }];
 
 export const CuratedJobs: Job[] = [

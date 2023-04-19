@@ -23,6 +23,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     portfolioLink,
     githubLink,
     externalLink,
+    chips,
 }) => {
     const buttons = [
         portfolioLink && {
@@ -48,13 +49,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             image={image ?? PortfolioBanner}
             sectionTitle={type}
             sectionSubtitle={duration}
-            columnNames={['Features', 'Technology', 'Lessons Learned']}
+            columnNames={['Features', 'Implementation', 'Lessons Learned']}
             columnImages={[
                 <FeaturesIcon key='features-icon' width={50} height={50} />,
                 <TechnologyIcon key='technology-icon' width={50} height={50} />,
                 <LessonsIcon key='lessons-icon' width={50} height={50} />,
             ]}
             columnData={[features, technology, lessons]}
+            chips={chips}
             buttons={buttons}
         />
     );
