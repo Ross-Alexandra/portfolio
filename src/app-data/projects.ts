@@ -47,7 +47,7 @@ export const projects: Project[] = [
     }, {
         type: 'mobile',
         title: 'Reward Yourself',
-        duration: 'Jan 2023 - Current',
+        duration: 'Jan 2023 - Mar 2023',
         image: RewardYourselfBanner,
         features: [
             'Allows users to create a list of tasks, and reward themselves for completing them',
@@ -69,7 +69,7 @@ export const projects: Project[] = [
     }, {
         type: 'mobile',
         title: 'Recipe List',
-        duration: 'Nov 2022 - Current',
+        duration: 'Nov 2022 - Jan 2023',
         image: RecipeListBanner,
         features: [
             'Allows users to create, and manage a list of recipes',
