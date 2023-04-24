@@ -25,9 +25,9 @@ export const PortfolioAndMore: PortfolioAndMoreInfo[] = [{
     description: 'A recipe app that allows users to create and save recipes. Users can then select ingredients from their saved recipes to create a shopping list which is categorized by aisle.',
     image: RecipeListBanner,
     externalLinks: [{
-        text: 'Contact for Demo',
-        link: '/contact',
-        external: false,
+        text: 'Google Play',
+        link: 'https://play.google.com/store/apps/details?id=rossalexandra.recipeList',
+        external: true,
     }],
 }, {
     title: 'Volume Traffic Light',
