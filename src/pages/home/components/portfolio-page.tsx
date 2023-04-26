@@ -190,11 +190,11 @@ const Wrapper = styled.div<{backgroundImage: string}>`
                 left: 50%;
                 transform: translate(-50%, -50%);
 
-                height: 95%;
-
-                max-height: unset;
+                max-height: 95%;
                 max-width: 95%;
+                object-fit: contain;
 
+                box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
                 z-index: 1;
 
                 cursor: zoom-out;
