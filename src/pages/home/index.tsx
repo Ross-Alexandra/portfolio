@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import React from 'react';
 
 import { PortfolioAndMore } from '../../app-data/portfolio-and-more';
 import { PortfolioPages } from '../../app-data/portfolio-items';
@@ -8,20 +9,20 @@ import { PortfolioPage } from './components';
 import { AndMore } from './components/and-more';
 import { HeroContent } from './components/hero-content';
 
-const Wrapper = styled.div`
-    #and-more {
-        padding: 15px;
-        
-        display: flex;
-        flex-direction: column;
-        
-        h2 {
-            font-size: 32px;
-        }
+const AndMoreWrapper = styled.div`
+    scroll-snap-align: start;
 
-        & > p {
-            margin-bottom: 10px;
-        }
+    padding: 15px;
+    
+    display: flex;
+    flex-direction: column;
+    
+    h2 {
+        font-size: 32px;
+    }
+
+    & > p {
+        margin-bottom: 10px;
     }
 
     .additional-projects {
@@ -44,14 +45,14 @@ const Wrapper = styled.div`
 
 export function Home() {
     return (
-        <Wrapper>
+        <React.Fragment>
             <HeroContent />
 
             {PortfolioPages.map((page, index) => 
                 <PortfolioPage key={index} {...page} />
             )}
 
-            <div id='and-more'>
+            <AndMoreWrapper>
                 <h2>And More!</h2>
 
                 <div className='additional-projects'>
@@ -59,7 +60,7 @@ export function Home() {
                         <AndMore key={index} {...project} />
                     )}
                 </div>
-            </div>
-        </Wrapper>
+            </AndMoreWrapper>
+        </React.Fragment>
     );
 }

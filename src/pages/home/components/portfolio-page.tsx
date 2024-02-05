@@ -43,11 +43,10 @@ const Wrapper = styled.div<{backgroundImage: string}>`
 
             opacity: 0.35;
             filter: blur(10px);
-            z-index: -1;
         }
 
         @media (max-width: ${maxPhoneBreakpoint}px) {
-            padding: 5px;
+            padding: 50px 5px;
         }
 
         h2 {
@@ -62,7 +61,7 @@ const Wrapper = styled.div<{backgroundImage: string}>`
             gap: 10px;
             
             width: fit-content;
-            min-width: 50%;
+            max-width: 50%;
             padding: 15px;
             border-radius: 10px;
 
@@ -87,16 +86,23 @@ const Wrapper = styled.div<{backgroundImage: string}>`
         }
 
         .primary-tiles {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;
             gap: 30px;
 
             @media (max-width: ${maxPhoneBreakpoint}px) {
+                display: grid;
                 grid-template-columns: repeat(2, 1fr);
+
+                &[data-tiles="1"] {
+                    grid-template-columns: 1fr;
+                }
             }
 
             @media (max-width: ${maxSmallPhoneBreakpoint}px) {
+                display: grid;
                 grid-template-columns: 1fr;
             }
 
@@ -226,13 +232,13 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({
     const [focusedImage, setFocusedImage] = React.useState<string | undefined>(undefined);
 
     return (
-        <Wrapper {...props}>
+        <Wrapper {...props} className='portfolio-page'>
             <div id={title.toLowerCase().replaceAll(' ', '-')} className='portfolio-page'>
                 <div>
                     <h2>{title}</h2>
                     <p>{intro}</p>
 
-                    <div className="primary-tiles">
+                    <div className="primary-tiles" data-tiles={primaryTiles.length}>
                         {primaryTiles.map((tile, index) => 
                             <div key={index} className="primary-tile">
                                 <img src={tile.image} alt={tile.title} />
@@ -255,20 +261,22 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({
                     <div className='featured-tile'>
                         {featureTitle && <h3>{featureTitle}</h3>}
                         {featureDescription && <p>{featureDescription}</p>}
-                        <div className='featured-image'>
+                        { featureImages && featureImages.length >= 1 &&
+                            <div className='featured-image'>
 
-                            <Carousel 
-                                images={featureImages}
-                                onClickActiveImage={image => setFocusedImage(image)}
-                            />
-                            
-                            <img 
-                                className={`hover ${focusedImage ? 'focused' : ''}`}
-                                src={focusedImage}
-                                alt="Pick Ban Hover Effect"
-                                onClick={() => setFocusedImage(undefined)}
-                            />
-                        </div>
+                                <Carousel 
+                                    images={featureImages}
+                                    onClickActiveImage={image => setFocusedImage(image)}
+                                />
+                                
+                                <img 
+                                    className={`hover ${focusedImage ? 'focused' : ''}`}
+                                    src={focusedImage}
+                                    alt="Pick Ban Hover Effect"
+                                    onClick={() => setFocusedImage(undefined)}
+                                />
+                            </div>
+                        }
                     </div>
 
                     <div className='buttons'>

@@ -3,6 +3,7 @@ export { default as HeadshotImage } from './images/headshot.png';
 export { default as HeadshotAlternate } from './images/headshot-alternate.png';
 export { default as HeadshotBGImage } from './images/headshot-bg-image.png';
 export { default as StratBook } from './images/stratbook.png';
+export { default as ChessComBanner } from './images/chesscom-logo.png';
 export { default as ContactBackdrop } from './images/contact-backdrop.png';
 export { default as ProjectsImage } from './images/projects.png';
 export { default as TutelaImage } from './images/work-experience.png';

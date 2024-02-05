@@ -19,6 +19,7 @@ export interface Project {
     chips: [string, string, string, ...string[]];
     githubLink?: string;
     externalLink?: string;
+    isCurated?: true;
 }
 
 export const projects: Project[] = [
@@ -44,6 +45,7 @@ export const projects: Project[] = [
         chips: ['Typescript', 'React', 'Electron', 'NodeJS'],
         portfolioLink: '/#replay-analyzer',
         githubLink: 'https://github.com/Ross-Alexandra/replay-analyzer/',
+        isCurated: true,
     }, {
         type: 'mobile',
         title: 'Reward Yourself',
@@ -66,6 +68,7 @@ export const projects: Project[] = [
         ],
         chips: ['Typescript', 'React', 'Ionic/Capacitor', 'Storybook'],
         portfolioLink: '/#reward-yourself',
+        isCurated: true,
     }, {
         type: 'mobile',
         title: 'Recipe List',
@@ -132,6 +135,7 @@ export const projects: Project[] = [
         chips: ['JavaScript', 'React', 'SVG API', 'Canvas API', 'Stenography', 'Firebase', 'Jenkins CI/CD'],
         portfolioLink: '/#stratbook',
         externalLink: 'https://stratbook.gg',
+        isCurated: true,
     }, {
         type: 'desktop',
         title: 'Comms',
@@ -219,8 +223,4 @@ export const projects: Project[] = [
     },
 ];
 
-export const CuratedProjects: Project[] = [
-    projects.find(page => page.title === 'Stratbook'),
-    projects.find(page => page.title === 'Reward Yourself'),
-    projects.find(page => page.title === 'Replay Analyzer'),
-].filter(Boolean) as Project[];
+export const CuratedProjects = projects.filter(project => project.isCurated);

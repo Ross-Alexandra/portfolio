@@ -2,6 +2,7 @@ import {
     AudetteBanner,
     BamboraBanner,
     BattlefyBanner,
+    ChessComBanner,
     CradlepointBanner,
     TutelaBanner,
     UvicBanner,
@@ -17,9 +18,26 @@ export interface Job {
     lessons: string[];
     chips: [string, string, string, ...string[]];
     portfolioLink?: string;
+    isCurated?: true;
 }
 
 export const jobs: Job[] = [{
+    company: 'Chess.com',
+    logo: ChessComBanner,
+    title: 'Senior Frontend Engineer',
+    duration: 'June 2023 - Present',
+    responsibilities: [
+        'Position is ongoing, responsibilities will be updated in the future',
+    ],
+    achievements: [
+        'Position is ongoing, achievements will be updated in the future',
+    ],
+    lessons: [
+        'Position is ongoing, lessons will be updated in the future',
+    ],
+    chips: ['Vue', 'TypeScript', 'Playwright', 'Cypress'],
+    isCurated: true,
+},{
     company: 'Battlefy',
     logo: BattlefyBanner,
     title: 'Full Stack Engineer',
@@ -40,7 +58,7 @@ export const jobs: Job[] = [{
         'Clear requirements, designs, and planning are necessary for successful products',
     ],
     chips: ['TypeScript', 'JavaScript', 'React', 'NodeJS', 'Express', 'MongoDB', 'PostgreSQL', 'StoryBook', 'Firebase'],
-    portfolioLink: '/#battlefy',
+    isCurated: true,
 }, {
     company: 'Tutela',
     logo: TutelaBanner,
@@ -60,6 +78,7 @@ export const jobs: Job[] = [{
         'It is okay to do exploratory work when requirements are unclear',
     ],
     chips: ['Java', 'BigQuery', 'Python', 'Matplotlib', 'Java Data Streams'],
+    isCurated: true,
 }, {
     company: 'Audette',
     logo: AudetteBanner,
@@ -132,7 +151,4 @@ export const jobs: Job[] = [{
     chips: ['Python', 'Pytorch', 'Pytest'],
 }];
 
-export const CuratedJobs: Job[] = [
-    jobs.find(job => job.company === 'Battlefy'),
-    jobs.find(job => job.company === 'Tutela'),
-].filter(Boolean) as Job[];
+export const CuratedJobs = jobs.filter(job => job.isCurated);

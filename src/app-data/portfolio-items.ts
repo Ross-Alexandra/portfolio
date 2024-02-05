@@ -1,4 +1,5 @@
 import {
+    ChessComBanner,
     ConnectedCupBanner,
     DesignSystemSlide1,
     DesignSystemSlide2,
@@ -54,6 +55,18 @@ export interface PortfolioPageInfo {
 }
 
 export const PortfolioPages: PortfolioPageInfo[] = [{
+    title: 'Chess.com',
+    intro: 'I am currently working at Chess.com as a Senior Frontend Engineer. My current role sees me working on a major, breaking change version migration of our core framework. I am also currently helping mentor interns and new hires, and often work cross-functionally to help improve neglected areas of the site uncovered during the migration.',
+    primaryTiles: [{
+        title: 'Chess.com',
+        image: ChessComBanner,
+        externalLink: 'https://chess.com',
+    }],
+    featureTitle: 'Position is ongoing, keep an eye out for updates!',
+    featureImages: [],
+    backgroundImage: 'https://source.unsplash.com/Iq9SaJezkOE',
+    buttons: [],
+},{
     title: 'Battlefy',
     intro: 'During my time at Battlefy, I had the opportunity to work on several exciting projects which helped enhance the overall experience for our users. Four of my proudest projects include NHL 2022, Zotac Cup, Connected Club Cub, and ePremier League.',
     backgroundImage: 'https://source.unsplash.com/I45hdPF5Na0',

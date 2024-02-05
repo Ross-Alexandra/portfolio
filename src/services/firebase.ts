@@ -1,7 +1,6 @@
 import { getAnalytics } from 'firebase/analytics';
 import { initializeApp } from 'firebase/app';
 import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
-import { getFunctions, connectFunctionsEmulator  } from 'firebase/functions';
 
 // https://firebase.google.com/docs/web/setup#available-libraries
 const firebaseConfig = {
@@ -15,12 +14,6 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-
-const functions = getFunctions(app);
-if (process.env.NODE_ENV === 'development') {
-    console.log('connecting to function emulator');
-    connectFunctionsEmulator(functions, 'localhost', 5001);
-}
 
 getAnalytics(app);
 
