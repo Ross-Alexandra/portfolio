@@ -32,14 +32,22 @@ import {
 const Wrapper = styled.div`
     position: relative;
     width: 100%;
+    
+
     height: calc(100svh - ${headerHeight}px);
+    margin-top: 90px;
+    overflow: auto;
+    scroll-snap-type: y mandatory;
+    & > *:not(nav):not(svg) {
+        scroll-snap-align: start;
+    }
 
     background-color: ${portfolioBackground};
     color: ${text};
     border-color: ${text};
 
     nav {
-        position: sticky;
+        position: fixed;
         top: 0px;
         height: ${headerHeight}px;
         width: 100%;
@@ -136,7 +144,7 @@ const Wrapper = styled.div`
     }
 
     .scroll-to-top-button {
-        position: sticky;
+        position: fixed;
         bottom: 20px;
         z-index: 100;
 
@@ -264,39 +272,41 @@ export function Footer() {
     );
 }
 
-function ScrollToTopButton() {
+function ScrollToTopButton({ scrollTarget }: { scrollTarget: React.RefObject<HTMLDivElement> }) {
     const [scrollHeight, setScrollHeight] = React.useState(0);
 
     React.useEffect(() => {
         const handleScroll = () => {
-            setScrollHeight(window.scrollY);
+            setScrollHeight(scrollTarget.current?.scrollTop || 0);
         };
 
-        window.addEventListener('scroll', handleScroll);
+        scrollTarget.current?.addEventListener('scroll', handleScroll);
 
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            scrollTarget.current?.removeEventListener('scroll', handleScroll);
         };
-    }, [setScrollHeight]);
+    }, [scrollTarget.current, setScrollHeight]);
 
     // The nav bar is {headerHeight} pixels tall, so we don't want
     // to show the button until the user has scrolled far enough
     // to hide the nav bar.
-    const isVisible = scrollHeight > window.innerHeight - headerHeight;
+    const isVisible = scrollHeight >= window.innerHeight - headerHeight;
 
     return (
         <UpChevron 
             width={25}
             height={25}
             className={`scroll-to-top-button ${isVisible ? 'visible' : ''}`}
-            onClick={() => window.scrollTo(0, 0)}
+            onClick={() => scrollTarget.current?.scrollTo(0, 0)}
         />
     );
 }
 
 export function App() {
+    const wrapperRef = React.useRef<HTMLDivElement>(null);
+
     return (
-        <Wrapper>
+        <Wrapper ref={wrapperRef}>
             <NavigationBar />
 
             <Routes>
@@ -305,7 +315,7 @@ export function App() {
                 <Route path="/contact" element={<Contact />} />
             </Routes>
 
-            <ScrollToTopButton />
+            <ScrollToTopButton scrollTarget={wrapperRef} />
 
             <Footer />
         </Wrapper>

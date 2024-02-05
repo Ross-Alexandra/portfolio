@@ -10,6 +10,8 @@ import { AndMore } from './components/and-more';
 import { HeroContent } from './components/hero-content';
 
 const AndMoreWrapper = styled.div`
+    scroll-snap-align: start;
+
     padding: 15px;
     
     display: flex;

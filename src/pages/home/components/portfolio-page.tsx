@@ -43,7 +43,6 @@ const Wrapper = styled.div<{backgroundImage: string}>`
 
             opacity: 0.35;
             filter: blur(10px);
-            z-index: -1;
         }
 
         @media (max-width: ${maxPhoneBreakpoint}px) {
