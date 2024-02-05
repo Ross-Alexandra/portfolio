@@ -8,6 +8,7 @@ import {
     Route,
     useLocation,
     Link,
+    Navigate,
 } from 'react-router-dom';
 
 import {
@@ -313,6 +314,10 @@ export function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/experience" element={<Experience />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route
+                    path="*"
+                    element={<Navigate to="/" replace />}
+                />
             </Routes>
 
             <ScrollToTopButton scrollTarget={wrapperRef} />
