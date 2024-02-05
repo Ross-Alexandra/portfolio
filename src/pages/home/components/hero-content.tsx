@@ -254,7 +254,7 @@ export function HeroContent() {
             <div 
                 className='scroll-arrow'
                 onClick={() => {
-                    document.getElementById('battlefy')?.scrollIntoView({ behavior: 'smooth' });
+                    document.querySelector('.portfolio-page')?.scrollIntoView({ behavior: 'smooth' });
                 }}
             >
                 <p>See Portfolio</p>
