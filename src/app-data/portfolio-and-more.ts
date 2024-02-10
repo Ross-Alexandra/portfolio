@@ -28,6 +28,10 @@ export const PortfolioAndMore: PortfolioAndMoreInfo[] = [{
         text: 'Google Play',
         link: 'https://play.google.com/store/apps/details?id=rossalexandra.recipeList',
         external: true,
+    }, {
+        text: 'Github',
+        link: 'https://github.com/Ross-Alexandra/recipe-list',
+        external: true,
     }],
 }, {
     title: 'Volume Traffic Light',

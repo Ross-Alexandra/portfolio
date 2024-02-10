@@ -48,6 +48,12 @@ export { default as StratbookSlide5 } from './images/stratbook-5.png';
 export { default as StratbookSlide6 } from './images/stratbook-6.png';
 export { default as StratbookSlide7 } from './images/stratbook-7.png';
 export { default as StratbookSlide8 } from './images/stratbook-8.png';
+export { default as IIMBIcon } from './images/iimb-icon.png';
+export { default as IIMBBackground } from './images/iimb-background.png';
+export { default as IIMBSlide1 } from './images/iimb-slide-1.png';
+export { default as IIMBSlide2 } from './images/iimb-slide-2.png';
+export { default as IIMBSlide3 } from './images/iimb-slide-3.png';
+export { default as IIMBSlide4 } from './images/iimb-slide-4.png';
 export { default as QuestionMark } from './images/question-mark.png';
 
 export * from './icons';

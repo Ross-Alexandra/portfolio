@@ -46,7 +46,7 @@ const Wrapper = styled.div<{backgroundImage: string}>`
         }
 
         @media (max-width: ${maxPhoneBreakpoint}px) {
-            padding: 50px 5px;
+            padding: 50px 5px 150px 5px;
         }
 
         h2 {
@@ -75,7 +75,7 @@ const Wrapper = styled.div<{backgroundImage: string}>`
                 left: unset;
                 transform: unset;
 
-                max-height: unset;
+                max-width: unset;
             }
 
             h2, h3, p {
@@ -181,7 +181,20 @@ const Wrapper = styled.div<{backgroundImage: string}>`
             align-items: center;
         }
 
+        .pop-out-image {
+            img {
+                max-height: 75vh;
+                border-radius: 10px;
+
+                cursor: zoom-out;
+            }
+        }
+
         .featured-image {
+            &[data-visible="false"] {
+                opacity: 0;
+            }
+
             img {
                 max-height: 300px;
                 border-radius: 10px;
@@ -215,6 +228,26 @@ const Wrapper = styled.div<{backgroundImage: string}>`
             }
         }
     }
+
+    .pop-out-carousel {
+        position: fixed;
+        inset: 0px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        z-index: 100;
+    }
+
+    .pop-out-carousel-background {
+        position: absolute;
+        inset: 0px;
+
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+    }
 `;
 
 type PortfolioPageProps = Omit<React.HTMLProps<HTMLDivElement>, 'as'> & PortfolioPageInfo;
@@ -229,6 +262,7 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({
     buttons,
     ...props
 }) => {
+    const [currentIndex, setCurrentIndex] = React.useState(0);
     const [focusedImage, setFocusedImage] = React.useState<string | undefined>(undefined);
 
     return (
@@ -259,22 +293,29 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({
                     </div>
 
                     <div className='featured-tile'>
-                        {featureTitle && <h3>{featureTitle}</h3>}
-                        {featureDescription && <p>{featureDescription}</p>}
+                        { featureTitle && <h3>{featureTitle}</h3>}
+                        { featureDescription && <p>{featureDescription}</p>}
                         { featureImages && featureImages.length >= 1 &&
-                            <div className='featured-image'>
-
-                                <Carousel 
+                            <div className='featured-image' data-visible={!focusedImage}>
+                                <Carousel
                                     images={featureImages}
+                                    currentIndex={currentIndex}
+                                    onSetIndex={setCurrentIndex}
                                     onClickActiveImage={image => setFocusedImage(image)}
                                 />
-                                
-                                <img 
-                                    className={`hover ${focusedImage ? 'focused' : ''}`}
-                                    src={focusedImage}
-                                    alt="Pick Ban Hover Effect"
-                                    onClick={() => setFocusedImage(undefined)}
-                                />
+                            </div>
+                        } 
+                        { focusedImage &&
+                            <div className='pop-out-image'>
+                                <div className='pop-out-carousel'>
+                                    <div className='pop-out-carousel-background' onClick={() => setFocusedImage(undefined)}></div>
+                                    <Carousel
+                                        images={featureImages}
+                                        currentIndex={currentIndex}
+                                        onSetIndex={setCurrentIndex}
+                                        onClickActiveImage={() => setFocusedImage(undefined)}
+                                    />
+                                </div>
                             </div>
                         }
                     </div>
