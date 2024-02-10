@@ -28,6 +28,8 @@ const Wrapper = styled.div`
     flex-direction: column;
     gap: 20px;
 
+    margin-top: ${headerHeight}px;
+
     /*
         Ensure that we never hide elements we scroll
         to with the header.

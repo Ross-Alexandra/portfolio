@@ -20,6 +20,7 @@ import {
 } from '../../theme';
 
 const Wrapper = styled.div<{ footerHeight: number }>`
+    margin-top: ${headerHeight}px;
     min-height: calc(100svh - ${headerHeight}px - ${({ footerHeight }) => footerHeight ?? 0}px);
     display: grid;
     grid-template-columns: 1fr;

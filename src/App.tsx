@@ -2,7 +2,7 @@
 import './services/firebase';
 
 import styled from '@emotion/styled';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     Routes,
     Route,
@@ -23,7 +23,6 @@ import { Experience } from './pages/experience';
 import { Home } from './pages/home';
 import {
     headerHeight,
-    layerColor,
     maxPhoneBreakpoint,
     portfolioBackground,
     systemFont,
@@ -33,10 +32,8 @@ import {
 const Wrapper = styled.div`
     position: relative;
     width: 100%;
-    
+    height: 100svh;
 
-    height: calc(100svh - ${headerHeight}px);
-    margin-top: 90px;
     overflow: auto;
     scroll-snap-type: y mandatory;
     & > *:not(nav):not(svg) {
@@ -54,8 +51,9 @@ const Wrapper = styled.div`
         width: 100%;
         z-index: 100;
 
-        &.with-border {
-            border-bottom: 1px solid ${layerColor};
+        transition: transform 250ms;
+        &[data-visible='false'] {
+            transform: translateY(-100%);
         }
 
         background-color: ${portfolioBackground};
@@ -226,9 +224,22 @@ const Wrapper = styled.div`
 
 function NavigationBar() {
     const location = useLocation();
+    const [visible, setVisible] = useState(window.scrollY <= 100);
+
+    useEffect(() => {
+        window.addEventListener('scroll', e => {
+            const target = e.target as HTMLElement;
+
+            if (target.scrollTop > 100) {
+                setVisible(false);
+            } else {
+                setVisible(true);
+            }
+        }, true);
+    }, []);
 
     return (
-        <nav className={`${location.pathname === '/' ? '' : 'with-border'}`}>
+        <nav data-visible={visible}>
             <PortfolioLogo />
             <div className='links'>
                 <Link
@@ -273,41 +284,41 @@ export function Footer() {
     );
 }
 
-function ScrollToTopButton({ scrollTarget }: { scrollTarget: React.RefObject<HTMLDivElement> }) {
-    const [scrollHeight, setScrollHeight] = React.useState(0);
+function ScrollToTopButton() {
+    const [isVisible, setIsVisible] = useState(false);
+    const [scrollTarget, setScrollTarget] = useState<HTMLElement | null>(null);
 
-    React.useEffect(() => {
-        const handleScroll = () => {
-            setScrollHeight(scrollTarget.current?.scrollTop || 0);
+    useEffect(() => {
+        const handleScroll = (e: Event) => {
+            const target = e.target as HTMLElement;
+            setScrollTarget(target);
+            if (target.scrollTop >= window.innerHeight - headerHeight) {
+                setIsVisible(true);
+            } else {
+                setIsVisible(false);
+            }
         };
 
-        scrollTarget.current?.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, true);
 
         return () => {
-            scrollTarget.current?.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('scroll', handleScroll);
         };
-    }, [scrollTarget.current, setScrollHeight]);
-
-    // The nav bar is {headerHeight} pixels tall, so we don't want
-    // to show the button until the user has scrolled far enough
-    // to hide the nav bar.
-    const isVisible = scrollHeight >= window.innerHeight - headerHeight;
+    }, [setIsVisible]);
 
     return (
         <UpChevron 
             width={25}
             height={25}
             className={`scroll-to-top-button ${isVisible ? 'visible' : ''}`}
-            onClick={() => scrollTarget.current?.scrollTo(0, 0)}
+            onClick={() => scrollTarget?.scrollTo(0, 0)}
         />
     );
 }
 
 export function App() {
-    const wrapperRef = React.useRef<HTMLDivElement>(null);
-
     return (
-        <Wrapper ref={wrapperRef}>
+        <Wrapper>
             <NavigationBar />
 
             <Routes>
@@ -320,7 +331,7 @@ export function App() {
                 />
             </Routes>
 
-            <ScrollToTopButton scrollTarget={wrapperRef} />
+            <ScrollToTopButton />
 
             <Footer />
         </Wrapper>

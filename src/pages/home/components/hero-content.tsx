@@ -35,6 +35,9 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
 
+    margin-top: ${headerHeight}px;
+    scroll-margin-top: ${headerHeight}px;
+
     width: 100%;
     height: calc(100svh - ${headerHeight}px);
     padding: 0px 15px 0px 15px;
