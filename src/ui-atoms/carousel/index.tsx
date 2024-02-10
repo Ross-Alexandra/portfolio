@@ -112,15 +112,25 @@ const Wrapper = styled.div<{
 
 type CarouselProps = Omit<React.HTMLProps<HTMLDivElement>, 'as'> & {
     images: string[];
+    currentIndex: number;
+    onSetIndex: (index: number) => void;
     onClickActiveImage?: (clickedImage: string) => void;
 }
 
+/**
+ *  Carousel rewrite to support the idea of events bubbling up &
+ *  state bubbling down to be managed by the parent component.
+ * 
+ *  The component *does not* control it's own state, and instead
+ *  renders based on the props it receives.
+ */
 export const Carousel: React.FC<CarouselProps> = ({
     images,
+    currentIndex,
+    onSetIndex,
     onClickActiveImage,
     ...props
 }) => {
-    const [currentIndex, setCurrentIndex] = React.useState(0);
     const currentImage = React.useMemo(() => images[currentIndex], [currentIndex, images]);
 
     return (
@@ -134,7 +144,7 @@ export const Carousel: React.FC<CarouselProps> = ({
 
                 <button
                     className='carousel-control carousel-prev'
-                    onClick={() => setCurrentIndex(currentIndex => currentIndex === 0 ? images.length - 1 : currentIndex - 1)}
+                    onClick={() => onSetIndex(currentIndex === 0 ? images.length - 1 : currentIndex - 1)}
                 >
                     <LeftChevron width={25} height={25}/>
                 </button>
@@ -147,7 +157,7 @@ export const Carousel: React.FC<CarouselProps> = ({
 
                 <button
                     className='carousel-control carousel-next'
-                    onClick={() => setCurrentIndex(currentIndex => currentIndex === images.length - 1 ? 0 : currentIndex + 1)}
+                    onClick={() => onSetIndex(currentIndex === images.length - 1 ? 0 : currentIndex + 1)}
                 >
                     <RightChevron width={25} height={25}/>
                 </button>
@@ -170,7 +180,7 @@ export const Carousel: React.FC<CarouselProps> = ({
                     <button
                         key={index}
                         className={`carousel-control carousel-dot ${index === currentIndex ? 'active' : ''}`}
-                        onClick={() => setCurrentIndex(index)}
+                        onClick={() => onSetIndex(index)}
                     />
                 )}
             </div>
