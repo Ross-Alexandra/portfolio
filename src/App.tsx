@@ -224,7 +224,7 @@ const Wrapper = styled.div`
 
 function NavigationBar() {
     const location = useLocation();
-    const [visible, setVisible] = useState(window.scrollY <= 100);
+    const [visible, setVisible] = useState(true);
 
     useEffect(() => {
         window.addEventListener('scroll', e => {

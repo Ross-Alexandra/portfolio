@@ -46,7 +46,7 @@ const Wrapper = styled.div<{backgroundImage: string}>`
         }
 
         @media (max-width: ${maxPhoneBreakpoint}px) {
-            padding: 50px 5px;
+            padding: 50px 5px 150px 5px;
         }
 
         h2 {
@@ -75,7 +75,7 @@ const Wrapper = styled.div<{backgroundImage: string}>`
                 left: unset;
                 transform: unset;
 
-                max-height: unset;
+                max-width: unset;
             }
 
             h2, h3, p {

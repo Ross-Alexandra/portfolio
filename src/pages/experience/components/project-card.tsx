@@ -13,41 +13,21 @@ import { ExperienceCard } from './experience-card';
 type ProjectCardProps = Omit<React.HTMLProps<HTMLDivElement>, 'as'> & Project;
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
-    type,
+    types,
     title,
     duration,
     image,
     features,
     technology,
     lessons,
-    portfolioLink,
-    githubLink,
-    externalLink,
+    links,
     chips,
 }) => {
-    const buttons = [
-        portfolioLink && {
-            text: 'See in Portfolio',
-            link: portfolioLink,
-            external: false,
-        },
-        githubLink && {
-            text: 'See on GitHub',
-            link: githubLink,
-            external: true,
-        },
-        externalLink && {
-            text: 'Visit',
-            link: externalLink,
-            external: true,
-        },
-    ].filter(Boolean) as { text: string; link: string; external: boolean }[];
-
     return (
         <ExperienceCard
             cardTitle={title}
             image={image ?? PortfolioBanner}
-            sectionTitle={type}
+            sectionTitle={types.join(' & ')}
             sectionSubtitle={duration}
             columnNames={['Features', 'Implementation', 'Lessons Learned']}
             columnImages={[
@@ -57,7 +37,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             ]}
             columnData={[features, technology, lessons]}
             chips={chips}
-            buttons={buttons}
+            buttons={links}
         />
     );
 };
