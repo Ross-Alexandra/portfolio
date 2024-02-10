@@ -37,8 +37,8 @@ export const projects: Project[] = [{
     ],
     lessons: [
         'For early projects, taking the time to create a CI/CD pipeline is likely not worth it, and can be replaced with strong bash scripts',
-        'Learned how to create a passwordless authentication system using email',
-        'Learned about deploying microservices such as email clients, and backends on a bare-metal server',
+        'Using Passwordless authentication is a great way to prioritize user convenience and security by not allowing users to forget their password, and not requiring them to create a new one',
+        'Custom emailing services are notoriously finicky and can be a pain to set up. They probably aren\'t worth it, especially for small projects',
     ],
     chips: ['Typescript', 'Vue', 'Ionic/Capacitor', 'Nginx', 'Python/FastAPI', 'MySQL'],
     links: [{
@@ -75,9 +75,9 @@ export const projects: Project[] = [{
         'Implements a filtering system to allow users to filter their replays by completely custom criteria',
     ],
     lessons: [
-        'Learned how to use Electron, and how to create a desktop app with React',
-        'Learned how to interface with third-party programs with Electron',
-        'Learned how to create a filtering system that allows users to filter by completely custom criteria',
+        'Despite the stigma, Electron is a fairly-good developer experience for creating desktop apps without the complexity',
+        'Electron can be used as a way to wrap a CLI tool in a GUI, using low-level APIs to interact with the CLI tool',
+        'Filtering is a much more complex problem than it seems, and can be very difficult to get right',
     ],
     chips: ['Typescript', 'React', 'Electron', 'NodeJS'],
     links: [{
@@ -105,9 +105,9 @@ export const projects: Project[] = [{
         'Uses local storage and custom data models to store recipes, and shopping lists',
     ],
     lessons: [
-        'Learned how to use Ionic, and how to create a mobile app with React',
-        "Learned how to use local storage to store data on a user's device",
-        'Learned how to use custom data models to store data in a way that is easy to use',
+        'Similar to Electron, Ionic\'s Capacitor is a good developer experience for creating mobile apps without the complexity of native development',
+        'LocalStorage is a great way to store data for small projects, and is much easier to use than a database',
+        'Custom data models make it easy to store data in an object-based system, such as LocalStorage',
     ],
     chips: ['Typescript', 'React', 'Ionic/Capacitor'],
     links: [{
@@ -133,9 +133,9 @@ export const projects: Project[] = [{
         'Allows users to set a threshold for green, yellow, and red lights',
     ],
     lessons: [
-        'Gained experience creating a project in a short amount of time',
-        "Learned how to use the Web Audio API to get audio data from a computer's microphone",
-        "Gained experience soliciting requirements, and creating a project from a client's needs",
+        'Gathering requirements from a client is not always easy, but is a very important skill to have as a developer',
+        'The Web Audio API can be used to interact with a computer\'s microphone, and is fairly easy to use in basic scenarios',
+        'Not every project needs to have a rich user interface, and sometimes a simple interface is better for the user',
     ],
     chips: ['Typescript', 'React', 'Web Audio API', 'Firebase'],
     links: [{
@@ -168,8 +168,8 @@ export const projects: Project[] = [{
     ],
     lessons: [
         'Gathering user information via interviews and surveys is a great way to understand user needs',
-        'Learned how to use SVGs, and how to allow users to interact with them',
-        'Learned how to use stenography to store data in images',
+        'SVGs are an extremely powerful tool akin to HTML, and can be used to create very complex interfaces and images',
+        'Stenography isn\'t a great way to store data as most image formats compress the data, and can cause it to be lost',
     ],
     chips: ['JavaScript', 'React', 'SVG API', 'Canvas API', 'Stenography', 'Firebase', 'Jenkins CI/CD'],
     links: [{
@@ -194,8 +194,8 @@ export const projects: Project[] = [{
         'Uses Python to interact with the Windows API to set the volume of an app',
     ],
     lessons: [
-        'Learned how to use Electron to create a desktop app',
-        'Learned how to use Python to interact with the Windows API',
+        'Performance can be a key factor in a desktop app, and can be difficult to achieve in Electron apps especially when interacting with the Windows API',
+        'Python can be used to interact with the Windows API to control low-level system settings, such as app volume',
     ],
     chips: ['Typescript', 'React', 'Electron', 'Python', 'Win API'],
     links: [{
@@ -220,8 +220,8 @@ export const projects: Project[] = [{
         'Exposes an npm library which allows users to use images from their spritesheet in their code',
     ],
     lessons: [
-        'Learned how to use npx to create a tool which can be used from the command line',
-        'Learned how to use npm to create a library which can be used in other projects',
+        'NPX is a great way to create a tool which can be used from the command line without needing to install it globally',
+        'NPM libraries can be a great way to share code between projects, and can be a great way to create a tool which can be used by others',
     ],
     chips: ['TypeScript', 'Node.js', 'npm', 'npx'],
     links: [{
@@ -253,9 +253,9 @@ export const projects: Project[] = [{
         'Uses a PostgreSQL database to map & time preferences for scrims',
     ],
     lessons: [
-        'Learned how to use Docker to containerize microservices',
-        'Learned how to deploy a microservices architecture on a bare-metal server',
-        'Learned how to setup CI/CD pipelines using Jenkins',
+        'Docker is a great way to containerize microservices, and can be used for deployment with careful planning',
+        'Deploying a microservices architecture on a bare-metal server can be a great way to save money, and can be a great way to learn about server management',
+        'Jenkins and other CI/CD tools are a great way to always have an idea of the state of your code, and can be a great way to deploy your code with confidence',
     ],
     chips: ['Typescript', 'Python', 'React', 'Flask', 'PostgreSQL', 'Docker', 'Jenkins CI/CD', 'Discord API'],
     links: [{
@@ -283,9 +283,9 @@ export const projects: Project[] = [{
         'deployed on a bare-metal server',
     ],
     lessons: [
-        'Learned how to use Python to interact with the Discord API',
-        'Learned how to use PostgreSQL to store data',
-        'Learned how to deploy a Python app on a bare-metal server using Docker & Jenkins',
+        'Python is a very versatile language due to its many libraries, and can be used to create a Discord bot with ease',
+        'PostgreSQL is a great way to store data, and doesn\'t require a lot of setup to get started',
+        'Deploying a Python app on a bare-metal server using Docker & Jenkins is a great way to learn about server management, and can be a great way to save money',
     ],
     chips: ['Python', 'PostgreSQL', 'Docker', 'Jenkins CI/CD', 'Discord API'],
     links: [{

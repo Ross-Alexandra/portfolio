@@ -111,7 +111,7 @@ export const PortfolioPages: PortfolioPageInfo[] = [{
     }],
 }, {
     title: 'Is it my Birthday?',
-    intro: '"Is It My Birthday?" is an all-around silly mobile application designed to infuse each day with anticipation and joy. At its core, the app allows users to check whether it\'s their birthday, fostering a daily ritual filled with fun.',
+    intro: '"Is It My Birthday?" is an all-around silly mobile & web app designed to infuse each day with anticipation and joy. At its core, the app allows users to check whether it\'s their birthday, fostering a daily ritual filled with fun.',
     featureDescription: 'The app incorporates a competitive yet playful element with two leaderboards: one for the longest streak of daily checks and another for consecutive birthday checks, encouraging user engagement. Utilizing passwordless authentication, it prioritizes user convenience and security, offering a hassle-free login experience. Its design is both minimalist and vibrant, appealing to a broad audience. This application stands out for blending humor with functionality, making every day a potential celebration.',
     primaryTiles: [{
         title: 'Play Store',

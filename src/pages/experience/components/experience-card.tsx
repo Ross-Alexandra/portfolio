@@ -150,6 +150,10 @@ const Wrapper = styled.div`
             margin: 0px;
             line-height: 1.3;
         }
+
+        li {
+            margin-bottom: 10px;
+        }
     }
 
     .links {
